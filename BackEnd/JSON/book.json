@@ -1,0 +1,25 @@
+[
+    {
+        "book_id": "12345",
+        "user_id": "98765",
+        "ownership_id": "abcde",
+        "date_start": "2023-06-01",
+        "date_finish": "2023-06-15"
+      }
+      ,
+      {
+        "book_id": "54321",
+        "user_id": "56789",
+        "ownership_id": "fghij",
+        "date_start": "2023-07-01",
+        "date_finish": "2023-07-07"
+      }
+      ,
+      {
+        "book_id": "67890",
+        "user_id": "23456",
+        "ownership_id": "klmno",
+        "date_start": "2023-05-15",
+        "date_finish": "2023-06-15"
+      }      
+]

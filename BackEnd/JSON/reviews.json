@@ -1,0 +1,23 @@
+[
+    {
+        "comment_id": 1,
+        "user_id": 123,
+        "ownership_id": 456,
+        "comment": "Este es el primer comentario."
+      }
+,
+{
+    "comment_id": 2,
+    "user_id": 789,
+    "ownership_id": 456,
+    "comment": "Aquí va el segundo comentario."
+  }
+  ,
+  {
+    "comment_id": 3,
+    "user_id": 123,
+    "ownership_id": 789,
+    "comment": "Este es el tercer comentario."
+  }
+  
+]

@@ -1,0 +1,32 @@
+[
+    {
+        "user_id": "123456",
+        "username": "john_doe",
+        "password": "secretpassword",
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "phone": "123-456-7890",
+        "role": "buyer"
+      }
+,
+{
+    "user_id": "987654",
+    "username": "jane_smith",
+    "password": "mypassword123",
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "phone": "987-654-3210",
+    "role": "seller"
+  }
+  ,
+  {
+    "user_id": "789012",
+    "username": "sam_jackson",
+    "password": "securepass",
+    "name": "Sam Jackson",
+    "email": "sam.jackson@example.com",
+    "phone": "555-123-4567",
+    "role": "buyer"
+  }
+  
+]
