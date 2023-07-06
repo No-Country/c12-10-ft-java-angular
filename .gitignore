@@ -1,77 +1,78 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+/BackEnd/HELP.md
+/BackEnd/target/
+/BackEnd/!.mvn/wrapper/maven-wrapper.jar
+/BackEnd/!**/src/main/**/target/
+/BackEnd/!**/src/test/**/target/
 
 ### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+/BackEnd/.apt_generated
+/BackEnd/.classpath
+/BackEnd/.factorypath
+/BackEnd/.project
+/BackEnd/.settings
+/BackEnd/.springBeans
+/BackEnd/.sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+/BackEnd/.idea
+/BackEnd/*.iws
+/BackEnd/*.iml
+/BackEnd/*.ipr
 
 ### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+/BackEnd//nbproject/private/
+/BackEnd//nbbuild/
+/BackEnd//dist/
+/BackEnd//nbdist/
+/BackEnd//.nb-gradle/
+/BackEnd/build/
+/BackEnd/!**/src/main/**/build/
+/BackEnd/!**/src/test/**/build/
 
 ### VS Code ###
-.vscode/
-env.properties
+/BackEnd/.vscode/
+/BackEnd/env.properties
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+/FrontEnd/dist
+/FrontEnd/tmp
+/FrontEnd/out-tsc
+/FrontEnd/bazel-out
 
 # Node
-/node_modules
-npm-debug.log
-yarn-error.log
+
+/FrontEnd/node_modules
+/FrontEnd/npm-debug.log
+/FrontEnd/yarn-error.log
 
 # IDEs and editors
-.idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+/FrontEnd/.idea/
+/FrontEnd/.project
+/FrontEnd/.classpath
+/FrontEnd/.c9/
+/FrontEnd/*.launch
+/FrontEnd/.settings/
+/FrontEnd/*.sublime-workspace
 
 # Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
+/FrontEnd/.vscode/*
+/FrontEnd/!.vscode/settings.json
+/FrontEnd/!.vscode/tasks.json
+/FrontEnd/!.vscode/launch.json
+/FrontEnd/!.vscode/extensions.json
+/FrontEnd/.history/*
 
 # Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
+/FrontEnd/.angular/cache
+/FrontEnd/.sass-cache/
+/FrontEnd/connect.lock
+/FrontEnd/coverage
+/FrontEnd/libpeerconnection.log
+/FrontEnd/testem.log
+/FrontEnd/typings
 
 # System files
-.DS_Store
-Thumbs.db
+/FrontEnd/.DS_Store
+/FrontEnd/Thumbs.db
