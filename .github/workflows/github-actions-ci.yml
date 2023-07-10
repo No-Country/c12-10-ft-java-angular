@@ -25,7 +25,7 @@ jobs:
             username: ${{ secrets.AZURE_LOGIN }}
             password: ${{ secrets.AZURE_PASSWORD }}
       - run: |
-           docker build /Frontend -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/frontend:${{ github.sha }}
+           docker build /FrontEnd -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/frontend:${{ github.sha }}
            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/frontend:${{ github.sha }}
     # steps:
     #   - name: Checkout repository
