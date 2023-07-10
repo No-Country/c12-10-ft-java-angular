@@ -1,0 +1,44 @@
+name: Build and Push Container
+
+
+on:
+  push:
+    branches:
+      - develop-dockerfiles
+
+env:
+  REGISTRY: ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io
+  IMAGE_NAME: frontend
+  TAG: latest
+  AZURE_LOGIN: ${{ secrets.AZURE_LOGIN }}
+  AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
+  AZURE_REGISTRY: ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io
+
+jobs:
+  build-and-push:
+      runs-on: ubuntu-latest
+      steps:
+      - name: 'Build and push image'
+        uses: azure/docker-login@v1
+        with:
+            login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+            username: ${{ secrets.REGISTRY_USERNAME }}
+            password: ${{ secrets.REGISTRY_PASSWORD }}
+      - run: |
+           docker build /Frontend -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/frontend:${{ github.sha }}
+           docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/frontend:${{ github.sha }}
+    # steps:
+    #   - name: Checkout repository
+    #     uses: actions/checkout@v2
+
+    #   - name: Set up Docker Buildx
+    #     uses: docker/setup-buildx-action@v1
+
+    #   - name: Login to Azure Container Registry
+    #     run: |
+    #       docker login $REGISTRY -u $AZURE_LOGIN -p $AZURE_PASSWORD
+
+    #   - name: Build and push container
+    #     run: |
+    #       docker buildx create --use
+    #       docker buildx build --push --platform linux/amd64,linux/arm64 -t $REGISTRY/$IMAGE_NAME:$TAG .
