@@ -38,7 +38,38 @@ public class OwnershipController {
     public ResponseEntity<?> listAllOwnership(){
 
         List<Ownership> ownershipResponse =  ownershipService.listOwnership();
-        return ResponseEntity.ok().body(new GenericResponseDTO<>(true,"Sucess",ownershipResponse));
+        return ResponseEntity.ok().body(new GenericResponseDTO<>(true,"Success",ownershipResponse));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateOwnerShip(@RequestBody OwnershipRE ownershipRE,@PathVariable(value = "id")String id){
+
+
+       Optional<Ownership> ownershipResponse = ownershipService.updateOwnership(id,ownershipRE);
+
+
+
+       if(ownershipResponse.isPresent()){
+           return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", new OwnershipDTO(ownershipResponse.get())));
+       }
+
+       return ResponseEntity.badRequest().body(new GenericResponseDTO<>(false,"Not Success",null));
+
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteOwnership(@PathVariable(value = "id")String id){
+
+
+        Optional<Ownership> ownership = ownershipService.getOwnershipById(id);
+
+        if(ownership.isPresent()){
+            ownershipService.deleteOwnershipById(id);
+
+            return ResponseEntity.ok().body(new GenericResponseDTO<>(true,"Success",true));
+        }
+
+        return ResponseEntity.ok().body(new GenericResponseDTO<>(false,"Not Success",false));
     }
 
 
