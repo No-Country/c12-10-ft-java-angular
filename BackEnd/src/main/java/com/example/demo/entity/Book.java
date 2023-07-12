@@ -13,11 +13,20 @@ public class Book {
      * "date_finish": "2023-06-15"
      * }
      */
+    String id;
     String book_id;
     String user_id;
     String ownership_id;
     String date_start;
     String date_finish;
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getBook_id() {
         return this.book_id;

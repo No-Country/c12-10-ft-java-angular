@@ -16,6 +16,7 @@ public class User {
      * birthDate": "1990-01-01T00:00:00Z",
      * description": "I'm a buyer",
      */
+    String id;
     String user_id;
     String username;
     String password;
@@ -26,6 +27,14 @@ public class User {
     String registerDate;
     String birthDate;
     String description;
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getUser_id() {
         return this.user_id;

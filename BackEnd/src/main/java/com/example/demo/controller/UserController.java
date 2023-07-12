@@ -54,22 +54,59 @@ public class UserController {
     // Update user
     @PutMapping("/user/{id}")
     public ResponseEntity<?> updateUser(@PathVariable String id, @RequestBody User user) {
-        user.setUser_id(id);
-        return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", userRepository.save(user)));
+        Optional<User> usuarioExistente = userRepository.findById(id);
+        if (usuarioExistente.isEmpty()) {
+            return ResponseEntity.ok().body(new GenericResponseDTO<>(false, "User not found", null));
+        }
+        if (user.getId() != null) {
+            usuarioExistente.get().setId(user.getId());
+        }
+        if (user.getUser_id() != null) {
+            usuarioExistente.get().setUser_id(user.getUser_id());
+        }
+        if (user.getUsername() != null) {
+            usuarioExistente.get().setUsername(user.getUsername());
+        }
+        if (user.getPassword() != null) {
+            usuarioExistente.get().setPassword(user.getPassword());
+        }
+        if (user.getName() != null) {
+            usuarioExistente.get().setName(user.getName());
+        }
+        if (user.getEmail() != null) {
+            usuarioExistente.get().setEmail(user.getEmail());
+        }
+        if (user.getPhone() != null) {
+            usuarioExistente.get().setPhone(user.getPhone());
+        }
+        if (user.getRole() != null) {
+            usuarioExistente.get().setRole(user.getRole());
+        }
+        if (user.getRegisterDate() != null) {
+            usuarioExistente.get().setRegisterDate(user.getRegisterDate());
+        }
+        if (user.getBirthDate() != null) {
+            usuarioExistente.get().setBirthDate(user.getBirthDate());
+        }
+        if (user.getDescription() != null) {
+            usuarioExistente.get().setDescription(user.getDescription());
+        }
+        return ResponseEntity.ok()
+                .body(new GenericResponseDTO<>(true, "Success", userRepository.save(usuarioExistente.get())));
 
         // return userRepository.save(user);
     }
 
     // Delete user
     @DeleteMapping("/user/{id}")
-    public void deleteUser(@PathVariable String id) {
+    public ResponseEntity<?> deleteUser(@PathVariable String id) {
+        Optional<User> user = userRepository.findById(id);
+        if (user.isPresent()) {
+            userRepository.deleteById(id);
+            return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", true));
+        }
         userRepository.deleteById(id);
-    }
-
-    // Delete user by name
-    @DeleteMapping("/user/name/{name}")
-    public void deleteUserByName(@PathVariable String name) {
-        userRepository.deleteByName(name);
+        return ResponseEntity.ok().body(new GenericResponseDTO<>(false, "Not Success", false));
     }
 
     // Login
