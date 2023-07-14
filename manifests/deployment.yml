@@ -15,6 +15,7 @@ spec:
       containers:
       - name: my-app
         image: nocountryc1210.azurecr.io/frontend
+        ports:
           - containerPort: 80
       imagePullSecrets:
       - name: demo-k8s-secret
