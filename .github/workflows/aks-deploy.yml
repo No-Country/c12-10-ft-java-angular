@@ -32,12 +32,13 @@ jobs:
       with:
           resource-group: ${{ env.RESOURCE_GROUP }}
           cluster-name: ${{ env.CLUSTER_NAME }}
-    - uses: Azure/k8s-create-secret@v1.1
-      with:
-              container-registry-url: nocountryc1210.azurecr.io
-              container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
-              container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
-              secret-name: demo-k8s-secret
+
+    # - uses: Azure/k8s-create-secret@v1.1
+    #   with:
+    #           container-registry-url: nocountryc1210.azurecr.io
+    #           container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
+    #           container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+    #           secret-name: demo-k8s-secret
 
     - uses: Azure/k8s-deploy@v4
       with:
@@ -47,8 +48,8 @@ jobs:
                  manifests/service.yml
               images: |
                  nocountryc1210.azurecr.io/frontend
-              imagepullsecrets: |
-                 demo-k8s-secret
+              # imagepullsecrets: |
+              #    demo-k8s-secret
 
     
  
