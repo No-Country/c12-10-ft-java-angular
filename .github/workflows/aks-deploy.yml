@@ -38,7 +38,7 @@ jobs:
       with:
           resource-group: ${{ env.RESOURCE_GROUP }}
           cluster-name: ${{ env.CLUSTER_NAME }}
-    - uses: Azure/k8s-create-secret@v1.1
+    - uses:  azure/k8s-create-secret@v4
       with:
               container-registry-url: nocountryc1210.azurecr.io
               container-registry-username: ${{ secrets.AZURE_LOGIN }}
