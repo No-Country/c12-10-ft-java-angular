@@ -52,7 +52,7 @@ jobs:
                  manifests/deployment.yml
                  manifests/service.yml
               images: |
-                 nocountryc1210.azurecr.io/frontend
+                 nocountryc1210.azurecr.io/frontend:latest
               imagepullsecrets: |
                  demo-k8s-secret
 

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: nocountryc1210.azurecr.io/frontend
+        image: nocountryc1210.azurecr.io/frontend:latest
         ports:
           - containerPort: 80
       imagePullSecrets:
