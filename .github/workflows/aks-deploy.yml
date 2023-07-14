@@ -71,19 +71,19 @@ jobs:
 
 
 
-  az ad sp create-for-rbac --name "mykubeapp" --role contributor --scopes /subscriptions/15bbf234-7bb4-41f0-ab67-15a4b3d9c66f/resourceGroups/nocountry --sdk-auth
+#   az ad sp create-for-rbac --name "mykubeapp" --role contributor --scopes /subscriptions/15bbf234-7bb4-41f0-ab67-15a4b3d9c66f/resourceGroups/nocountry --sdk-auth
 
-{
-  "clientId": "76a24d18-fb2e-4532-b4d5-95911dbc88b2",
-  "clientSecret": "2RJ8Q~w_Z56DL9RjIPOsr8HWkSV3WBspVNgVgbGE",
-  "subscriptionId": "15bbf234-7bb4-41f0-ab67-15a4b3d9c66f",
-  "tenantId": "4ae54b05-b77e-4224-aef1-8661422e0816",
-  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-  "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-  "galleryEndpointUrl": "https://gallery.azure.com/",
-  "managementEndpointUrl": "https://management.core.windows.net/"
-}
+# {
+#   "clientId": "76a24d18-fb2e-4532-b4d5-95911dbc88b2",
+#   "clientSecret": "2RJ8Q~w_Z56DL9RjIPOsr8HWkSV3WBspVNgVgbGE",
+#   "subscriptionId": "15bbf234-7bb4-41f0-ab67-15a4b3d9c66f",
+#   "tenantId": "4ae54b05-b77e-4224-aef1-8661422e0816",
+#   "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+#   "resourceManagerEndpointUrl": "https://management.azure.com/",
+#   "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+#   "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+#   "galleryEndpointUrl": "https://gallery.azure.com/",
+#   "managementEndpointUrl": "https://management.core.windows.net/"
+# }
 
   
