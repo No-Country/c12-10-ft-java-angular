@@ -16,7 +16,7 @@ on:
       - develop-dockerfiles
 
 jobs:
-  build:
+  login-get-k8s-context:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -28,11 +28,11 @@ jobs:
         # enable-AzPSSession: true
         # allow-no-subscriptions: true
     - name: Gets K8s context
-      uses: azure/aks-set-context@94ccc775c1997a3fcfbfbce3c459fec87e0ab188
+      uses: azure/aks-set-context@v3
       with:
           resource-group: ${{ env.RESOURCE_GROUP }}
           cluster-name: ${{ env.CLUSTER_NAME }}
-      id: login
+      # id: login
     
  
 
