@@ -17,3 +17,5 @@ spec:
         image: nocountry.azurecr.io/frontend:4091e7f45ddef373283973cb2b811362181c2978
         ports:
         - containerPort: 80
+      imagePullSecrets:
+      - name: demo-k8s-secret
