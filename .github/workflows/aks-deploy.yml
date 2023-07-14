@@ -20,6 +20,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - uses: Azure/docker-login@v1
+      with:
+       login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io
+       username: ${{ secrets.AZURE_LOGIN }}
+       password: ${{ secrets.AZURE_PASSWORD }}
 
     - name: Azure Login
       uses: azure/login@v1.4.3
@@ -27,12 +32,12 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         # enable-AzPSSession: true
         # allow-no-subscriptions: true
+    - uses: azure/setup-kubectl@v2.0
     - name: Gets K8s context
       uses: azure/aks-set-context@v3
       with:
           resource-group: ${{ env.RESOURCE_GROUP }}
           cluster-name: ${{ env.CLUSTER_NAME }}
-
     - uses: Azure/k8s-create-secret@v1.1
       with:
               container-registry-url: nocountryc1210.azurecr.io
