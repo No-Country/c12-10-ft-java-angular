@@ -1,0 +1,86 @@
+name: Build and deploy to Azure Kubernetes Service
+
+env:
+  AZURE_CONTAINER_REGISTRY: MY_REGISTRY_NAME # set this to the name of your container registry
+  PROJECT_NAME: MY_PROJECT_NAME              # set this to your project's name
+  RESOURCE_GROUP: nocountry          # set this to the resource group containing your AKS cluster
+  CLUSTER_NAME: nocountryc1210              # set this to the name of your AKS cluster
+  REGISTRY_URL: nocountryc1210.azurecr.io             # set this to the URL of your registry
+  # # If you bake using helm:
+  # CHART_PATH: MY_HELM_FILE                   # set this to the path to your helm file
+  # CHART_OVERRIDE_PATH: MY_OVERRIDE_FILES     # set this to an array of override file paths
+
+on:
+  push:
+    branches:
+      - develop-dockerfiles
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Azure Login
+      uses: azure/login@14a755a4e2fd6dff25794233def4f2cf3f866955
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Gets K8s context
+      uses: azure/aks-set-context@94ccc775c1997a3fcfbfbce3c459fec87e0ab188
+      with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          resource-group: ${{ env.RESOURCE_GROUP }}
+          cluster-name: ${{ env.CLUSTER_NAME }}
+      id: login
+
+
+
+
+
+
+        # jobs:
+#   deploy-to-AKS:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Login to Azure
+#       uses: azure/login@v1
+#       with:
+#        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+#        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+#        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+#     - uses: azure/aks-set-context@v3
+#       with:
+#         resource-group: 'nocountry'
+#         cluster-name: 'nocountry1210'
+
+
+
+
+
+
+
+
+
+    #    Name               Id                                   TenantId                             State
+    #    ----               --                                   --------                             -----
+    #    Azure for Students 15bbf234-7bb4-41f0-ab67-15a4b3d9c66f 4ae54b05-b77e-4224-aef1-8661422e0816 Enabled
+
+
+
+
+ #  az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/15bbf234-7bb4-41f0-ab67-15a4b3d9c66f/resourceGroups/nocountry --sdk-auth
+
+
+  #  {
+  #   "clientId": "5da51971-3bf5-4f1f-ac83-01ff6d053182",
+  #   "clientSecret": "w3n8Q~D4eYm.CqXmrklewg6Mxylal0X~VTbWLcT9",
+  #   "subscriptionId": "15bbf234-7bb4-41f0-ab67-15a4b3d9c66f",
+  #   "tenantId": "4ae54b05-b77e-4224-aef1-8661422e0816",
+  #   "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+  #   "resourceManagerEndpointUrl": "https://management.azure.com/",
+  #   "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+  #   "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+  #   "galleryEndpointUrl": "https://gallery.azure.com/",
+  #   "managementEndpointUrl": "https://management.core.windows.net/"
+  # }
