@@ -27,6 +27,7 @@ public class OwnershipDTO implements Serializable {
     private String payment_conditions;
     private String[] additional_services;
     private String[] additional_fees;
+    private String[]images;
     private String policies_cancellation;
     private Double latitude;
     private Double longitude;
@@ -63,6 +64,7 @@ public class OwnershipDTO implements Serializable {
         this.payment_conditions = ownership.getPayment_conditions();
         this.additional_services = ownership.getAdditional_services();
         this.additional_fees = ownership.getAdditional_fees();
+        this.images = ownership.getImages();
         if(ownership.getPolicies_cancellation()!=null)
             this.policies_cancellation = ownership.getPolicies_cancellation();
         this.latitude = ownership.getLatitude();

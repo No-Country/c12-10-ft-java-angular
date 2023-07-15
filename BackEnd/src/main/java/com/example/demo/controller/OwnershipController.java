@@ -16,7 +16,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("ownership")
+@RequestMapping("/ownership")
 public class OwnershipController {
 
     @Autowired

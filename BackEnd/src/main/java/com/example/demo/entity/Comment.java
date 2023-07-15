@@ -1,6 +1,10 @@
 package com.example.demo.entity;
 
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +17,20 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Data
 @Document(collection = "comments")
-public class Comments extends JpaEntity implements Serializable {
+public class Comment extends JpaEntity implements Serializable {
+
+
+    @ManyToOne
+    @JoinColumn(name = "ownership_id")
+    private Ownership ownership;
+
+    @ManyToMany
+    @JoinColumn(name = "user_id")
+    private User user;
+
     private String comment;
+
+
+
+
 }

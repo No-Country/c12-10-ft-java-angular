@@ -27,6 +27,7 @@ public class OwnershipRE {
     private String payment_conditions;
     private String[] additional_services;
     private String[] additional_fees;
+    private String[]images;
     private String policies_cancellation;
     private Double latitude;
     private Double longitude;

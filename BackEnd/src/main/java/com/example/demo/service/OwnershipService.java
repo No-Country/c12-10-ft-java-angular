@@ -50,6 +50,7 @@ public class OwnershipService {
         ownership.setDeposit(ownershipRE.getDeposit());
         ownership.setPayment_conditions(ownershipRE.getPayment_conditions());
         ownership.setAdditional_services(ownershipRE.getAdditional_services());
+        ownership.setImages(ownershipRE.getImages());
         ownership.setAdditional_fees(ownershipRE.getAdditional_fees());
         ownership.setPolicies_cancellation(ownershipRE.getPolicies_cancellation());
         ownership.setLatitude(ownershipRE.getLatitude());
@@ -102,6 +103,7 @@ public class OwnershipService {
         ownership.setDeposit(ownershipRE.getDeposit());
         ownership.setPayment_conditions(ownershipRE.getPayment_conditions());
         ownership.setAdditional_services(ownershipRE.getAdditional_services());
+        ownership.setImages(ownershipRE.getImages());
         ownership.setAdditional_fees(ownershipRE.getAdditional_fees());
         ownership.setPolicies_cancellation(ownershipRE.getPolicies_cancellation());
         ownership.setLatitude(ownershipRE.getLatitude());
