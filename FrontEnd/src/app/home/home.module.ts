@@ -18,6 +18,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatStepperModule} from '@angular/material/stepper';
+import { CardUserComponent } from './components/card-user/card-user.component';
+
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import {MatStepperModule} from '@angular/material/stepper';
     HeaderComponent,
     RentComponent,
     CardHomeComponent,
-    ContactComponent
+    ContactComponent,
+    CardUserComponent,
+
   ],
   imports: [
     CommonModule,
