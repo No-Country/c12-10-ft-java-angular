@@ -10,6 +10,16 @@ import { RentComponent } from './pages/rent/rent.component';
 import { CardHomeComponent } from './components/card-home/card-home.component';
 import { ContactComponent } from './components/contact/contact.component';
 
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatStepperModule} from '@angular/material/stepper';
+
+
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -24,7 +34,16 @@ import { ContactComponent } from './components/contact/contact.component';
     HomeRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatExpansionModule,
+    MatStepperModule
+
   ]
 })
 

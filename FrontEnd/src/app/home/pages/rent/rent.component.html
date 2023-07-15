@@ -1,4 +1,5 @@
-<div class="p-5  lg:p-12 lg:px-52">
+<div class="flex w-full justify-center flex-col items-center">
+  <div class="w-4/6">
     <section class="flex flex-col">
         <h2 class="text-3xl mb-5 font-semibold">Habitación en Juares</h2>
         <article class="flex flex-row items-center justify-start gap-7 mb-2">
@@ -12,15 +13,21 @@
                 <p>Super anfitrion</p>
             </div>
         </article>
-        <article class="flex flex-row gap-2">
-            <img class="image-url w-3/5" src="{{imageUrl}}">
-            <div class="grid grid-cols-2 gap-2 object-cover">
-                <img src="{{imageUrl}}" class="item">
-                <img src="{{imageUrl}}" class="item">
-                <img src="{{imageUrl}}" class="item">
-                <img src="{{imageUrl}}" class="item">
-            </div>
-        </article>
+
+        <div class="grid grid-rows-4 grid-cols-8 gap-2 ">
+          <div class="row-span-4 col-span-4 item-principal">
+            <img class="h-full" src="{{imageUrl}}">
+          </div>
+          <div class="row-span-2 col-span-2" ><img src="{{imageUrl}}" class="item"></div>
+          <div class="row-span-2 col-span-2 "><img src="{{imageUrl}}" class="item"></div>
+          <div class="row-span-2 col-span-2 " ><img src="{{imageUrl}}" class="item"></div>
+          <div class="row-span-2 col-span-2 "> <img src="{{imageUrl}}" class="item"></div>
+        </div>
+        <br>
+        <br>
+
+
+
         <article class="border-b-2  border-b-gray-300 w-2/4">
             <ul class="flex flex-row gap-6 p-5">
                 <li>1 Cuarto</li>
@@ -31,52 +38,55 @@
         </article>
     </section>
     <section class="flex flex-col xl:flex-row gap-10 items-center justify-center">
-        <article style="background-color: #F3F7F8;" class="xl:w-2/4 mt-5 px-10 rounded-lg pt-5 pb-5 h-max mb-5 lg:mb-0 flex flex-col items-center justify-center">
-            <div class="lg:w-full max-w-sm bg-white border border-gray-200 rounded-xl shadow p-5 flex flex-col items-center">
-                <div class="flex flex-col lg:flex-col xl:flex-row sm:flex-row items-center justify-center gap-5">
-                    <img class="w-24 h-24 rounded-full shadow-lg" src="{{profile}}" alt="Bonnie image" />
-                    <div class="flex flex-col">
-                        <h5 class="mb-1 text-xl text-center font-medium text-gray-900">Bonnie Green</h5>
-                        <span class="text-2xl text-center text-gray-900 ">Super anfitrion</span>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-5 flex flex-col gap-2">
-                <div class="flex flex-row items-center justify-start gap-3">
-                    <i class="fa-solid fa-calendar-days" style="color: #555557;"></i>
-                    <span>
-                        Años como anfitrion: 6
-                    </span>
-                </div>
-                <div class="flex flex-row items-center justify-start gap-3">
-                    <i class="fa-solid fa-briefcase" style="color: #555557;"></i>
-                    <span>Artista</span>
-                </div>
-                <div class="flex flex-row items-center justify-start gap-3">
-                    <i class="fa-solid fa-cake-candles" style="color: #555557;"></i>
-                    <span>01/01/1990</span>
-                </div>
-                <div class="flex flex-row items-center justify-start gap-3">
-                    <i class="fa-solid fa-dog" style="color: #555557;"></i>
-                    <span>Mascotas: Permitidas</span>
-                </div>
-                <div>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque illum in cum ipsam amet quos,
-                        aliquid
-                        perferendis eius ea iure.</p>
-                </div>
-            </div>
-        </article>
-        <app-contact></app-contact>
-    </section>
-    <section>
-        <article class="mt-5">
-            <h4 class="text-xl font-semibold mb-3">Acerca del lugar</h4>
-            <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa blanditiis quo ducimus non
-                maiores delectus sunt quia ratione dolor ex.</p>
-            <span class="underline cursor-pointer hover:text-indigo-400">Mostrar mas <i
-                    class="fa-solid fa-arrow-right underline cursor-pointer"></i></span>
-        </article>
+      <div class="w-4/6">
+        <h2>Conoce al anfitrion</h2>
+          <article style="background-color: #F3F7F8;" class="xl:w-full mt-5 px-10 rounded-lg pt-5 pb-5 h-max mb-5 lg:mb-0 flex flex-col items-center justify-center">
+              <div class="lg:w-full max-w-sm bg-white border border-gray-200 rounded-xl shadow p-5 flex flex-col items-center">
+                  <div class="flex flex-col lg:flex-col xl:flex-row sm:flex-row items-center justify-center gap-5">
+                      <img class="w-24 h-24 rounded-full shadow-lg" src="{{profile}}" alt="Bonnie image" />
+                      <div class="flex flex-col">
+                          <h5 class="mb-1 text-xl text-center font-medium text-gray-900">Bonnie Green</h5>
+                          <span class="text-2xl text-center text-gray-900 ">Super anfitrion</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="mt-5 flex flex-col gap-2">
+                  <div class="flex flex-row items-center justify-start gap-3">
+                      <i class="fa-solid fa-calendar-days" style="color: #555557;"></i>
+                      <span>
+                          Años como anfitrion: 6
+                      </span>
+                  </div>
+                  <div class="flex flex-row items-center justify-start gap-3">
+                      <i class="fa-solid fa-briefcase" style="color: #555557;"></i>
+                      <span>Artista</span>
+                  </div>
+                  <div class="flex flex-row items-center justify-start gap-3">
+                      <i class="fa-solid fa-cake-candles" style="color: #555557;"></i>
+                      <span>01/01/1990</span>
+                  </div>
+                  <div class="flex flex-row items-center justify-start gap-3">
+                      <i class="fa-solid fa-dog" style="color: #555557;"></i>
+                      <span>Mascotas: Permitidas</span>
+                  </div>
+                  <div>
+                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque illum in cum ipsam amet quos,
+                          aliquid
+                          perferendis eius ea iure.</p>
+                  </div>
+              </div>
+          </article>
+        </div>
+        <app-contact class="w-2/5"></app-contact>
+      </section>
+      <section>
+          <article class="mt-5">
+              <h4 class="text-xl font-semibold mb-3">Acerca del lugar</h4>
+              <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa blanditiis quo ducimus non
+                  maiores delectus sunt quia ratione dolor ex.</p>
+              <span class="underline cursor-pointer hover:text-indigo-400">Mostrar mas <i
+                      class="fa-solid fa-arrow-right underline cursor-pointer"></i></span>
+          </article>
     </section>
     <section>
         <article class="flex flex-col mt-5">
@@ -88,6 +98,8 @@
                 </div>
                 <span class="py-2 underline">15 opiniones</span>
             </div>
+
+
         </article>
         <article class="mt-5 flex flex-col gap-5">
             <div>
@@ -112,4 +124,30 @@
             </div>
         </article>
     </section>
+  </div>
+</div  >
+<div class="flex w-full justify-center">
+  <mat-accordion class="example-headers-align  w-3/4 ">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Deja tu comentario
+        </mat-panel-title>
+        <mat-icon class="m-4" >insert_comment</mat-icon>
+      </mat-expansion-panel-header>
+      <div class="flex gap-2">
+        <mat-form-field class="grow">
+          <mat-label>First name</mat-label>
+          <input matInput >
+        </mat-form-field>
+
+        <button mat-button class="flex justify-center items-center ">
+          <mat-icon class="m-4">send</mat-icon>
+          Enviar mensaje
+        </button>
+
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
 </div>
