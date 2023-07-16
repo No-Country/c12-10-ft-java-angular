@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import { Route, Router } from '@angular/router';
-import { newHome } from '../../interface/home.interface';
+import { newHome } from '../../interfaces/home.interface';
 
 @Component({
   selector: 'home-card-home',
