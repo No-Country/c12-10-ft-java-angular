@@ -15,85 +15,46 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.dto.GenericResponseDTO;
 import com.example.demo.entity.Message;
 import com.example.demo.repository.MessageRepository;
+import com.example.demo.service.MessageService;
 
 @RestController
 public class MessageController {
+    private final MessageService messageService;
+
     @Autowired
-    private MessageRepository messageRepository;
+    public MessageController(MessageService messageService) {
+        this.messageService = messageService;
+    }
 
     // Get all messages
     @GetMapping("/message")
     public ResponseEntity<?> getAllMessages() {
-        return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", messageRepository.findAll()));
-        // return messageRepository.findAll();
+        return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", messageService.listMessage()));
     }
 
     // Get message by id
     @GetMapping("/message/{id}")
     public ResponseEntity<?> getMessageById(@PathVariable String id) {
-        return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", messageRepository.findById(id)));
-        // return messageRepository.findById(id);
+        return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", messageService.getMessageById(id)));
     }
 
     // Post message
     @PostMapping("/message")
     public ResponseEntity<?> createMessage(@RequestBody Message message) {
-        return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", messageRepository.save(message)));
-        // return messageRepository.save(message);
+        return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", messageService.saveMessage(message)));
     }
 
     // Update message
     @PutMapping("/message/{id}")
     public ResponseEntity<?> updateMessage(@PathVariable String id, @RequestBody Message message) {
-        Optional<Message> messageExistente = messageRepository.findById(id);
-        if (messageExistente.isEmpty()) {
-            return ResponseEntity.ok().body(new GenericResponseDTO<>(false, "Message not found", null));
-        }
-        /*
-         * "id": "64aeebba86e12c106dbf2b35",
-         * "message_id": "1",
-         * "conversacion_id": "100",
-         * "remitente_id": "10",
-         * "receptor_id": "20",
-         * "mensaje_texto": "Hola, ¿cómo estás?",
-         * "fecha_envio": "2023-07-01"
-         */
-        if (message.getId() != null) {
-            messageExistente.get().setId(message.getId());
-        }
-        if (message.getMessage_id() != null) {
-            messageExistente.get().setMessage_id(message.getMessage_id());
-        }
-        if (message.getConversacion_id() != null) {
-            messageExistente.get().setConversacion_id(message.getConversacion_id());
-        }
-        if (message.getRemitente_id() != null) {
-            messageExistente.get().setRemitente_id(message.getRemitente_id());
-        }
-        if (message.getReceptor_id() != null) {
-            messageExistente.get().setReceptor_id(message.getReceptor_id());
-        }
-        if (message.getMensaje_texto() != null) {
-            messageExistente.get().setMensaje_texto(message.getMensaje_texto());
-        }
-        if (message.getFecha_envio() != null) {
-            messageExistente.get().setFecha_envio(message.getFecha_envio());
-        }
         return ResponseEntity.ok()
-                .body(new GenericResponseDTO<>(true, "Success", messageRepository.save(messageExistente.get())));
-        // return messageRepository.save(message);
+                .body(new GenericResponseDTO<>(true, "Success", messageService.updateMessage(id, message)));
     }
 
     // Delete message
     @DeleteMapping("/message/{id}")
     public ResponseEntity<?> deleteMessage(@PathVariable String id) {
-        // messageRepository.deleteById(id);
-        Optional<Message> messageExistente = messageRepository.findById(id);
-        if (messageExistente.isEmpty()) {
-            return ResponseEntity.ok().body(new GenericResponseDTO<>(false, "Message not found", null));
-        }
-        messageRepository.deleteById(id);
-        return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", false));
+        return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", messageService.deleteMessage(id)));
     }
 
 }
