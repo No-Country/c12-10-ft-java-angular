@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { newHome } from '../../interface/home.interface';
+import { newHome } from '../../interfaces/home.interface';
 import { HomeService } from '../../services/home-service.service';
 import { map, switchMap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
