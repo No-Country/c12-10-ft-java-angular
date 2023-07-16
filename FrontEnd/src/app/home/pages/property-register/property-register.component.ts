@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Ownership } from '../../interfaces/Ownership';
 import { OwnershipService } from '../../services/ownership.service';
+import { errorMessage } from 'src/app/helpers/errors';
 
 @Component({
   selector: 'app-property-register',
@@ -15,12 +16,7 @@ export class PropertyRegisterComponent {
   step: number = 1
   ownershipForm: FormGroup
   country: string = ''
-  errorMessage = {
-    required: 'Este campo es obligatorio',
-    numbers: 'Por favor, ingrese solo números',
-    letters: 'Por favor, ingrese solo letras',
-    check: 'Por favor, revise bien'
-  }
+  errorMessage = errorMessage
   ownership!: Ownership
   submitted: boolean = false
   disable: boolean = true
