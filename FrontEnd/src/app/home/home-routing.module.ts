@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeListComponent } from './pages/home-list/home-list.component';
 import { RentComponent } from './pages/rent/rent.component';
+import { PropertyRegisterComponent } from './pages/property-register/property-register.component';
 import { HomePageComponent } from './home-page.component';
+
 
 const routes: Routes = [
   {
@@ -11,6 +13,7 @@ const routes: Routes = [
     children: [
       { path: 'detail-home', component: RentComponent },
       { path: 'list', component: HomeListComponent },
+      { path: 'property-register', component: PropertyRegisterComponent }
     ]
   }
 ];
