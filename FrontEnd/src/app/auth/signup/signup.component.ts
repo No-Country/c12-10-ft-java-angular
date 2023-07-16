@@ -47,7 +47,8 @@ export class SignupComponent {
   }
   register() {
     this.submitted = true
-    this.authService.register(this.registerForm.value).subscribe((data) => console.log(data))
-    console.log(this.registerForm.value)
+    if(this.registerForm.valid) {
+      this.authService.register(this.registerForm.value).subscribe((data) => console.log(data))
+    }
   }
 }
