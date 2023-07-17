@@ -4,6 +4,7 @@ import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,16 +40,10 @@ public class FilesUploadController {
     }
 
     // Metodo para cargar mas de un archivo
-    @PostMapping("/uploads")
-    public ResponseEntity<?> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
+    @PostMapping("/uploads/{id}")
+    public ResponseEntity<?> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files,
+            @PathVariable("id") String id) {
         return ResponseEntity.ok()
-                .body(new GenericResponseDTO<>(true, "Success", filesUploadService.uploadMultipleFiles(files)));
+                .body(new GenericResponseDTO<>(true, "Success", filesUploadService.uploadMultipleFiles(files, id)));
     }
-
-    /*
-     * public ResponseEntity<?> listAllCountries(){
-     * return ResponseEntity.ok().body(new GenericResponseDTO<>(true,"Success",
-     * countryService.listAllCountry())) ;
-     * }
-     */
 }

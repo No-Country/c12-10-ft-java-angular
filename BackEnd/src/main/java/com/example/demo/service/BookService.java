@@ -37,16 +37,21 @@ public class BookService {
     // Update book
     public Book updateBook(String id, Book book) {
         Book bookToUpdate = bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book not found"));
-        if (book.getBook_id() != null)
-            bookToUpdate.setBook_id(book.getBook_id());
-        if (book.getUser_id() != null)
-            bookToUpdate.setUser_id(book.getUser_id());
-        if (book.getOwnership_id() != null)
-            bookToUpdate.setOwnership_id(book.getOwnership_id());
-        if (book.getDate_start() != null)
-            bookToUpdate.setDate_start(book.getDate_start());
-        if (book.getDate_finish() != null)
-            bookToUpdate.setDate_finish(book.getDate_finish());
+        if (book.getBookId() != null) {
+            bookToUpdate.setBookId(book.getBookId());
+        }
+        if (book.getUserId() != null) {
+            bookToUpdate.setUserId(book.getUserId());
+        }
+        if (book.getOwnershipId() != null) {
+            bookToUpdate.setOwnershipId(book.getOwnershipId());
+        }
+        if (book.getDateStart() != null) {
+            bookToUpdate.setDateStart(book.getDateStart());
+        }
+        if (book.getDateFinish() != null) {
+            bookToUpdate.setDateFinish(book.getDateFinish());
+        }
         return bookRepository.save(bookToUpdate);
     }
 

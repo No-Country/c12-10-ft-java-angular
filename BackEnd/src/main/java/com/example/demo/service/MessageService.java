@@ -36,18 +36,18 @@ public class MessageService {
     public Message updateMessage(String id, Message message) {
         Message messageToUpdate = messageRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Message not found"));
-        if (message.getMessage_id() != null)
-            messageToUpdate.setMessage_id(message.getMessage_id());
-        if (message.getConversacion_id() != null)
-            messageToUpdate.setConversacion_id(message.getConversacion_id());
-        if (message.getRemitente_id() != null)
-            messageToUpdate.setRemitente_id(message.getRemitente_id());
-        if (message.getReceptor_id() != null)
-            messageToUpdate.setReceptor_id(message.getReceptor_id());
-        if (message.getMensaje_texto() != null)
-            messageToUpdate.setMensaje_texto(message.getMensaje_texto());
-        if (message.getFecha_envio() != null)
-            messageToUpdate.setFecha_envio(message.getFecha_envio());
+        if (message.getMessageId() != null)
+            messageToUpdate.setMessageId(message.getMessageId());
+        if (message.getConversacionId() != null)
+            messageToUpdate.setConversacionId(message.getConversacionId());
+        if (message.getRemitenteId() != null)
+            messageToUpdate.setRemitenteId(message.getRemitenteId());
+        if (message.getReceptorId() != null)
+            messageToUpdate.setReceptorId(message.getReceptorId());
+        if (message.getMensajeTexto() != null)
+            messageToUpdate.setMensajeTexto(message.getMensajeTexto());
+        if (message.getFechaEnvio() != null)
+            messageToUpdate.setFechaEnvio(message.getFechaEnvio());
         return messageRepository.save(messageToUpdate);
     }
 

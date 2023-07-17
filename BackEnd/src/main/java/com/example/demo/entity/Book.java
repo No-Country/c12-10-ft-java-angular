@@ -6,19 +6,19 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Book {
     /*
      * {
-     * "book_id": "12345",
-     * "user_id": "98765",
-     * "ownership_id": "abcde",
-     * "date_start": "2023-06-01",
-     * "date_finish": "2023-06-15"
+     * "bookId": "12345",
+     * "userId": "98765",
+     * "ownershipId": "abcde",
+     * "dateStart": "2023-06-01",
+     * "dateFinish": "2023-06-15"
      * }
      */
     String id;
-    String book_id;
-    String user_id;
-    String ownership_id;
-    String date_start;
-    String date_finish;
+    String bookId;
+    String userId;
+    String ownershipId;
+    String dateStart;
+    String dateFinish;
 
     public String getId() {
         return this.id;
@@ -28,54 +28,55 @@ public class Book {
         this.id = id;
     }
 
-    public String getBook_id() {
-        return this.book_id;
+    public String getBookId() {
+        return this.bookId;
     }
 
-    public void setBook_id(String book_id) {
-        this.book_id = book_id;
+    public void setBookId(String bookId) {
+        this.bookId = bookId;
     }
 
-    public String getUser_id() {
-        return this.user_id;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public String getOwnership_id() {
-        return this.ownership_id;
+    public String getOwnershipId() {
+        return this.ownershipId;
     }
 
-    public void setOwnership_id(String ownership_id) {
-        this.ownership_id = ownership_id;
+    public void setOwnershipId(String ownershipId) {
+        this.ownershipId = ownershipId;
     }
 
-    public String getDate_start() {
-        return this.date_start;
+    public String getDateStart() {
+        return this.dateStart;
     }
 
-    public void setDate_start(String date_start) {
-        this.date_start = date_start;
+    public void setDateStart(String dateStart) {
+        this.dateStart = dateStart;
     }
 
-    public String getDate_finish() {
-        return this.date_finish;
+    public String getDateFinish() {
+        return this.dateFinish;
     }
 
-    public void setDate_finish(String date_finish) {
-        this.date_finish = date_finish;
+    public void setDateFinish(String dateFinish) {
+        this.dateFinish = dateFinish;
     }
 
     @Override
     public String toString() {
         return "{" +
-                " book_id='" + getBook_id() + "'" +
-                ", user_id='" + getUser_id() + "'" +
-                ", ownership_id='" + getOwnership_id() + "'" +
-                ", date_start='" + getDate_start() + "'" +
-                ", date_finish='" + getDate_finish() + "'" +
+                " id='" + getId() + "'" +
+                ", bookId='" + getBookId() + "'" +
+                ", userId='" + getUserId() + "'" +
+                ", ownershipId='" + getOwnershipId() + "'" +
+                ", dateStart='" + getDateStart() + "'" +
+                ", dateFinish='" + getDateFinish() + "'" +
                 "}";
     }
 
