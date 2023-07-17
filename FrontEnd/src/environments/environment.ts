@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 
-const host = 'http://localhost:3000';
+//const host = 'http://localhost:3000';
+
+const host = 'https://nocountry-production-78d6.up.railway.app';
 
 export const environment = {
     production: false,

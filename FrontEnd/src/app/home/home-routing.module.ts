@@ -11,7 +11,7 @@ const routes: Routes = [
     component: HomePageComponent,
     children: [
       { path: 'detail-home', component: RentComponent },
-      { path: 'list', component: HomeListComponent },
+      { path: 'list/:country', component: HomeListComponent },
       { path: 'card', component: CardUserComponent },
 
     ]

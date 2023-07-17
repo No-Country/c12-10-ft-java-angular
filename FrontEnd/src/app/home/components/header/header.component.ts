@@ -24,22 +24,10 @@ export class HeaderComponent  {
       .pipe(
         debounceTime(500))
       .subscribe((val:any) => {
-        // this.term.emit(val);
-        console.log(val);
-        this.router.navigate(['home/list'], ({queryParams: { country: val } }))
+        if(!val) return;
+        this.router.navigate([`home/list/${val}`])
         });
       }
-
-  // redirectToSearch(term:string):void {
-
-  //   let navigationsExtras:NavigationExtras = {
-  //     queryParams: {
-  //       country: term,
-  //     }
-  //   }
-  //   this.router.navigate(['/home/list'], navigationsExtras)
-
-
 }
 
 

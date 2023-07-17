@@ -20,6 +20,9 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatStepperModule} from '@angular/material/stepper';
 import { CardUserComponent } from './components/card-user/card-user.component';
 
+import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+
 
 
 @NgModule({
@@ -31,6 +34,8 @@ import { CardUserComponent } from './components/card-user/card-user.component';
     CardHomeComponent,
     ContactComponent,
     CardUserComponent,
+
+
 
   ],
   imports: [
@@ -46,7 +51,9 @@ import { CardUserComponent } from './components/card-user/card-user.component';
     MatInputModule,
     MatDatepickerModule,
     MatExpansionModule,
-    MatStepperModule
+    MatStepperModule,
+    NgxSpinnerModule,
+    NgxSkeletonLoaderModule
 
   ]
 })
