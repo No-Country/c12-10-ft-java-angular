@@ -5,6 +5,7 @@ import com.example.demo.entity.Ownership;
 import com.example.demo.repository.OwnershipRepository;
 import com.example.demo.requestEntity.OwnershipRE;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -65,7 +66,7 @@ public class OwnershipService {
     }
 
 
-    public Optional<Ownership> updateOwnership(String id,OwnershipRE ownershipRE){
+    public Optional<Ownership> updateOwnership(OwnershipRE ownershipRE){
 
           Optional<Ownership> ownershipResponse = ownershipRepository.findById(ownershipRE.getId());
 
@@ -80,8 +81,7 @@ public class OwnershipService {
 
     public Ownership updateOwnershipFromRE(Ownership ownership, OwnershipRE ownershipRE){
 
-        if(ownershipRE.getId()!=null)
-            ownership.setId(ownershipRE.getId());
+
         if(ownershipRE.getCountry()!=null)
             ownership.setCountry(ownershipRE.getCountry());
         if(ownershipRE.getState()!=null)
@@ -118,20 +118,40 @@ public class OwnershipService {
     }
 
     public boolean deleteOwnershipById(String id){
-        ownershipRepository.deleteById(id);
-        return true;
+
+        Optional<Ownership> ownershipResponse = ownershipRepository.findById(id);
+        if(ownershipResponse.isPresent()){
+            Ownership ownership = ownershipResponse.get();
+            ownershipRepository.delete(ownership);
+            return true;
+        }
+        return  false;
     }
 
 
     public List<Ownership> listOwnership(){
-
         return  ownershipRepository.findAll();
-
     }
 
     public Optional<Ownership> getOwnershipById(String id){
-
       return Optional.of(ownershipRepository.findOwnershipById(id));
+    }
+
+    public Ownership findOwnershipById(String id){
+        return ownershipRepository.findOwnershipById(id);
+    }
+
+
+    public List<Ownership> listAllOwnershipByCountry(String name){
+          return ownershipRepository.findAllOwnershipByCountry(name);
+    }
+
+    public List<Ownership> listAllOwnershipByState(String name){
+        return ownershipRepository.findAllOwnershipByState(name);
+    }
+
+    public List<Ownership> listAllOwnershipByCity(String name){
+        return ownershipRepository.findAllOwnershipByCity(name);
     }
 
 

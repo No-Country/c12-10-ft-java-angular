@@ -49,4 +49,23 @@ public class FilesUploadService {
         }
     }
 
+    // Metodo para cargar mas de un archivo
+    public String uploadMultipleFiles(MultipartFile[] files) {
+        String message = "";
+        for (int i = 0; i < files.length; i++) {
+            MultipartFile file = files[i];
+            try {
+                // Obtenemos el archivo y lo guardamos en la carpeta
+                byte[] bytes = file.getBytes();
+                Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+                Files.write(path, bytes);
+                message += "Archivo " + i + " subido correctamente\n";
+            } catch (IOException e) {
+                e.printStackTrace();
+                message += "Error al subir el archivo " + i + "\n";
+            }
+        }
+        return message;
+    }
+
 }
