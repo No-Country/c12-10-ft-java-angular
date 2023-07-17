@@ -12,7 +12,7 @@ import { blobFrom } from 'node-fetch';
 export class CardHomeComponent {
 
   @Input()
-  public load: boolean = false;
+  public load!: boolean;
 
   @Input()
   public home! : Ownership

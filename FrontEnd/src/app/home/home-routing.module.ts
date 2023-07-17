@@ -4,6 +4,7 @@ import { HomeListComponent } from './pages/home-list/home-list.component';
 import { RentComponent } from './pages/rent/rent.component';
 import { HomePageComponent } from './home-page.component';
 import { CardUserComponent } from './components/card-user/card-user.component';
+import { OwnershipComponent } from './pages/ownership/ownership.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: 'detail-home', component: RentComponent },
       { path: 'list/:country', component: HomeListComponent },
       { path: 'card', component: CardUserComponent },
+      { path: '**', component: OwnershipComponent },
 
     ]
   }

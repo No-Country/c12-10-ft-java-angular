@@ -22,6 +22,7 @@ import { CardUserComponent } from './components/card-user/card-user.component';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { OwnershipComponent } from './pages/ownership/ownership.component';
 
 
 
@@ -34,6 +35,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     CardHomeComponent,
     ContactComponent,
     CardUserComponent,
+    OwnershipComponent,
 
 
 

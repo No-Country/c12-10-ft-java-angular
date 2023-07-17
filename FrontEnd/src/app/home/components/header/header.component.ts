@@ -25,7 +25,7 @@ export class HeaderComponent  {
         debounceTime(500))
       .subscribe((val:any) => {
         if(!val) return;
-        this.router.navigate([`home/list/${val}`])
+        this.router.navigate([`list/${val}`])
         });
       }
 }

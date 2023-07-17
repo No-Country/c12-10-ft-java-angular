@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, delay, tap } from 'rxjs';
-import { Homes } from '../interface/home.interface';
+import { Homes, Country } from '../interface/home.interface';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -19,8 +19,11 @@ export class HomeService {
 
   getHomesByCountry(country:any): Observable<Homes> {
     return this._http.get<Homes>(`${environment.apiUrl}/ownership/listAllOwnershipByCountry/${country}`)
-    .pipe(
-      delay(5000)
-    )
   }
+
+  getAllHome():Observable<Homes> {
+    return this._http.get<Homes>(`${environment.apiUrl}/ownership/`)
+  }
+
 }
+

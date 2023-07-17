@@ -16,8 +16,8 @@
 </ng-container>
 
 
-<ng-template #cardLoding class="flex">
-  <div *ngFor="let item of list" class="w-32">
+<ng-template #cardLoding >
+  <div *ngFor="let item of list" class="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-0.5 gap-y-6 justify-items-center px-20">
     <div class="p-2 flex flex-col">
       <ngx-skeleton-loader
           count="1"
