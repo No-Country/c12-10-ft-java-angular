@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Role } from 'src/app/home/interfaces/User';
 import { errorMessage } from 'src/app/helpers/errors';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -19,7 +20,7 @@ export class SignupComponent {
   errorMessage = errorMessage
   submitted = false;
   public registerForm: FormGroup
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
     this.registerForm = new FormGroup({
       name: new FormControl('', [Validators.pattern('^[a-zA-Z]+$'), Validators.required]),
       user: new FormControl('', [Validators.pattern('^(?!^\\s+$)\\s*[A-Za-z\\s]+\\s*$'), Validators.required]),
@@ -48,7 +49,9 @@ export class SignupComponent {
   register() {
     this.submitted = true
     if(this.registerForm.valid) {
-      this.authService.register(this.registerForm.value).subscribe((data) => console.log(data))
+      this.authService.register(this.registerForm.value).subscribe((data: any) => {
+        this.router.navigate(['/auth/signin'])
+      })
     }
   }
 }
