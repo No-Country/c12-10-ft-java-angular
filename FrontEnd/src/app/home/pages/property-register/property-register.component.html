@@ -108,7 +108,7 @@
 <app-property-register-accommodation *ngIf="step == 2" />
 <app-property-register-services *ngIf="step == 3" />
 <app-property-register-images *ngIf="step == 4"/>
-<section *ngIf="step != 1 && step != 5" class="absolute bottom-10 flex items-center justify-around w-full">
+<section *ngIf="step != 1 && step != 5" class="absolute bottom-2 lg:bottom-10 flex items-center justify-around w-full">
     <span (click)="previousStep()" class="underline font-semibold hover:text-indigo-400 cursor-pointer transition-all">Atras</span>
     <button *ngIf="step != 4" (click)="nextStep()" type="submit" class="rounded-lg text-white py-2 px-5 cursor-pointer bg-indigo-500 transition-all focus:ring-4 focus:ring-indigo-300 hover:bg-indigo-600">Siguiente</button>
     <button *ngIf="step == 4"  (click)="registerProperty()" type="submit" class="rounded-lg text-white py-2 px-5 cursor-pointer bg-indigo-500 transition-all focus:ring-4 focus:ring-indigo-300 hover:bg-indigo-600">Finalizar</button>
