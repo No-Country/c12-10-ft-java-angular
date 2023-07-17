@@ -10,6 +10,7 @@ import com.example.demo.repository.ImagesRepository;
 
 @Service
 public class ImagesService {
+    @Autowired
     private final ImagesRepository imagesRepository;
 
     @Autowired
@@ -27,38 +28,34 @@ public class ImagesService {
         return imagesRepository.findById(id).orElseThrow(() -> new RuntimeException("Images not found"));
     }
 
+    // Get images by user_id
+    public Images getImagesByUserId(String user_id) {
+        return imagesRepository.findByUserId(user_id);
+    }
+
     // Post images
     public Images saveImages(Images images) {
-        // System.out.println("Producto Agregado: " + images.toString());
-        return imagesRepository.save(images);
+        // Se verifica que no exista un registro con el mismo user_id
+        Images imagesExist = imagesRepository.findByUserId(images.getUserId());
+        if (imagesExist != null) {
+            // Si existe, se actualiza el registro
+            imagesExist.setImages(images.getImages());
+            return imagesRepository.save(imagesExist);
+        } else {
+            // Si no existe, se crea un nuevo registro
+            return imagesRepository.save(images);
+        }
+        // return imagesRepository.save(images);
     }
 
     // Update images
     public Images updateImages(String id, Images images) {
         Images imagesToUpdate = imagesRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Images not found"));
-        if (images.getUser_id() != null)
-            imagesToUpdate.setUser_id(images.getUser_id());
-        if (images.getImage1() != null)
-            imagesToUpdate.setImage1(images.getImage1());
-        if (images.getImage2() != null)
-            imagesToUpdate.setImage2(images.getImage2());
-        if (images.getImage3() != null)
-            imagesToUpdate.setImage3(images.getImage3());
-        if (images.getImage4() != null)
-            imagesToUpdate.setImage4(images.getImage4());
-        if (images.getImage5() != null)
-            imagesToUpdate.setImage5(images.getImage5());
-        if (images.getImage6() != null)
-            imagesToUpdate.setImage6(images.getImage6());
-        if (images.getImage7() != null)
-            imagesToUpdate.setImage7(images.getImage7());
-        if (images.getImage8() != null)
-            imagesToUpdate.setImage8(images.getImage8());
-        if (images.getImage9() != null)
-            imagesToUpdate.setImage9(images.getImage9());
-        if (images.getImage10() != null)
-            imagesToUpdate.setImage10(images.getImage10());
+        if (images.getUserId() != null)
+            imagesToUpdate.setUserId(images.getUserId());
+        if (images.getImages() != null)
+            imagesToUpdate.setImages(images.getImages());
 
         return imagesRepository.save(imagesToUpdate);
     }

@@ -9,14 +9,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.demo.entity.Images;
+import com.example.demo.repository.ImagesRepository;
+
 @Service
 public class FilesUploadService {
-    // Servicio para subir archivos
-    // Carpetas para subir archivos en proyecto maven
     private static final String UPLOADED_FOLDER = "src/main/webapp/";
 
     @Autowired
     public FilesUploadService() {
+    }
+
+    private ImagesRepository imagesRepository;
+
+    @Autowired
+    public void setImagesRepository(ImagesRepository imagesRepository) {
+        this.imagesRepository = imagesRepository;
     }
 
     // Metodo para subir archivos
@@ -50,20 +58,38 @@ public class FilesUploadService {
     }
 
     // Metodo para cargar mas de un archivo
-    public String uploadMultipleFiles(MultipartFile[] files) {
+    public String uploadMultipleFiles(MultipartFile[] files, String id) {
         String message = "";
+        Images images = new Images();
+        images.setUserId(id);
+        images.setImages(new String[files.length]);
         for (int i = 0; i < files.length; i++) {
             MultipartFile file = files[i];
             try {
                 // Obtenemos el archivo y lo guardamos en la carpeta
                 byte[] bytes = file.getBytes();
-                Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+                Path path = Paths.get(UPLOADED_FOLDER + id + "-" + file.getOriginalFilename());
                 Files.write(path, bytes);
                 message += "Archivo " + i + " subido correctamente\n";
+                // images.setImage1();
+                // file.getOriginalFilename()
+                images.getImages()[i] = file.getOriginalFilename();
             } catch (IOException e) {
                 e.printStackTrace();
                 message += "Error al subir el archivo " + i + "\n";
             }
+        }
+        // Se verifica que no se haya subido un archivo con ese id
+        // Images savedImages = imagesRepository.save(images);
+        Images imagesExist = imagesRepository.findByUserId(id);
+        if (imagesExist != null) {
+            // Si existe, se actualiza el registro mezclando los datos
+            imagesExist.setImages(images.getImages());
+            imagesRepository.save(imagesExist);
+
+        } else {
+            // Si no existe, se crea un nuevo registro
+            imagesRepository.save(images);
         }
         return message;
     }

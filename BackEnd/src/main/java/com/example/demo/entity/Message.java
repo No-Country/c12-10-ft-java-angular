@@ -15,12 +15,12 @@ public class Message {
      * },
      */
     String id;
-    String message_id;
-    String conversacion_id;
-    String remitente_id;
-    String receptor_id;
-    String mensaje_texto;
-    String fecha_envio;
+    String messageId;
+    String conversacionId;
+    String remitenteId;
+    String receptorId;
+    String mensajeTexto;
+    String fechaEnvio;
 
     public String getId() {
         return this.id;
@@ -30,58 +30,65 @@ public class Message {
         this.id = id;
     }
 
-    public String getMessage_id() {
-        return this.message_id;
+    public String getMessageId() {
+        return this.messageId;
     }
 
-    public void setMessage_id(String message_id) {
-        this.message_id = message_id;
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
     }
 
-    public String getConversacion_id() {
-        return this.conversacion_id;
+    public String getConversacionId() {
+        return this.conversacionId;
     }
 
-    public void setConversacion_id(String conversacion_id) {
-        this.conversacion_id = conversacion_id;
+    public void setConversacionId(String conversacionId) {
+        this.conversacionId = conversacionId;
     }
 
-    public String getRemitente_id() {
-        return this.remitente_id;
+    public String getRemitenteId() {
+        return this.remitenteId;
     }
 
-    public void setRemitente_id(String remitente_id) {
-        this.remitente_id = remitente_id;
+    public void setRemitenteId(String remitenteId) {
+        this.remitenteId = remitenteId;
     }
 
-    public String getReceptor_id() {
-        return this.receptor_id;
+    public String getReceptorId() {
+        return this.receptorId;
     }
 
-    public void setReceptor_id(String receptor_id) {
-        this.receptor_id = receptor_id;
+    public void setReceptorId(String receptorId) {
+        this.receptorId = receptorId;
     }
 
-    public String getMensaje_texto() {
-        return this.mensaje_texto;
+    public String getMensajeTexto() {
+        return this.mensajeTexto;
     }
 
-    public void setMensaje_texto(String mensaje_texto) {
-        this.mensaje_texto = mensaje_texto;
+    public void setMensajeTexto(String mensajeTexto) {
+        this.mensajeTexto = mensajeTexto;
     }
 
-    public String getFecha_envio() {
-        return this.fecha_envio;
+    public String getFechaEnvio() {
+        return this.fechaEnvio;
     }
 
-    public void setFecha_envio(String fecha_envio) {
-        this.fecha_envio = fecha_envio;
+    public void setFechaEnvio(String fechaEnvio) {
+        this.fechaEnvio = fechaEnvio;
     }
 
     @Override
     public String toString() {
-        return "Message [message_id=" + message_id + ", conversacion_id=" + conversacion_id + ", remitente_id="
-                + remitente_id + ", receptor_id=" + receptor_id + ", mensaje_texto=" + mensaje_texto + ", fecha_envio="
-                + fecha_envio + "]";
+        return "{" +
+                " id='" + getId() + "'" +
+                ", messageId='" + getMessageId() + "'" +
+                ", conversacionId='" + getConversacionId() + "'" +
+                ", remitenteId='" + getRemitenteId() + "'" +
+                ", receptorId='" + getReceptorId() + "'" +
+                ", mensajeTexto='" + getMensajeTexto() + "'" +
+                ", fechaEnvio='" + getFechaEnvio() + "'" +
+                "}";
     }
+
 }

@@ -29,6 +29,11 @@ public class UserService {
         return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
     }
 
+    // Get by userId
+    public User getUserByUserId(String userId) {
+        return userRepository.findByUserId(userId);
+    }
+
     // Post user
     public User saveUser(User user) {
         System.out.println("User Agregado: " + user.toString());
@@ -38,8 +43,8 @@ public class UserService {
     // Update user
     public User updateUser(String id, User user) {
         User userToUpdate = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
-        if (user.getUser_id() != null)
-            userToUpdate.setUser_id(user.getUser_id());
+        if (user.getUserId() != null)
+            userToUpdate.setUserId(user.getUserId());
         if (user.getUsername() != null)
             userToUpdate.setUsername(user.getUsername());
         if (user.getPassword() != null)

@@ -35,6 +35,13 @@ public class ImagesController {
         return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", imagesService.getImagesById(id)));
     }
 
+    // Get images by userId
+    @GetMapping("/images/user/{userId}")
+    public ResponseEntity<?> getImagesByUserId(@PathVariable String userId) {
+        return ResponseEntity.ok()
+                .body(new GenericResponseDTO<>(true, "Success", imagesService.getImagesByUserId(userId)));
+    }
+
     // Post images
     @PostMapping("/images")
     public ResponseEntity<?> saveImages(@RequestBody Images images) {

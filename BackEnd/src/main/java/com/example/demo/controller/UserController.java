@@ -35,6 +35,12 @@ public class UserController {
         return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", userService.getUserById(id)));
     }
 
+    // Get user by userId
+    @GetMapping("/user/userId/{userId}")
+    public ResponseEntity<?> getUserByUserId(@PathVariable String userId) {
+        return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", userService.getUserByUserId(userId)));
+    }
+
     // Post user
     @PostMapping("/user")
     public ResponseEntity<?> saveUser(@RequestBody User user) {

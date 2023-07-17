@@ -17,7 +17,7 @@ public class User {
      * description": "I'm a buyer",
      */
     String id;
-    String user_id;
+    String userId;
     String username;
     String password;
     String name;
@@ -34,14 +34,6 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getUser_id() {
-        return this.user_id;
-    }
-
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
     }
 
     public String getUsername() {
@@ -116,10 +108,19 @@ public class User {
         this.description = description;
     }
 
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     @Override
     public String toString() {
         return "{" +
-                " user_id='" + getUser_id() + "'" +
+                " id='" + getId() + "'" +
+                ", userId='" + getUserId() + "'" +
                 ", username='" + getUsername() + "'" +
                 ", password='" + getPassword() + "'" +
                 ", name='" + getName() + "'" +
