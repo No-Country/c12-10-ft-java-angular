@@ -34,5 +34,6 @@ public class OwnershipRE {
     private Boolean pets_allowed;
     private String smoking_policy;
     private String available_date;
+    private String user_id;
 
 }
