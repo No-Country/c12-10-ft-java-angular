@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cargar archivo</title>
+  </head>
+  <body>
+    <form id="subir"
+    >
+      <input type="file" name="file" id="archivo" />
+      <br />
+      <label for="nombre">Nombre del archivo:</label>
+      <input type="text" name="nombre" id="nombre" />
+      <input type="button" value="Subir" id="btnSubir"/>
+    </form>
+
+    <h1>Form para carga multiple de archivo</h1>
+    <form id="subir2">
+        <input type="file" name="files" multiple id="MultiplesArchivos"/>
+        <br />
+        <input type="submit" value="Cargar archivo" id="btnSubirMultiple"/>
+    </form>
+    <script src="testfileJS.js"></script>
+  </body>
+</html>

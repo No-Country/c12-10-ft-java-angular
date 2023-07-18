@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carga de archivos</title>
+</head>
+<body>
+    <h1>Form para cargar archivos</h1>
+    <form method="POST" enctype="multipart/form-data" action="https://nocountry-production-78d6.up.railway.app/files/upload">
+        <input type="file" name="file" />
+        <br />
+        <input type="submit" value="Cargar archivo" />
+    </form>
+    <h2>Ligas para acceder a archivos</h2>
+    <a href="http://localhost:8082/cloud.jpg">Descargar archivo1</a>
+
+    <h1>Form para cargar mas de 1 archivo</h1>
+    <form method="POST" enctype="multipart/form-data" action="http://localhost:8082/files/uploads/01">
+        <input type="file" name="files" multiple />
+        <br />
+        <input type="submit" value="Cargar archivo" />
+    </form>
+</body>
+</html>
