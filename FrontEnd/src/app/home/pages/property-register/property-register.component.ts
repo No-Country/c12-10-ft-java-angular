@@ -42,6 +42,7 @@ export class PropertyRegisterComponent {
       this.step += 1
       return 
     }
+    console.log(this.ownership);
     if(this.step == 2) {
      if('house_type' in this.ownership) {
         this.disable = false
@@ -70,6 +71,17 @@ export class PropertyRegisterComponent {
     this.dropDownCountry = false
   }
   registerProperty() {
-    this.step += 1
+    let ownershipImages = this.ownership && this.ownership.images; 
+    if (!ownershipImages || ownershipImages.length === 0) {
+      console.log(ownershipImages, 'no contiene imágenes');
+    } else {
+      this.ownershipService.register(this.ownership).subscribe((data) => {
+        console.log(data);
+      })
+      this.ownershipService.registerProperty(this.ownership).subscribe((data) => {
+        console.log(data);
+      })
+      this.step += 1
+    }
   }
 }

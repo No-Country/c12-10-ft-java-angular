@@ -111,7 +111,7 @@
 <section *ngIf="step != 1 && step != 5" class="absolute bottom-2 lg:bottom-10 flex items-center justify-around w-full">
     <span (click)="previousStep()" class="underline font-semibold hover:text-indigo-400 cursor-pointer transition-all">Atras</span>
     <button *ngIf="step != 4" (click)="nextStep()" type="submit" class="rounded-lg text-white py-2 px-5 cursor-pointer bg-indigo-500 transition-all focus:ring-4 focus:ring-indigo-300 hover:bg-indigo-600">Siguiente</button>
-    <button *ngIf="step == 4"  (click)="registerProperty()" type="submit" class="rounded-lg text-white py-2 px-5 cursor-pointer bg-indigo-500 transition-all focus:ring-4 focus:ring-indigo-300 hover:bg-indigo-600">Finalizar</button>
+    <button *ngIf="step == 4" (click)="registerProperty()" type="submit" class="rounded-lg text-white py-2 px-5 cursor-pointer bg-indigo-500 transition-all focus:ring-4 focus:ring-indigo-300 hover:bg-indigo-600">Finalizar</button>
 </section>
 <div class="min-h-screen flex flex-col justify-center items-center gap-2" *ngIf="step == 5">
     <div role="status">
@@ -121,5 +121,5 @@
         </svg>
         <span class="sr-only">Loading...</span>
     </div>
-    <p class="text-2xl font-medium text-center up">Creada con exito <span class="text-indigo-700 underline">Click aqui</span></p>
+    <p class="text-2xl font-medium text-center up">Creada con exito <span class="text-indigo-700 underline cursor-pointer" routerLink="/home">Click aqui</span></p>
 </div>

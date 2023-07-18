@@ -10,6 +10,8 @@ import { OwnershipService } from '../../services/ownership.service';
 
 export class PropertyRegisterImagesComponent {
   images: string[] = []
+  names: any = []
+  selectedImages: any = [];
   ownership!: Ownership
   constructor(private ownershipService: OwnershipService) {
     ownershipService._ownership.subscribe((data: Ownership) => {
@@ -19,17 +21,17 @@ export class PropertyRegisterImagesComponent {
       }
     })
   }
-  onFileSelected(event: any) {
-    if(this.images.length < 2) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.images.push(reader.result as string);
-        this.ownership.images = this.images
-        this.ownershipService._ownership.next(this.ownership)
-      };
-      reader.readAsDataURL(file);
+  onFileChange() {
+    this.names = []
+    const filemultiple: any = document.querySelector("#dropzone-file");
+    const formData = new FormData();
+    for (let i = 0; i < filemultiple.files.length; i++) {
+      let image = filemultiple.files[i].name
+      this.names.push(image)
+      formData.append("files", filemultiple.files[i]);
     }
+    this.ownership.images = formData
+    this.ownershipService._ownership.next(this.ownership)
   }
   removeImage(image: string) {
     const newImages = this.images.filter((value: string) => value != image)

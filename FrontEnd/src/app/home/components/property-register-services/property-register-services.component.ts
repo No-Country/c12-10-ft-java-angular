@@ -27,7 +27,7 @@ export class PropertyRegisterServicesComponent {
       if (service.icon === CSSIcons.BAN_SMOKING && service.activate) {
         smoking_policy = 'No smoking'
       } else if (service.icon === CSSIcons.BAN_SMOKING && !service.activate) {
-        smoking_policy = 'se permite'
+        smoking_policy = 'allow'
       }
       if (service.icon === CSSIcons.SHIELD_DOG && service.activate) {
         pets_allowed = true
