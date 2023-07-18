@@ -18,8 +18,8 @@ spec:
         ports:
           - containerPort: 80
         volumeMounts:
-          - name: angular-config-map-volume-mount
-            mountPath: /src/environments/
+        - name: angular-config-map #Debe ser el nombre del volumen declarado abajo
+          mountPath: /src/environments/
       imagePullSecrets:
       - name: demo-k8s-secret        
                   
