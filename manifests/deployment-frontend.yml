@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-frontend-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: nocountryc1210.azurecr.io/frontend:52b05c045d2c86c8cd9fe5cdf2f72f2e2496568d
+        ports:
+          - containerPort: 80
+      imagePullSecrets:
+      - name: demo-k8s-secret
+
+### Service for the frontend ###
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: frontend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
