@@ -7,7 +7,8 @@ export enum TypeOfHouse {
 }
 
 export interface Ownership {
-    id: string,
+    userId: string,
+    ownershipId: string,
     createAt: null,
     modifiedAt: null,
     country: string,
@@ -15,7 +16,7 @@ export interface Ownership {
     city: string,
     address: string,
     house_type: TypeOfHouse,
-    images: string[],
+    images: any,
     rooms: number,
     bathrooms: number,
     house_area: number,
