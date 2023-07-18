@@ -17,8 +17,56 @@ spec:
         image: nocountryc1210.azurecr.io/frontend:latest
         ports:
           - containerPort: 80
+        volumeMounts:
+        - name: angular-config-map-volume-mount
+          mountPath: /src/environments/
+        volumes:
+         - name: angular-config-map
+           configMap: angular-cm
       imagePullSecrets:
       - name: demo-k8s-secret
+
+    # spec:
+    #   containers:
+    #   - name: nginx-http
+    #     image: nginx
+    #     ports:
+    #     - name: web
+    #       containerPort: 80
+    #     volumeMounts:
+    #     - name: nginx-http-cm
+    #       mountPath: /etc/nginx
+    #     - name: nginx-http-vol
+    #       mountPath: /usr/share/nginx/html
+    #   volumes:
+    #   - name: nginx-http-cm
+    #     configMap:
+    #       name: nginx-http-cm
+    #   - name: nginx-http-vol
+    #     hostPath:
+    #       path: /var/nginxserver
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: angular-cm
+data:
+  # key: value
+  # file: |
+  #   content
+  # ---
+  environment.ts: |
+
+export const environment = {
+  production: false,
+  apiUrl: 'backend-service.default.svc.cluster.local:8082',
+  enableDebugMode: true,
+  // Add other environment-specific configuration here
+};
+
+
+# my-service.default.svc.cluster.local
 
 ### Service for the frontend ###
 
