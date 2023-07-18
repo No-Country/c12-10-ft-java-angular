@@ -17,15 +17,15 @@ public class Images {
      * }
      */
     String id;
-    String userId;
+    String ownershipId;
     String[] images;
 
-    public String getUserId() {
-        return this.userId;
+    public String getOwnershipId() {
+        return this.ownershipId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setOwnershipId(String ownershipId) {
+        this.ownershipId = ownershipId;
     }
 
     public String getId() {
@@ -48,7 +48,7 @@ public class Images {
     public String toString() {
         return "{" +
                 " id='" + getId() + "'" +
-                ", userId='" + getUserId() + "'" +
+                ", ownershipId='" + getOwnershipId() + "'" +
                 ", images='" + getImages() + "'" +
                 "}";
     }

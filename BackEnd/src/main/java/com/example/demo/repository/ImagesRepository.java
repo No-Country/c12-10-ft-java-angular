@@ -6,5 +6,5 @@ import com.example.demo.entity.Images;
 
 public interface ImagesRepository extends MongoRepository<Images, String> {
 
-    Images findByUserId(String user_id);
+    Images findByOwnershipId(String ownershipId);
 }
