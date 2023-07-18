@@ -90,10 +90,7 @@ public class OwnershipController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteOwnership(@RequestHeader(value = "DA-App")String appHeader,@PathVariable(value = "id")String id){
-
-
-       // if(!this.roleVerificationService.appHeaderValidator(appHeader, AppTypes.BIZDASH)) return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new GenericResponseDTO<>(false,"App not allowed",""));
+    public ResponseEntity<?> deleteOwnership(@PathVariable(value = "id")String id){
 
         Boolean ownerDelete = ownershipService.deleteOwnershipById(id);
 

@@ -61,7 +61,7 @@ public class FilesUploadService {
     public String uploadMultipleFiles(MultipartFile[] files, String id) {
         String message = "";
         Images images = new Images();
-        images.setUserId(id);
+        images.setOwnershipId(id);
         images.setImages(new String[files.length]);
         for (int i = 0; i < files.length; i++) {
             MultipartFile file = files[i];
@@ -81,7 +81,7 @@ public class FilesUploadService {
         }
         // Se verifica que no se haya subido un archivo con ese id
         // Images savedImages = imagesRepository.save(images);
-        Images imagesExist = imagesRepository.findByUserId(id);
+        Images imagesExist = imagesRepository.findByOwnershipId(id);
         if (imagesExist != null) {
             // Si existe, se actualiza el registro mezclando los datos
             imagesExist.setImages(images.getImages());

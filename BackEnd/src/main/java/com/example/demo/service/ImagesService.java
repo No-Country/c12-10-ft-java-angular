@@ -28,15 +28,15 @@ public class ImagesService {
         return imagesRepository.findById(id).orElseThrow(() -> new RuntimeException("Images not found"));
     }
 
-    // Get images by user_id
+    // Get images by ownershipId
     public Images getImagesByUserId(String user_id) {
-        return imagesRepository.findByUserId(user_id);
+        return imagesRepository.findByOwnershipId(user_id);
     }
 
     // Post images
     public Images saveImages(Images images) {
         // Se verifica que no exista un registro con el mismo user_id
-        Images imagesExist = imagesRepository.findByUserId(images.getUserId());
+        Images imagesExist = imagesRepository.findByOwnershipId(images.getOwnershipId());
         if (imagesExist != null) {
             // Si existe, se actualiza el registro
             imagesExist.setImages(images.getImages());
@@ -52,8 +52,8 @@ public class ImagesService {
     public Images updateImages(String id, Images images) {
         Images imagesToUpdate = imagesRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Images not found"));
-        if (images.getUserId() != null)
-            imagesToUpdate.setUserId(images.getUserId());
+        if (images.getOwnershipId() != null)
+            imagesToUpdate.setOwnershipId(images.getOwnershipId());
         if (images.getImages() != null)
             imagesToUpdate.setImages(images.getImages());
 

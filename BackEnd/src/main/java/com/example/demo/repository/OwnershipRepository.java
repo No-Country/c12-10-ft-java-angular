@@ -6,11 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
 @Repository
-public interface OwnershipRepository extends MongoRepository<Ownership,String> {
+public interface OwnershipRepository extends MongoRepository<Ownership, String> {
 
-    Ownership findOwnershipById(String id);
+    Ownership findOwnershipByOwnershipId(String ownershipId);
 
     List<Ownership> findAllOwnershipByCountry(String name);
 
