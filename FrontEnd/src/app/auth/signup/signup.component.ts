@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
-import { Role } from 'src/app/home/interfaces/User';
 import { errorMessage } from 'src/app/helpers/errors';
 import { Router } from '@angular/router';
+import { Role } from 'src/app/property-register/interfaces/User';
 
 @Component({
   selector: 'app-signup',
@@ -49,7 +49,8 @@ export class SignupComponent {
   register() {
     this.submitted = true
     if(this.registerForm.valid) {
-      this.authService.register(this.registerForm.value).subscribe((data: any) => {
+      this.authService.register(this.registerForm.value).subscribe(({data}: any) => {
+        window.localStorage.setItem('userId', data.id)
         this.router.navigate(['/auth/signin'])
       })
     }

@@ -9,10 +9,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { RentComponent } from './pages/rent/rent.component';
 import { CardHomeComponent } from './components/card-home/card-home.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { PropertyRegisterComponent } from './pages/property-register/property-register.component';
-import { PropertyRegisterAccommodationComponent } from './components/property-register-accommodation/property-register-accommodation.component';
-import { PropertyRegisterImagesComponent } from './components/property-register-images/property-register-images.component';
-import { PropertyRegisterServicesComponent } from './components/property-register-services/property-register-services.component';
 
 @NgModule({
   declarations: [
@@ -22,10 +18,6 @@ import { PropertyRegisterServicesComponent } from './components/property-registe
     RentComponent,
     CardHomeComponent,
     ContactComponent,
-    PropertyRegisterComponent,
-    PropertyRegisterAccommodationComponent,
-    PropertyRegisterImagesComponent,
-    PropertyRegisterServicesComponent
   ],
   imports: [
     CommonModule,
