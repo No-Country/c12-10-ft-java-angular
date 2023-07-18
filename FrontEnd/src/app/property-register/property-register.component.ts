@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Ownership } from '../../interfaces/Ownership';
-import { OwnershipService } from '../../services/ownership.service';
+
 import { errorMessage } from 'src/app/helpers/errors';
+import { OwnershipService } from './services/ownership.service';
+import { Ownership } from './interfaces/Ownership';
 
 @Component({
   selector: 'app-property-register',

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { Ownership } from '../../interfaces/Ownership';
 import { OwnershipService } from '../../services/ownership.service';
+import { Ownership } from '../../interfaces/Ownership';
+
+
 
 @Component({
   selector: 'app-property-register-images',

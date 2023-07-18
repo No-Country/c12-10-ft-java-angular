@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
-import { Role } from 'src/app/home/interfaces/User';
 import { errorMessage } from 'src/app/helpers/errors';
 import { Router } from '@angular/router';
+import { Role } from 'src/app/property-register/interfaces/User';
 
 @Component({
   selector: 'app-signup',

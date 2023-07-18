@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { CSSIcons, Service } from '../../interfaces/Service';
 import { OwnershipService } from '../../services/ownership.service';
 import { Ownership } from '../../interfaces/Ownership';
+import { CSSIcons, Service } from '../../interfaces/Service';
+
 
 @Component({
   selector: 'app-property-register-services',
@@ -10,7 +11,7 @@ import { Ownership } from '../../interfaces/Ownership';
 })
 export class PropertyRegisterServicesComponent {
   services: Service[]
-  ownership!: Ownership
+  ownership!: Ownership 
 
   constructor(private ownershipService: OwnershipService) {
     this.services = this.ownershipService.services

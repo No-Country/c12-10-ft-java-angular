@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { OwnershipService } from '../../services/ownership.service';
 import { TypeOfHouse } from '../../interfaces/Ownership';
 
+
 @Component({
   selector: 'app-property-register-accommodation',
   templateUrl: './property-register-accommodation.component.html',
