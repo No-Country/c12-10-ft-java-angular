@@ -22,7 +22,9 @@ spec:
 
 ### Service for the frontend ###
 
+---
 
+apiVersion: apps/v1
 kind: Service
 metadata:
   name: frontend-service
