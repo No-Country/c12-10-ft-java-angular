@@ -17,14 +17,12 @@ spec:
         image: nocountryc1210.azurecr.io/frontend:latest
         ports:
           - containerPort: 80
-      
+        volumeMounts:
+          - name: angular-config-map-volume-mount
+            mountPath: /src/environments/
       imagePullSecrets:
       - name: demo-k8s-secret        
-      
-      volumeMounts:
-        - name: angular-config-map-volume-mount
-          mountPath: /src/environments/
-      
+                  
       volumes:
         - name: angular-config-map
           configMap:
