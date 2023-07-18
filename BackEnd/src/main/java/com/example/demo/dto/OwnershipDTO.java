@@ -1,7 +1,7 @@
 package com.example.demo.dto;
 
-
 import com.example.demo.entity.Ownership;
+import com.example.demo.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -27,28 +27,28 @@ public class OwnershipDTO implements Serializable {
     private String payment_conditions;
     private String[] additional_services;
     private String[] additional_fees;
-    private String[]images;
+    private String[] images;
     private String policies_cancellation;
     private Double latitude;
     private Double longitude;
     private Boolean pets_allowed;
     private String smoking_policy;
     private String available_date;
+    private User user;
 
+    public OwnershipDTO(Ownership ownership) {
 
-    public  OwnershipDTO(Ownership ownership) {
-
-        if(ownership.getId()!=null)
-            this.id = ownership.getId();
-        if(ownership.getCountry()!=null)
+        if (ownership.getOwnershipId() != null)
+            this.id = ownership.getOwnershipId();
+        if (ownership.getCountry() != null)
             this.country = ownership.getCountry();
-        if(ownership.getState()!=null)
+        if (ownership.getState() != null)
             this.state = ownership.getState();
-        if(ownership.getCity()!=null)
+        if (ownership.getCity() != null)
             this.city = ownership.getCity();
         if (ownership.getAddress() != null)
             this.address = ownership.getAddress();
-        if(ownership.getHouse_type()!=null)
+        if (ownership.getHouse_type() != null)
             this.house_type = ownership.getHouse_type();
 
         this.rooms = ownership.getRooms();
@@ -56,24 +56,25 @@ public class OwnershipDTO implements Serializable {
         this.house_area = ownership.getHouse_area();
         this.description = ownership.getDescription();
 
-        if(ownership.getPrice()>0)
+        if (ownership.getPrice() > 0)
             this.price = ownership.getPrice();
-        if(ownership.getDeposit()>0)
-            this.deposit=ownership.getDeposit();
+        if (ownership.getDeposit() > 0)
+            this.deposit = ownership.getDeposit();
 
         this.payment_conditions = ownership.getPayment_conditions();
         this.additional_services = ownership.getAdditional_services();
         this.additional_fees = ownership.getAdditional_fees();
         this.images = ownership.getImages();
-        if(ownership.getPolicies_cancellation()!=null)
+        if (ownership.getPolicies_cancellation() != null)
             this.policies_cancellation = ownership.getPolicies_cancellation();
         this.latitude = ownership.getLatitude();
         this.longitude = ownership.getLongitude();
         this.pets_allowed = ownership.getPets_allowed();
-       this.smoking_policy = ownership.getSmoking_policy();
-       if(ownership.getAvailable_date()!=null)
-           this.available_date = ownership.getAvailable_date();
-
+        this.smoking_policy = ownership.getSmoking_policy();
+        if (ownership.getAvailable_date() != null)
+            this.available_date = ownership.getAvailable_date();
+        if (ownership.getUserId() != null)
+            this.user = ownership.getUserId();
 
     }
 

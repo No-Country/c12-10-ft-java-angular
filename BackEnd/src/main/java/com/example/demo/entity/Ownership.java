@@ -1,7 +1,9 @@
 package com.example.demo.entity;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,8 +17,10 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(collection ="ownership")
-public class Ownership extends JpaEntity implements Serializable{
+public class Ownership  implements Serializable{
 
+    @Id
+    private String ownershipId;
     private String country;
     private String state;
     private String city;
@@ -38,5 +42,8 @@ public class Ownership extends JpaEntity implements Serializable{
     private Boolean pets_allowed;
     private String smoking_policy;
     private String available_date;
+
+    @Column(nullable = false)
+    private User userId;
 
 }
