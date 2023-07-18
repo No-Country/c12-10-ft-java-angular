@@ -49,7 +49,8 @@ export class SignupComponent {
   register() {
     this.submitted = true
     if(this.registerForm.valid) {
-      this.authService.register(this.registerForm.value).subscribe((data: any) => {
+      this.authService.register(this.registerForm.value).subscribe(({data}: any) => {
+        window.localStorage.setItem('userId', data.id)
         this.router.navigate(['/auth/signin'])
       })
     }

@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Ownership, TypeOfHouse } from '../interfaces/Ownership';
 import { CSSIcons, Service } from '../interfaces/Service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OwnershipService {
   ownership: Ownership = {
-    id: '',
+    userId: '',
+    ownershipId: '',
     createAt: null,
     modifiedAt: null,
     country: '',
@@ -31,7 +34,7 @@ export class OwnershipService {
     longitude: 0,
     pets_allowed: false,
     smoking_policy: '',
-    available_date: 0
+    available_date: 0,
   }
   services: Service[] = [
     {
@@ -90,7 +93,19 @@ export class OwnershipService {
       activate: false
     }
   ]
+  userId: string = window.localStorage.getItem('userId') || ''
+  constructor(private _http: HttpClient) {}
   public _typeOfHouse: BehaviorSubject<any> = new BehaviorSubject<any>(this.types);
   public _ownership: BehaviorSubject<Ownership> = new BehaviorSubject<Ownership>(this.ownership);
- 
+  register(ownership: Ownership) {
+    ownership.userId = this.userId
+    const filter:any = ownership.additional_services.map(service => service.title)
+    ownership.additional_services = filter
+    const clonedObject = { ...ownership };
+    delete clonedObject.images;
+    return this._http.post(`${environment.apiUrl}/ownership/`, clonedObject)
+  }
+  registerProperty(ownership: Ownership) {
+    return this._http.post(`${environment.apiUrl}/files/uploads/${this.userId}`, ownership.images)
+  }
 }
