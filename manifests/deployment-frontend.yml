@@ -58,12 +58,12 @@ data:
   # ---
   environment.ts: |
 
-export const environment = {
-  production: false,
-  apiUrl: 'backend-service.default.svc.cluster.local:8082',
-  enableDebugMode: true,
-  // Add other environment-specific configuration here
-};
+    export const environment = {
+      production: false,
+      apiUrl: 'backend-service.default.svc.cluster.local:8082',
+      enableDebugMode: true,
+      // Add other environment-specific configuration here
+    };
 
 
 # my-service.default.svc.cluster.local
