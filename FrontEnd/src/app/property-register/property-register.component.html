@@ -1,7 +1,7 @@
 <!-- <button *ngIf="step == 2 || step == 3" type="submit" class="absolute top-10 right-10 w-28 py-2 text-sm border-2 border-gray-300 cursor-pointer hidden lg:block text-black transition-all focus:ring-4 focus:ring-gray-200 rounded-3xl hover:bg-gray-100 font-semibold">Salir y guardar</button> -->
 <section class="grid grid-cols-1 lg:grid-cols-2 min-w-screen items-center justify-center min-h-screen relative" *ngIf="step == 1">
     <article class="w-full hidden items-center justify-center lg:flex bg-image">
-        <p class="text-4xl text-left w-2/4 leading-tight font-semibold">Empezar a utlizar <span class="text-indigo-600">FindHouse</span> es muy sencillo</p>
+        <p class="text-4xl text-left w-2/4 leading-tight font-semibold">Empezar a utilizar <span class="text-indigo-600">FindHouse</span> es muy sencillo</p>
     </article>
     <form [formGroup]="ownershipForm" (ngSubmit)="nextStep()" class="flex flex-col justify-around items-stretch min-h-full lg:mr-40 mx-16 gap-2">
         <div class="flex flex-row w-full items-center justify-between lg:justify-end">
