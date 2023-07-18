@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . .
 
 # Install the dependencies
-RUN npm install
+RUN npm install --force
 
 # Build the Angular app
 RUN npm run build
