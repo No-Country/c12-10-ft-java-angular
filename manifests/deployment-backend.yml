@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: nocountryc1210.azurecr.io/backend:78bfb304dbee3815f5be566165d79d21f0190668
+        image: nocountryc1210.azurecr.io/backend:latest
         ports:
           - containerPort: 8082
       imagePullSecrets:

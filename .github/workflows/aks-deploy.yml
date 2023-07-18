@@ -13,7 +13,7 @@ env:
 on:
   push:
     branches:
-      - develop-dockerfiles
+      - bkp-main
 
 jobs:
   login-get-k8s-context:
@@ -50,7 +50,8 @@ jobs:
               action: deploy
               manifests: |
                  manifests/deployment-frontend.yml
-                 manifests/service.yml
+                 manifests/deployment-backend.yml
+                 
               imagepullsecrets: |
                  demo-k8s-secret
 
