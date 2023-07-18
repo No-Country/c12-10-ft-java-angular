@@ -27,7 +27,8 @@ spec:
       
       volumes:
         - name: angular-config-map
-          configMap: angular-cm
+          configMap:
+            name: angular-cm
       
     # spec:
     #   containers:
