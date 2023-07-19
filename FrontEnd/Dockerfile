@@ -10,7 +10,7 @@ COPY . .
 RUN npm install --force
 
 # Build the Angular app
-RUN npm run build
+RUN npm run build-prod
 
 # Stage 2: Serve the built app using Nginx
 FROM nginx:1.21
