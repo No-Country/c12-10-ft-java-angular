@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 
-const host = 'http://localhost:3000';
+// const host = 'http://localhost:3000';
+const host = 'http://backend-service.default.svc.cluster.local:8082';
 
 export const environment = {
     production: false,
