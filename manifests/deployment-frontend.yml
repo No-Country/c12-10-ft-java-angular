@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: my-frontend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: frontend
@@ -17,10 +17,10 @@ spec:
         image: nocountryc1210.azurecr.io/frontend:latest
         ports:
           - containerPort: 80
-        volumeMounts:
+        # volumeMounts:
 
-        - name: angular-config-volume #Debe ser el nombre del volumen declarado abajo
-          mountPath: /src/environments/
+        # - name: angular-config-volume #Debe ser el nombre del volumen declarado abajo
+        #   mountPath: /src/environments/
 
         # - name: nginx-config-volume #Debe ser el nombre del volumen declarado abajo
         #   mountPath: /etc/nginx/conf.d/
@@ -28,33 +28,33 @@ spec:
       imagePullSecrets:
       - name: demo-k8s-secret        
                   
-      volumes:
-        - name: angular-config-volume
-          configMap:
-            name: angular-config-map
+      # volumes:
+      #   - name: angular-config-volume
+      #     configMap:
+      #       name: angular-config-map
 
         # - name: ngnix-config-volume
         #   configMap:
         #     name: nginx-config-map
       
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: angular-config-map
-data:
-  # key: value
-  # file: |
-  #   content
-  # ---
-  environment.ts: |
+# ---
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: angular-config-map
+# data:
+#   # key: value
+#   # file: |
+#   #   content
+#   # ---
+#   environment.ts: |
 
-    export const environment = {
-      production: false,
-      apiUrl: 'backend-service.default.svc.cluster.local:8082',
-      enableDebugMode: true,
-      // Add other environment-specific configuration here
-    };
+#     export const environment = {
+#       production: false,
+#       apiUrl: 'backend-service.default.svc.cluster.local:8082',
+#       enableDebugMode: true,
+#       // Add other environment-specific configuration here
+#     };
 
 # ---
 # apiVersion: v1
