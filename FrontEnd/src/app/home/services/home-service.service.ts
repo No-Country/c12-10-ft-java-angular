@@ -1,20 +1,34 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { newHome } from '../interfaces/home.interface';
+import { Observable, Subject, catchError, of } from 'rxjs';
+
 import { environment } from 'src/environments/environment';
+import { ResOwnership } from '../interfaces/home.interface';
+import { respPicture } from '../interfaces/picture.interface';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
 
+  private _value: Subject<string> = new Subject();
 
 
   constructor(private _http: HttpClient) { }
 
-  getHomes(queryParams:any): Observable<newHome[]>{
-    return this._http.get<newHome[]>(`${environment.apiUrl}/home`,  {params: queryParams})
+
+  getHomesByCountry(country:any): Observable<ResOwnership> {
+    return this._http.get<ResOwnership>(`${environment.apiUrl}/ownership/listAllOwnershipByCountry/${country}`)
+
+  }
+
+  getAllHome():Observable<ResOwnership> {
+    return this._http.get<ResOwnership>(`${environment.apiUrl}/ownership/`)
+  }
+
+  getPictureOwnership(id:string):Observable<respPicture> {
+    return this._http.get<respPicture>(`${environment.apiUrl}/images/ownership/${id}`)
   }
 
 }

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { newHome } from '../../interfaces/home.interface';
+
 import { HomeService } from '../../services/home-service.service';
 import { map, switchMap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { Ownership } from 'src/app/property-register/interfaces/Ownership';
 
 @Component({
   selector: 'app-home-list',
@@ -11,7 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomeListComponent {
 
-  public homes: newHome[] = []
+  public homes: Ownership[] = [];
+  value!: any;
 
   constructor(
     private _homeService:HomeService,
@@ -22,11 +24,7 @@ export class HomeListComponent {
 
 
   ngAfterViewInit(): void {
-    this.activeRoute.queryParams
-    .pipe(
-      switchMap(country => this._homeService.getHomes(country)),
-    )
-    .subscribe(homes => this.homes= homes)
+
   }
 
 
