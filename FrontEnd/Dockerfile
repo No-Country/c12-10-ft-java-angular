@@ -1,5 +1,5 @@
 # Stage 1: Build the Angular app
-FROM node:20 AS builder
+FROM node:latest AS builder
 
 WORKDIR /app
 
@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . .
 
 # Install the dependencies
-RUN npm install 
+RUN npm install --legacy-peer-deps
 
 # Build the Angular app
 RUN npm run build --production
