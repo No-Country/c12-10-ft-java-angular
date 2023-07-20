@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { errorMessage } from 'src/app/helpers/errors';
 import { Router } from '@angular/router';
-import { Role } from 'src/app/property-register/interfaces/User';
+import { Role } from 'src/app/auth/interfaces/User';
 
 @Component({
   selector: 'app-signup',
