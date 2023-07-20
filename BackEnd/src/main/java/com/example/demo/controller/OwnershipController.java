@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-
 import com.example.demo.dto.GenericResponseDTO;
 import com.example.demo.dto.OwnershipDTO;
 import com.example.demo.entity.Ownership;
@@ -18,8 +17,6 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
 
-
-
 @RestController
 @RequestMapping("/ownership")
 public class OwnershipController {
@@ -30,75 +27,67 @@ public class OwnershipController {
     @Autowired
     private RoleVerificationService roleVerificationService;
 
-
     @PostMapping("/")
-    public ResponseEntity<?> createOwnerShip(@RequestBody OwnershipRE ownershipRE){
+    public ResponseEntity<?> createOwnerShip(@RequestBody OwnershipRE ownershipRE) {
 
         Optional<OwnershipDTO> ownershipDTOResponse = ownershipService.saveOwnership(ownershipRE);
-        if(ownershipDTOResponse.isPresent()){
-            return ResponseEntity.ok().body(new GenericResponseDTO<>(true,"Success",ownershipDTOResponse));
+        if (ownershipDTOResponse.isPresent()) {
+            return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", ownershipDTOResponse));
         }
 
-        return ResponseEntity.badRequest().body(new GenericResponseDTO<>(false,"No Success",null));
+        return ResponseEntity.badRequest().body(new GenericResponseDTO<>(false, "No Success", null));
     }
 
     @GetMapping("/")
-    public ResponseEntity<?> listAllOwnership(){
+    public ResponseEntity<?> listAllOwnership() {
 
-        List<Ownership> ownershipResponse =  ownershipService.listOwnership();
-        return ResponseEntity.ok().body(new GenericResponseDTO<>(true,"Success",ownershipResponse));
+        List<Ownership> ownershipResponse = ownershipService.listOwnership();
+        return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", ownershipResponse));
     }
 
     @GetMapping("/listAllOwnershipByCountry/{name}")
-    public ResponseEntity<?> listAllOwnershipByCountry(@PathVariable(value = "name")String name){
+    public ResponseEntity<?> listAllOwnershipByCountry(@PathVariable(value = "name") String name) {
         List<Ownership> listAllCountry = ownershipService.listAllOwnershipByCountry(name.toLowerCase());
-        if(!listAllCountry.isEmpty()){
-            return ResponseEntity.ok().body(new GenericResponseDTO<>(true,"Success",listAllCountry));
+        if (!listAllCountry.isEmpty()) {
+            return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", listAllCountry));
         }
-        return  ResponseEntity.badRequest().body(new GenericResponseDTO<>(false,"Empty",null));
-    }
-
-    @GetMapping("/listAllOwnershipByState/{name}")
-    public ResponseEntity<?> listAllOwnershipByState(@PathVariable(value = "name")String name){
-        List<Ownership> listAllState = ownershipService.listAllOwnershipByState(name.toLowerCase());
-        if(!listAllState.isEmpty()){
-            return ResponseEntity.ok().body(new GenericResponseDTO<>(true,"Success",listAllState));
-        }
-        return  ResponseEntity.badRequest().body(new GenericResponseDTO<>(false,"Empty",null));
+        return ResponseEntity.badRequest().body(new GenericResponseDTO<>(false, "Empty", null));
     }
 
     @GetMapping("/listAllOwnershipByCity/{name}")
-    public ResponseEntity<?> listAllOwnershipByCity(@PathVariable(value = "name")String name){
+    public ResponseEntity<?> listAllOwnershipByCity(@PathVariable(value = "name") String name) {
         List<Ownership> listAllCity = ownershipService.listAllOwnershipByCity(name.toLowerCase());
-        if(!listAllCity.isEmpty()){
-            return ResponseEntity.ok().body(new GenericResponseDTO<>(true,"Success",listAllCity));
+        if (!listAllCity.isEmpty()) {
+            return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", listAllCity));
         }
-        return  ResponseEntity.badRequest().body(new GenericResponseDTO<>(false,"Empty",null));
+        return ResponseEntity.badRequest().body(new GenericResponseDTO<>(false, "Empty", null));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateOwnerShip(@RequestBody OwnershipRE ownershipRE,@PathVariable(value = "id")String id){
+    public ResponseEntity<?> updateOwnerShip(@RequestBody OwnershipRE ownershipRE,
+            @PathVariable(value = "id") String id) {
 
-       Optional<Ownership> ownershipResponse = ownershipService.getOwnershipById(id);
-       if(ownershipResponse.isPresent()){
-           Optional<Ownership> ownershipResponse1 = ownershipService.updateOwnership(ownershipRE);
-           return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", new OwnershipDTO(ownershipResponse1.get())));
-       }
+        Optional<Ownership> ownershipResponse = ownershipService.getOwnershipById(id);
+        if (ownershipResponse.isPresent()) {
+            Optional<Ownership> ownershipResponse1 = ownershipService.updateOwnership(ownershipRE);
+            return ResponseEntity.ok()
+                    .body(new GenericResponseDTO<>(true, "Success", new OwnershipDTO(ownershipResponse1.get())));
+        }
 
-       return ResponseEntity.badRequest().body(new GenericResponseDTO<>(false,"Not Success",null));
+        return ResponseEntity.badRequest().body(new GenericResponseDTO<>(false, "Not Success", null));
 
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteOwnership(@PathVariable(value = "id")String id){
+    public ResponseEntity<?> deleteOwnership(@PathVariable(value = "id") String id) {
 
         Boolean ownerDelete = ownershipService.deleteOwnershipById(id);
 
-        if(ownerDelete){
-            return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success",true));
+        if (ownerDelete) {
+            return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", true));
         }
 
-        return ResponseEntity.badRequest().body(new GenericResponseDTO<>(false, "Not Found",false));
+        return ResponseEntity.badRequest().body(new GenericResponseDTO<>(false, "Not Found", false));
 
     }
 

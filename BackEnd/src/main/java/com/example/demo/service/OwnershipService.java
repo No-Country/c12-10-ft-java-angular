@@ -32,15 +32,13 @@ public class OwnershipService {
     public Ownership createOwnershipFromRe(OwnershipRE ownershipRE) {
 
         Ownership ownership = new Ownership();
-        User user = userRepository.findById(ownershipRE.getUser_id()).get();
+        User user = userRepository.findById(ownershipRE.getUserId()).get();
 
         if (ownershipRE.getId() != null)
-            ownership.setOwnershipId(ownershipRE.getId());
+            ownership.setId(ownershipRE.getId());
         ;
         if (ownershipRE.getCountry() != null)
             ownership.setCountry(ownershipRE.getCountry());
-        if (ownershipRE.getState() != null)
-            ownership.setState(ownershipRE.getState());
         if (ownershipRE.getCity() != null)
             ownership.setCity(ownershipRE.getCity());
         if (ownershipRE.getAddress() != null)
@@ -52,10 +50,8 @@ public class OwnershipService {
         if (ownershipRE.getBathrooms() >= 0)
             ownership.setBathrooms(ownershipRE.getBathrooms());
 
-        ownership.setHouse_area(ownershipRE.getHouse_area());
         ownership.setDescription(ownershipRE.getDescription());
         ownership.setPrice(ownershipRE.getPrice());
-        ownership.setDeposit(ownershipRE.getDeposit());
         ownership.setPayment_conditions(ownershipRE.getPayment_conditions());
         ownership.setAdditional_services(ownershipRE.getAdditional_services());
         ownership.setImages(ownershipRE.getImages());
@@ -65,9 +61,7 @@ public class OwnershipService {
         ownership.setLongitude(ownershipRE.getLongitude());
         ownership.setPets_allowed(ownershipRE.getPets_allowed());
         ownership.setSmoking_policy(ownershipRE.getSmoking_policy());
-        if (ownershipRE.getAvailable_date() != null)
-            ownership.setAvailable_date(ownershipRE.getAvailable_date());
-        if (ownershipRE.getUser_id() != null)
+        if (ownershipRE.getUserId() != null)
             ownership.setUserId(user);
 
         return ownership;
@@ -91,8 +85,6 @@ public class OwnershipService {
 
         if (ownershipRE.getCountry() != null)
             ownership.setCountry(ownershipRE.getCountry());
-        if (ownershipRE.getState() != null)
-            ownership.setState(ownershipRE.getState());
         if (ownershipRE.getCity() != null)
             ownership.setCity(ownershipRE.getCity());
         if (ownershipRE.getAddress() != null)
@@ -103,11 +95,8 @@ public class OwnershipService {
             ownership.setRooms(ownershipRE.getRooms());
         if (ownershipRE.getBathrooms() >= 0)
             ownership.setBathrooms(ownershipRE.getBathrooms());
-
-        ownership.setHouse_area(ownershipRE.getHouse_area());
         ownership.setDescription(ownershipRE.getDescription());
         ownership.setPrice(ownershipRE.getPrice());
-        ownership.setDeposit(ownershipRE.getDeposit());
         ownership.setPayment_conditions(ownershipRE.getPayment_conditions());
         ownership.setAdditional_services(ownershipRE.getAdditional_services());
         ownership.setImages(ownershipRE.getImages());
@@ -117,8 +106,6 @@ public class OwnershipService {
         ownership.setLongitude(ownershipRE.getLongitude());
         ownership.setPets_allowed(ownershipRE.getPets_allowed());
         ownership.setSmoking_policy(ownershipRE.getSmoking_policy());
-        if (ownershipRE.getAvailable_date() != null)
-            ownership.setAvailable_date(ownershipRE.getAvailable_date());
 
         return ownership;
 
@@ -140,19 +127,15 @@ public class OwnershipService {
     }
 
     public Optional<Ownership> getOwnershipById(String id) {
-        return Optional.of(ownershipRepository.findOwnershipByOwnershipId(id));
+        return Optional.of(ownershipRepository.findOwnershipById(id));
     }
 
     public Ownership findOwnershipById(String id) {
-        return ownershipRepository.findOwnershipByOwnershipId(id);
+        return ownershipRepository.findOwnershipById(id);
     }
 
     public List<Ownership> listAllOwnershipByCountry(String name) {
         return ownershipRepository.findAllOwnershipByCountry(name);
-    }
-
-    public List<Ownership> listAllOwnershipByState(String name) {
-        return ownershipRepository.findAllOwnershipByState(name);
     }
 
     public List<Ownership> listAllOwnershipByCity(String name) {
