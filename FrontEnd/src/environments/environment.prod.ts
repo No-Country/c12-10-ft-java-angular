@@ -1,5 +1,5 @@
 
-const host = 'http://backend-service.default.svc.cluster.local:8082';
+const host = 'https://nocountry-production-78d6.up.railway.app';
 
 export const environment = {
     production: false,
