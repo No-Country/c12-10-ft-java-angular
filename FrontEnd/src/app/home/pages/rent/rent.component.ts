@@ -30,7 +30,9 @@ export class RentComponent implements OnInit, AfterViewInit {
     private _homeService: HomeService,
     private _formBuilder: FormBuilder,
 
-  ){}
+  ){
+    this.getId();
+  }
 
   // ngOnInit(): void {
 
@@ -45,7 +47,7 @@ export class RentComponent implements OnInit, AfterViewInit {
   // }
 
   ngOnInit(): void{
-    this.getId();
+    console.log(this.id)
     this.getHomes();
     this.getPictures(this.id);
   }
@@ -74,9 +76,9 @@ export class RentComponent implements OnInit, AfterViewInit {
 
   getPictures(id:string): void {
     console.log(id, 'id en picture')
-    this._homeService.getPictureOwnership(id).subscribe((res) =>  {
+    this._homeService.getPictureOwnership(id).pipe(tap(console.log)).subscribe((res) =>  {
       this.picture = res.data;
-      console.log(this.picture)
+      console.log('picture ==>', this.picture)
     });
     }
 

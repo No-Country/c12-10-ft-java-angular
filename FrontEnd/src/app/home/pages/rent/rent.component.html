@@ -2,7 +2,7 @@
   <div class="md:w-11/12 lg:w-4/6">
     <section class="flex flex-col">
       <article class="mb-4">
-        <p class="m-0 text-3xl font-medium sm:py-5 ">Habitación en {{home[0].city | lowercase}} </p>
+        <p class="m-0 text-3xl font-medium sm:py-5 ">Habitación en Juares</p>
         <div class="flex gap-x-3.5 mt-0">
             <div class="flex items-center">
                 <i class="fa-solid fa-star"></i>
@@ -13,17 +13,10 @@
                 <i class="fa-solid fa-heart"></i>
                 <span>Super anfitrion</span>
             </div>
-
-            <span class="underline py-2">{{picture| json}}</span>
-            <div class="flex items-center gap-1">
-                <i class="fa-solid fa-heart"></i>
-                <span>{{picture}}</span>
-            </div>
-
         </div>
       </article>
-        <ng-container >
 
+        <ng-container >
           <div class="grid grid-rows-4 grid-cols-8 gap-2 h-lg">
             <div class="row-span-4 col-span-4 ">
               <img class="h-full" src="{{imageUrl}}">
@@ -40,8 +33,10 @@
       <div class="w-4/6">
         <article class="border-b-2  border-b-gray-300 w-10/12">
           <ul class="flex flex-row gap-6 py-5">
-              <li class="list-disc">{{home[0].rooms}} Cama</li>
-              <li class="list-disc">{{home[0].bathrooms}} Baño</li>
+              <li>1 Cuarto</li>
+              <li class="list-disc">1 Cama</li>
+              <li class="list-disc">2 Personas</li>
+              <li class="list-disc">1 Baño</li>
           </ul>
         </article>
         <div class="w-10/12">
@@ -51,7 +46,7 @@
                       <div class="flex flex-col lg:flex-col xl:flex-row sm:flex-row gap-x-5 justify-center items-center ">
                           <img class="w-24 h-24 rounded-full shadow-lg" src="{{profile}}" alt="Bonnie image" />
                           <div class="flex flex-col ">
-                              <span class="text-2xl text-center font-bold text-gray-900">{{home[0].userId?.name}}</span>
+                              <span class="text-2xl text-center font-bold text-gray-900">Bonnie Green</span>
                               <span class="text-sm text-center text-gray-900  font-medium">Super anfitrion</span>
                           </div>
                       </div>
@@ -69,14 +64,16 @@
                       </div>
                       <div class="flex flex-row items-center justify-start gap-3">
                           <i class="fa-solid fa-cake-candles" style="color: #555557;"></i>
-                          <span>{{home[0].userId?.birthDate}}</span>
+                          <span>01/01/1990</span>
                       </div>
                       <div class="flex flex-row items-center justify-start gap-3">
                           <i class="fa-solid fa-dog" style="color: #555557;"></i>
                           <span>Mascotas: Permitidas</span>
                       </div>
                       <div>
-                          <p class="">{{home[0].userId?.description}}</p>
+                          <p class="">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque illum in cum ipsam amet quos,
+                              aliquid
+                              perferendis eius ea iure.</p>
                       </div>
                   </div>
           </article>
@@ -96,7 +93,7 @@
             </div>
       </article>
 
-      <!-- <div class="flex w-full justify-center">
+      <div class="flex w-full justify-center">
         <mat-accordion class="example-headers-align w-full">
           <mat-expansion-panel>
             <mat-expansion-panel-header>
@@ -120,7 +117,7 @@
           </mat-expansion-panel>
         </mat-accordion>
 
-      </div> -->
+      </div>
 
       <div class="grid lg:grid-cols-2 gap-x-14 gap-y-6 md:grid-cols-1 sm:grid-cols-1">
           <article class="mt-5 flex flex-col gap-5">
@@ -216,4 +213,3 @@
     </section>
   </div>
 </div  >
-
