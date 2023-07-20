@@ -18,41 +18,30 @@ spec:
         ports:
           - containerPort: 80
         volumeMounts:
-        - name: angular-config-map #Debe ser el nombre del volumen declarado abajo
+
+        - name: angular-config-volume #Debe ser el nombre del volumen declarado abajo
           mountPath: /src/environments/
+
+        # - name: nginx-config-volume #Debe ser el nombre del volumen declarado abajo
+        #   mountPath: /etc/nginx/conf.d/
+
       imagePullSecrets:
       - name: demo-k8s-secret        
                   
       volumes:
-        - name: angular-config-map
+        - name: angular-config-volume
           configMap:
-            name: angular-cm
-      
-    # spec:
-    #   containers:
-    #   - name: nginx-http
-    #     image: nginx
-    #     ports:
-    #     - name: web
-    #       containerPort: 80
-    #     volumeMounts:
-    #     - name: nginx-http-cm
-    #       mountPath: /etc/nginx
-    #     - name: nginx-http-vol
-    #       mountPath: /usr/share/nginx/html
-    #   volumes:
-    #   - name: nginx-http-cm
-    #     configMap:
-    #       name: nginx-http-cm
-    #   - name: nginx-http-vol
-    #     hostPath:
-    #       path: /var/nginxserver
+            name: angular-config-map
 
+        # - name: ngnix-config-volume
+        #   configMap:
+        #     name: nginx-config-map
+      
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: angular-cm
+  name: angular-config-map
 data:
   # key: value
   # file: |
@@ -67,8 +56,53 @@ data:
       // Add other environment-specific configuration here
     };
 
+# ---
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: ngnix-config-map
+# data:
+#   # key: value
+#   # file: |
+#   #   content
+#   # ---
+#   nginx.conf: |
 
-# my-service.default.svc.cluster.local
+#     worker_processes 1;
+
+#     events {
+#         worker_connections 1024;
+#     }
+
+#     http {
+#         include mime.types;
+#         default_type application/octet-stream;
+#         sendfile on;
+
+#         gzip on;
+#         gzip_comp_level 5;
+#         gzip_min_length 256;
+#         gzip_proxied any;
+#         gzip_vary on;
+
+#         server {
+#             listen 80;
+
+#             # Replace 'your-angular-app-domain.com' with your actual domain name
+#             server_name 4.157.80.23;
+
+#             location / {
+#                 # Replace '/path/to/angular/dist' with the path to your Angular app's built files
+#                 root /usr/share/nginx/html;
+#                 index index.html;
+#                 try_files $uri $uri/ /index.html;
+#             }
+#             }
+#             }
+
+
+
+# backend-service.default.svc.cluster.local
 
 ### Service for the frontend ###
 
