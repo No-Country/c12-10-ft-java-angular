@@ -9,11 +9,9 @@ import java.util.List;
 @Repository
 public interface OwnershipRepository extends MongoRepository<Ownership, String> {
 
-    Ownership findOwnershipByOwnershipId(String ownershipId);
+    Ownership findOwnershipById(String ownershipId);
 
     List<Ownership> findAllOwnershipByCountry(String name);
-
-    List<Ownership> findAllOwnershipByState(String name);
 
     List<Ownership> findAllOwnershipByCity(String name);
 }

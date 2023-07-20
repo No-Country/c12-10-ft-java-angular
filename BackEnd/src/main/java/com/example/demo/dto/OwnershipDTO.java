@@ -13,17 +13,15 @@ import java.sql.Date;
 public class OwnershipDTO implements Serializable {
 
     private String id;
+
     private String country;
-    private String state;
     private String city;
     private String address;
     private String house_type;
     private Integer rooms;
     private Integer bathrooms;
-    private Double house_area;
     private String description;
     private Double price;
-    private Double deposit;
     private String payment_conditions;
     private String[] additional_services;
     private String[] additional_fees;
@@ -33,17 +31,14 @@ public class OwnershipDTO implements Serializable {
     private Double longitude;
     private Boolean pets_allowed;
     private String smoking_policy;
-    private String available_date;
-    private User user;
+    private User userId;
 
     public OwnershipDTO(Ownership ownership) {
 
-        if (ownership.getOwnershipId() != null)
-            this.id = ownership.getOwnershipId();
+        if (ownership.getId() != null)
+            this.id = ownership.getId();
         if (ownership.getCountry() != null)
             this.country = ownership.getCountry();
-        if (ownership.getState() != null)
-            this.state = ownership.getState();
         if (ownership.getCity() != null)
             this.city = ownership.getCity();
         if (ownership.getAddress() != null)
@@ -53,13 +48,10 @@ public class OwnershipDTO implements Serializable {
 
         this.rooms = ownership.getRooms();
         this.bathrooms = ownership.getBathrooms();
-        this.house_area = ownership.getHouse_area();
         this.description = ownership.getDescription();
 
         if (ownership.getPrice() > 0)
             this.price = ownership.getPrice();
-        if (ownership.getDeposit() > 0)
-            this.deposit = ownership.getDeposit();
 
         this.payment_conditions = ownership.getPayment_conditions();
         this.additional_services = ownership.getAdditional_services();
@@ -71,10 +63,8 @@ public class OwnershipDTO implements Serializable {
         this.longitude = ownership.getLongitude();
         this.pets_allowed = ownership.getPets_allowed();
         this.smoking_policy = ownership.getSmoking_policy();
-        if (ownership.getAvailable_date() != null)
-            this.available_date = ownership.getAvailable_date();
         if (ownership.getUserId() != null)
-            this.user = ownership.getUserId();
+            this.userId = ownership.getUserId();
 
     }
 
