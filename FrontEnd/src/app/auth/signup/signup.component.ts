@@ -23,7 +23,7 @@ export class SignupComponent {
   constructor(private authService: AuthService, private router: Router) {
     this.registerForm = new FormGroup({
       name: new FormControl('', [Validators.pattern('^[a-zA-Z]+$'), Validators.required]),
-      user: new FormControl('', [Validators.pattern('^(?!^\\s+$)\\s*[A-Za-z\\s]+\\s*$'), Validators.required]),
+      username: new FormControl('', [Validators.pattern('^(?!^\\s+$)\\s*[A-Za-z\\s]+\\s*$'), Validators.required]),
       email: new FormControl('', [Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'), Validators.required]),
       password: new FormControl('', [Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/), Validators.required]),
       role: new FormControl('', Validators.required),

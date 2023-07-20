@@ -16,11 +16,11 @@
                 </div>   
                 <label for="user">Usuario</label>
                 <div class="text-sm">
-                    <input formControlName="user" type="text" autocomplete="off" id="user" class="w-full border-2 py-2 px-3 outline-none rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ingrese su contraseña"/>
+                    <input formControlName="username" type="text" autocomplete="off" id="user" class="w-full border-2 py-2 px-3 outline-none rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ingrese su contraseña"/>
                 </div>
-                <div class="text-red-500 text-sm" *ngIf="f['user'].errors && f['user'].touched || submitted && f['user'].errors">
-                    <span *ngIf="f['user'].errors['required']">{{errorMessage.required}}</span>
-                    <span *ngIf="f['user'].errors['pattern']">{{errorMessage.letters}}</span>
+                <div class="text-red-500 text-sm" *ngIf="f['username'].errors && f['username'].touched || submitted && f['username'].errors">
+                    <span *ngIf="f['username'].errors['required']">{{errorMessage.required}}</span>
+                    <span *ngIf="f['username'].errors['pattern']">{{errorMessage.letters}}</span>
                 </div>   
                 <label for="email">Email</label>
                 <div class="text-sm">
