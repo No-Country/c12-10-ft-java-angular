@@ -3,7 +3,7 @@ name: Build and Push Container
 on:
   push:
     branches:
-      - bkp-main
+      - main
 
 env:
   REGISTRY: ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io
