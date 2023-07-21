@@ -1,0 +1,16 @@
+<article class="mt-5 flex flex-col gap-5">
+  <div>
+      <div class="flex flex-row items-center justify-start gap-5">
+          <img class="w-12 h-12 rounded-full shadow-lg" src="{{profile}}" alt="Bonnie image" />
+          <div class="flex flex-col">
+              <span class="font-semibold">Sadosky</span>
+              <span class="text-sm font-semibold text-gray-500">{{review.postDate}}</span>
+          </div>
+      </div>
+      <div class="flex flex-col gap-3">
+          <p>{{review.comment}}</p>
+          <span class="underline cursor-pointer hover:text-indigo-400">Mostrar mas <i
+                  class="fa-solid fa-arrow-right underline cursor-pointer"></i></span>
+      </div>
+  </div>
+</article>

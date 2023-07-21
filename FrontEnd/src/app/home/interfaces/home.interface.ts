@@ -26,7 +26,7 @@ export interface Ownership {
   pets_allowed: boolean,
   smoking_policy: string,
   available_date: number,
-  userId?:UserOwnership
+  userId:UserOwnership
 }
 
 export interface UserOwnership {

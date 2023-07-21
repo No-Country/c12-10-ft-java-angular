@@ -19,6 +19,11 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatStepperModule} from '@angular/material/stepper';
+import { UrlImagePipe } from './pipes/url-image.pipe';
+import { PluralPipe } from './pipes/plural.pipe';
+import { CardUserComponent } from './components/card-user/card-user.component';
+import { RegisterReviewComponent } from './components/register-review/register-review.component';
+import { DetailReviewComponent } from './components/detail-review/detail-review.component';
 
 
 @NgModule({
@@ -30,6 +35,11 @@ import {MatStepperModule} from '@angular/material/stepper';
     CardHomeComponent,
     ContactComponent,
     OwnershipComponent,
+    UrlImagePipe,
+    PluralPipe,
+    CardUserComponent,
+    RegisterReviewComponent,
+    DetailReviewComponent,
 
   ],
   imports: [

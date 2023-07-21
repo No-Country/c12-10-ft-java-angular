@@ -35,19 +35,19 @@ export class OwnershipComponent implements OnInit {
   }
 
 
-  ngAfterViewInit(): void {
+  // ngAfterViewInit(): void {
 
-    this.activeRoute.params
-    .subscribe(({country}) => {
-      if((!this._normalizeValue(country))){
-        console.log("Please select");
-      };
-      this._homeService.getHomesByCountry(this._normalizeValue(country)).subscribe(res =>{
-        this.homes =res.data
-      } )
-    })
+  //   this.activeRoute.params
+  //   .subscribe(({country}) => {
+  //     if((country)){
+  //       console.log("Please select");
+  //     };
+  //     this._homeService.getHomesByCountry(country).subscribe(res =>{
+  //       this.homes =res.data
+  //     } )
+  //   })
 
-  }
+  // }
   getHomes() {
     this.activeRoute.params
     .subscribe(({rs}) => {
@@ -66,15 +66,15 @@ export class OwnershipComponent implements OnInit {
     } );
   }
 
-  getDataByCountry(country:any){
-    this._homeService.getHomesByCountry(this._normalizeValue(country)).subscribe(res =>{
+  getDataByCountry(country:string) {
+    this._homeService.getHomesByCountry(country).subscribe(res =>{
       this.homes =res.data
     } );
   }
 
-  private _normalizeValue(value: any): any {
-    return value.toLowerCase().replace(/\s/g, '');
-  }
+  // private _normalizeValue(value: string): string {
+  //   return value.toLowerCase().replace(/\s/g, '');
+  // }
 }
 
 
