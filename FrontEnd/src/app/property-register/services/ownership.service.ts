@@ -93,17 +93,21 @@ export class OwnershipService {
       activate: false
     }
   ]
+  private imageNames: string[] = ['']
   userId: string = window.localStorage.getItem('userId') || ''
   constructor(private _http: HttpClient) {}
   public _typeOfHouse: BehaviorSubject<any> = new BehaviorSubject<any>(this.types);
   public _ownership: BehaviorSubject<Ownership> = new BehaviorSubject<Ownership>(this.ownership);
+  public names: BehaviorSubject<string[]> = new BehaviorSubject<string[]>(this.imageNames);
+
   register(ownership: Ownership) {
     ownership.userId = this.userId
-   if(ownership.additional_services.length > 0) {
-    const filter:any = ownership.additional_services.map(service => service.title)
-    console.log(ownership);
-    ownership.additional_services = filter
-   }
+    if(ownership.additional_services.length > 0) {
+      const filter: any = ownership.additional_services.map((service: Service) => service?.title)
+      this._typeOfHouse.next(this.types)
+      console.log(ownership);
+      ownership.additional_services = filter
+    }
     const clonedObject = { ...ownership };
     delete clonedObject.images;
     return this._http.post(`${environment.apiUrl}/ownership/`, clonedObject)
