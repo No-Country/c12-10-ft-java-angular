@@ -7,15 +7,24 @@
     </svg>
     <span class="text-xl font-medium text-[#e45858]">FindHouse</span>
   </div>
-  <div class="w-96 flex border rounded-3xl justify-between p-1 shadow-md	">
-    <input class="focus:outline-none px-3 ml-4 w-full" type="text" placeholder="Buscar" [formControl]="search">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#e45858" class="w-8 h-8">
-      <path d="M8.25 10.875a2.625 2.625 0 115.25 0 2.625 2.625 0 01-5.25 0z" />
-      <path fill-rule="evenodd"
-        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.125 4.5a4.125 4.125 0 102.338 7.524l2.007 2.006a.75.75 0 101.06-1.06l-2.006-2.007a4.125 4.125 0 00-3.399-6.463z"
-        clip-rule="evenodd" />
-    </svg>
+
+  <div class="flex items-center justify-between border border-gray100 rounded-3xl p-2 pl-4 w-96">
+    <div class="flex h-fit items-center w-full">
+      <input [formControl]="search"
+      class="outline-none focus:outline-none bg-tranparente w-full"
+      matInput [(ngModel)]="value" type="text" placeholder="Buscar por Pais...." >
+      <button class="" *ngIf="value" matSuffix mat-icon-button (click)="value=''">
+        <mat-icon class="text-stroke font-bold text-sm">close</mat-icon>
+      </button>
+    </div>
+    <mat-icon class="bg-orange h-8 w-8 rounded-full text-white p-0.5 ">
+      <span class="material-symbols-outlined">
+        search
+      </span>
+    </mat-icon>
   </div>
+
+
   <div class="flex gap-2">
     <button routerLink="/property-register"
       class="text-sm font-medium text-[#e45858] rounded-full p-3 transition duration-150 ease-in-out hover:bg-neutral-100 hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">Publica

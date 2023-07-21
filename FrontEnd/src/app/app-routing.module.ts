@@ -4,7 +4,7 @@ import { PropertyRegisterComponent } from './property-register/property-register
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   {
@@ -14,11 +14,11 @@ const routes: Routes = [
   {
     path: 'property-register', component: PropertyRegisterComponent
   },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  }
+  // {
+  //   path: '',
+  //   redirectTo: 'home',
+  //   pathMatch: 'full'
+  // }
 ];
 
 
