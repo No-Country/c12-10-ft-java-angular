@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: nocountryc1210.azurecr.io/backend:latest
+        ports:
+          - containerPort: 8082
+      imagePullSecrets:
+      - name: demo-k8s-secret
+
+### Service for the backend ###
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  # type: nodeport
+  selector:
+    app: backend
+  ports:
+  - protocol: TCP
+    port: 8082
+    targetPort: 8082
