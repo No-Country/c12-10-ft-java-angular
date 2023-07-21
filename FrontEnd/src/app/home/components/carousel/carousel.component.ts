@@ -15,7 +15,7 @@ export class CarouselComponent {
   });
   isLinear = false;
 
-  images = [
+  images:string[] = [
     'https://raw.githubusercontent.com/themesberg/flowbite/6b58ebaddb18d995e48dc12781645654f767b590/static/images/carousel/carousel-1.svg',
     'https://raw.githubusercontent.com/themesberg/flowbite/6b58ebaddb18d995e48dc12781645654f767b590/static/images/carousel/carousel-2.svg',
     'https://raw.githubusercontent.com/themesberg/flowbite/6b58ebaddb18d995e48dc12781645654f767b590/static/images/carousel/carousel-3.svg',

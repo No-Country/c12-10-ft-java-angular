@@ -50,16 +50,16 @@
 </div> -->
 
 
-<mat-stepper linear=false #stepper>
+<mat-stepper linear=false  headerPosition="bottom" #stepper>
   <ng-container *ngFor="let item of images">
-    <mat-step class="flex">
+    <mat-step class="">
       <div class="">
         <img src={{item}} class="w-full" alt="...">
       </div>
-      <div>
-        <button mat-button matStepperPrevious class="text-3xl text-black">Back</button>
-        <button mat-button (click)="stepper.next()">Next</button>
-      </div>
+
+      <button mat-button matStepperPrevious class="text-3xl text-black">Back</button>
+      <button mat-button (click)="stepper.next()">Next</button>
+
     </mat-step>
   </ng-container>
 </mat-stepper>

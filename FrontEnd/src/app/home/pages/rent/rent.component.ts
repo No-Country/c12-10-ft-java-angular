@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { HomeService } from '../../services/home-service.service';
 import { Observable, filter, map, switchMap, tap } from 'rxjs';
@@ -6,7 +6,7 @@ import { Ownership } from '../../interfaces/home.interface';
 import { Picture } from '../../interfaces/picture.interface';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Review } from '../../interfaces/review.interface';
-
+import {MediaMatcher} from '@angular/cdk/layout'
 
 @Component({
   selector: 'app-rent',
@@ -27,13 +27,27 @@ export class RentComponent implements OnInit, AfterViewInit {
 
   reviews!: Review[];
 
+  public mobileQuery!: MediaQueryList;
+
+  private _mobileQueryListener: () => void;
 
   constructor(
     private _activeRouter: ActivatedRoute,
     private _homeService: HomeService,
     private _formBuilder: FormBuilder,
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher
+
   )
-  {this.getId();}
+  {
+
+    this.getId();
+
+    this.mobileQuery = media.matchMedia('(min-width: 1024px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+
+  }
 
   ngOnInit(): void{
     console.log(this.id)
@@ -90,9 +104,9 @@ export class RentComponent implements OnInit, AfterViewInit {
   //   secondCtrl: ['', Validators.required],
   // });
   // isLinear = false;
-
-  isLinear = false;
-
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
 }
 
 
