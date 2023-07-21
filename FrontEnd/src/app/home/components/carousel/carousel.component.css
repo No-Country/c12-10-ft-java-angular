@@ -1,0 +1,13 @@
+
+/* mat-stepper.mat-horizontal-stepper-header-container.ng-tns-c931760428-0 {
+  display: none !important;
+} */
+
+
+.mat-step-header {
+  display: none;
+}
+
+mat-step-header {
+  display: none;
+}

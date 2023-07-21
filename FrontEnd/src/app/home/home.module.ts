@@ -24,6 +24,7 @@ import { PluralPipe } from './pipes/plural.pipe';
 import { CardUserComponent } from './components/card-user/card-user.component';
 import { RegisterReviewComponent } from './components/register-review/register-review.component';
 import { DetailReviewComponent } from './components/detail-review/detail-review.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { DetailReviewComponent } from './components/detail-review/detail-review.
     CardUserComponent,
     RegisterReviewComponent,
     DetailReviewComponent,
+    CarouselComponent,
 
   ],
   imports: [

@@ -50,11 +50,9 @@ export class OwnershipComponent implements OnInit {
   // }
   getHomes() {
     this.activeRoute.params
-    .subscribe(({rs}) => {
-      if(rs === undefined){
-        this.defaultData()
-      }
-      this.getDataByCountry(rs)
+    .subscribe(({country}) => {
+      (country === undefined) ? this.defaultData() : this.getDataByCountry(country)
+
     }
       );
 
