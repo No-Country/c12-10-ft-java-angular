@@ -36,6 +36,7 @@ jobs:
 
       - name: Build Java app with Maven
         run: cd BackEnd && mvn clean package
+             echo "DATABASE_URL=${{ secrets.MONGODB_URI }}" > env.properties
 
       - name: 'Build and push backend image'
         uses: azure/docker-login@v1
