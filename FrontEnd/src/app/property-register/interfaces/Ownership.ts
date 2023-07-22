@@ -1,11 +1,17 @@
+// import { User } from 'src/app/property-register/interfaces/User';
 import { Service } from "./Service";
 
 export enum TypeOfHouse {
-    APARTMENT, 
+    APARTMENT,
     HOUSE,
     CABIN
 }
 
+export interface ResOwnership {
+  success:boolean,
+  message: string,
+  data: Ownership[]
+}
 export interface Ownership {
     userId: string,
     ownershipId: string,
@@ -31,5 +37,20 @@ export interface Ownership {
     longitude: number,
     pets_allowed: boolean,
     smoking_policy: string,
-    available_date: number
+    available_date: number,
+    user?:UserOwnership
+}
+
+export interface UserOwnership {
+  id: string,
+  userId: string,
+  username: string,
+  password: string,
+  name: string,
+  email: string,
+  phone: string,
+  role: string,
+  registerDate: Date,
+  birthDate:Date,
+  description:string,
 }

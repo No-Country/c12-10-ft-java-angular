@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 import { Route, Router } from '@angular/router';
-import { newHome } from '../../interfaces/home.interface';
+import { Ownership } from '../../interfaces/home.interface';
+
+
 
 @Component({
   selector: 'home-card-home',
@@ -12,13 +14,10 @@ export class CardHomeComponent {
 
 
   @Input()
-  public home! : newHome
-
+  public home! : Ownership
   constructor(private router: Router) {}
 
-
-
-  onClick = () => {
-    // this.router.navigate('')
+  onClick = (id:string) => {
+    this.router.navigate([`detail-home/${id}`]);
   }
 }
