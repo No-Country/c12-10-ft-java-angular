@@ -22,9 +22,14 @@ export class PropertyRegisterImagesComponent {
         this.images = data.images
       }
     })
+    this.ownershipService.names.subscribe((data) => {
+      this.names = data
+    })
+   
   }
   onFileChange() {
     this.names = []
+  
     const filemultiple: any = document.querySelector("#dropzone-file");
     const formData = new FormData();
     for (let i = 0; i < filemultiple.files.length; i++) {
@@ -32,7 +37,9 @@ export class PropertyRegisterImagesComponent {
       this.names.push(image)
       formData.append("files", filemultiple.files[i]);
     }
+   
     this.ownership.images = formData
+    this.ownershipService.names.next(this.names)
     this.ownershipService._ownership.next(this.ownership)
   }
   removeImage(image: string) {

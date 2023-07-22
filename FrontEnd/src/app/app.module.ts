@@ -9,6 +9,8 @@ import { PropertyRegisterComponent } from './property-register/property-register
 import { PropertyRegisterAccommodationComponent } from './property-register/components/property-register-accommodation/property-register-accommodation.component';
 import { PropertyRegisterImagesComponent } from './property-register/components/property-register-images/property-register-images.component';
 import { PropertyRegisterServicesComponent } from './property-register/components/property-register-services/property-register-services.component';
+import { MapComponent } from './property-register/components/map/map.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { PropertyRegisterServicesComponent } from './property-register/component
     PropertyRegisterComponent,
     PropertyRegisterAccommodationComponent,
     PropertyRegisterImagesComponent,
-    PropertyRegisterServicesComponent
+    PropertyRegisterServicesComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { PropertyRegisterServicesComponent } from './property-register/component
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

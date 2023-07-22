@@ -3,5 +3,6 @@ export const errorMessage = {
     numbers: 'Por favor, ingrese solo números',
     letters: 'Por favor, ingrese solo letras',
     check: 'Por favor, revise bien',
-    password: 'Contraseña debe tener al menos 8 caracteres con letras (mayúsculas y minúsculas) y números'
+    password: 'Contraseña debe tener al menos 8 caracteres con letras (mayúsculas y minúsculas) y números',
+    error: 'Ocurrio un error inesperado'
 }
