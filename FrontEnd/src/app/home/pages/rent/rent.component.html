@@ -1,86 +1,92 @@
 <ng-container *ngIf="home">
-<div class="flex w-full justify-center flex-col items-center mt-4">
-  <div class="md:w-11/12 lg:w-4/6">
-    <section class="flex flex-col">
-
-        <article class="mt-2">
-          <p class="text-3xl font-medium">Habitación en {{home.city | titlecase}} </p>
-          <div class="flex gap-x-3.5 pb-3" >
-              <div class="flex items-center">
-                  <i class="fa-solid fa-star"></i>
-                  <span>4.5</span>
-              </div>
-              <span class="underline">15 reseñas</span>
-              <div class="flex items-center gap-1">
-                  <i class="fa-solid fa-heart"></i>
-                  <span>Super anfitrion</span>
-              </div>
-          </div>
-        </article>
-
-
-      <!-- home galery -->
-      <ng-container >
-        <div class="grid grid-rows-4 grid-cols-8 gap-2 h-lg">
-            <img class="h-full row-span-4 col-span-4" src="{{imageUrl}}">
-          <ng-container *ngFor="let picture of pictures">
-            <div class="row-span-2 col-span-2" ><img class="h-full w-full" src="{{picture | urlImage}}" ></div>
-          </ng-container>
-        </div>
-      </ng-container>
-      <!-- ---------------------------------------------------------------- -->
-    </section>
-
-    <section class="flex mt-3 gap-x-6">
-
-      <div class="w-3/5">
-        <!-- detail property ------------------------------------------->
-
-          <article class="border-b-2  border-b-gray-300 w-full">
-            <ul class="flex flex-row gap-6 py-3 px-3">
-                <li class="list-disc font-medium"> {{home.house_type | titlecase}} </li>
-                <li class="list-disc font-medium"> {{home.rooms}}  {{'Cuarto'| plural:home.rooms}} </li>
-                <li class="list-disc font-medium"> {{home.bathrooms}}  {{'Baño'| plural:home.rooms}}</li>
-            </ul>
+  <div class="flex w-full justify-center mt-4">
+    <div class="w-full lg:w-4/6 ">
+      <section class="flex flex-col">
+          <article class="mt-2">
+            <p class="text-3xl font-medium px-4 lg:px-0">Habitación en {{home.city | titlecase}} </p>
+            <div class="flex gap-x-3.5 pb-3 px-4 lg:px-0" >
+                <div class="flex items-center">
+                    <i class="fa-solid fa-star"></i>
+                    <span>4.5</span>
+                </div>
+                <span class="underline ">15 reseñas</span>
+                <div class="flex items-center gap-1">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Super anfitrion</span>
+                </div>
+            </div>
           </article>
 
+
+        <!-- home galery -->
+        <ng-container *ngIf="mobileQuery.matches" >
+          <div class="grid grid-rows-4 grid-cols-8 gap-2 p-4 lg:p-0">
+              <img class="h-full row-span-4 col-span-4" src="{{principalPicture | urlImage}}">
+            <ng-container *ngFor="let picture of newPictures">
+              <div class="row-span-2 col-span-2" ><img class="h-full w-full" src="{{picture | urlImage}}" ></div>
+            </ng-container>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="!mobileQuery.matches">
+          <app-carousel [images]="pictures"></app-carousel>
+        </ng-container>
         <!-- ---------------------------------------------------------------- -->
-        <div class="w-5/6">
-          <p class="text-2xl font-medium pt-6">Conoce al anfitrion</p>
-            <home-card-user [home] ="home" ></home-card-user>
+      </section>
+
+      <section class="flex  flex-col lg:flex-row mt-3 gap-x-6">
+
+        <div class="w-full lg:w-3/5">
+          <!-- detail property ------------------------------------------->
+
+            <article class="border-b-2  border-b-gray-300 w-full px-4 lg:px-0">
+              <ul class="flex flex-row gap-6 py-3 px-3">
+                  <li class="list-disc font-medium"> {{home.house_type | titlecase}} </li>
+                  <li class="list-disc font-medium"> {{home.rooms}}  {{'Cuarto'| plural:home.rooms}} </li>
+                  <li class="list-disc font-medium"> {{home.bathrooms}}  {{'Baño'| plural:home.rooms}}</li>
+              </ul>
+            </article>
+
+          <!-- ---------------------------------------------------------------- -->
+          <div class="w-full md:w-3/6 lg:w-11/12 bg-antiflashwhite md:bg-transparent p-4">
+            <p class="text-2xl font-medium pt-6">Conoce al anfitrion</p>
+              <home-card-user [home] ="home" ></home-card-user>
+          </div>
+
+          <!-- Pendiente de implementar -->
         </div>
 
-        <!-- Pendiente de implementar -->
-      </div>
+        <div class="w-2/5 bg-black text-white px-4 lg:px-0" >Mapas</div>
 
-      <div class="w-2/5 bg-black text-white">Mapas</div>
+      </section>
 
-    </section>
-  <section class="flex flex-col gap-y-7 mt-9">
-      <article class="flex flex-col mt-5">
-            <div class="flex flex-row items-center justify-start gap-5">
-                <div class="flex gap-x-3.5 justify-center items-center">
-                    <i class="fa-solid fa-star"></i>
-                    <span class="text-xl font-medium" >4.5</span>
+      <section class="flex flex-col gap-y-7 mt-9 px-4 lg:px-0">
+          <article class="flex flex-col mt-5">
+                <div class="flex flex-row items-center justify-start gap-5">
+                    <div class="flex gap-x-3.5 justify-center items-center">
+                        <i class="fa-solid fa-star"></i>
+                        <span class="text-xl font-medium" >4.5</span>
+                    </div>
+                    <span class="text-xl font-medium">15 reseñas</span>
                 </div>
-                <span class="text-xl font-medium">15 reseñas</span>
-            </div>
-      </article>
+          </article>
 
-      <home-register-review></home-register-review>
+          <home-register-review></home-register-review>
 
-      <div class="grid lg:grid-cols-2 gap-x-14 gap-y-6 md:grid-cols-1 sm:grid-cols-1">
-        <ng-container *ngFor="let review  of reviews">
-          <home-detail-review [review]="review"></home-detail-review>
-        </ng-container>
+          <div class="grid lg:grid-cols-2 gap-x-14 gap-y-6 md:grid-cols-1 sm:grid-cols-1">
+            <ng-container *ngFor="let review  of reviews">
+              <home-detail-review [review]="review"></home-detail-review>
+            </ng-container>
 
-        <ng-container *ngIf="!reviews || reviews.length>4">
-            <button class="border-2 border-gray-300 py-3 px-5 rounded-lg my-5 hover:bg-gray-100">
-              Mostrar todas las reseñas
-            </button>
-        </ng-container>
-      </div>
-  </section>
+            <ng-container *ngIf="!reviews || reviews.length>4">
+                <button class="border-2 border-gray-300 py-3 px-5 rounded-lg my-5 hover:bg-gray-100">
+                  Mostrar todas las reseñas
+                </button>
+            </ng-container>
+          </div>
+      </section>
+    </div>
   </div>
-</div>
 </ng-container>
+
+

@@ -14,6 +14,8 @@ const routes: Routes = [
   {
     path: 'property-register', component: PropertyRegisterComponent
   },
+
+
   // {
   //   path: '',
   //   redirectTo: 'home',
