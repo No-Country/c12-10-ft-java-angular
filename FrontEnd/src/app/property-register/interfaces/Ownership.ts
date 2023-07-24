@@ -1,4 +1,4 @@
-import { User } from 'src/app/property-register/interfaces/User';
+// import { User } from 'src/app/property-register/interfaces/User';
 import { Service } from "./Service";
 
 export enum TypeOfHouse {
