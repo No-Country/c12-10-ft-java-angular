@@ -3,10 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PropertyRegisterComponent } from './property-register/property-register.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
-  },
+
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
@@ -14,6 +11,12 @@ const routes: Routes = [
   {
     path: 'property-register', component: PropertyRegisterComponent
   },
+
+  {
+    path: '',
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+  },
+
 
 
   // {

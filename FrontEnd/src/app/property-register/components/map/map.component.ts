@@ -17,7 +17,7 @@ export class MapComponent implements AfterViewInit, OnDestroy, OnInit {
       if (lngFromLocalStorage !== null) {
         return parseFloat(lngFromLocalStorage);
       } else {
-        return -58.56787140150726; 
+        return -58.56787140150726;
       }
     })(),
     lat: (() => {

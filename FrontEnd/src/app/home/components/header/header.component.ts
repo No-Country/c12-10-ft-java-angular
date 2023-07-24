@@ -50,7 +50,6 @@ export class HeaderComponent implements  AfterViewInit , OnDestroy {
       .subscribe((res) => {
         if(!res) return;
         this.router.navigate([`/${res}`])
-        console.log('res header search-->',res);
       })
   }
 

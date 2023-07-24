@@ -28,26 +28,9 @@ export class OwnershipComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-
     this.getHomes()
-
-
   }
 
-
-  // ngAfterViewInit(): void {
-
-  //   this.activeRoute.params
-  //   .subscribe(({country}) => {
-  //     if((country)){
-  //       console.log("Please select");
-  //     };
-  //     this._homeService.getHomesByCountry(country).subscribe(res =>{
-  //       this.homes =res.data
-  //     } )
-  //   })
-
-  // }
   getHomes() {
     this.activeRoute.params
     .subscribe(({country}) => {
