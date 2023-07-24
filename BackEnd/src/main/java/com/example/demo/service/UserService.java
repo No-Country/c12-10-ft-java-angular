@@ -1,12 +1,15 @@
 package com.example.demo.service;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.entity.User;
+import com.example.demo.entity.UserEntity;
 import com.example.demo.repository.UserRepository;
 
 @Service
@@ -15,34 +18,50 @@ public class UserService {
     private final UserRepository userRepository;
 
     @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     // Get all users
-    public List<User> listUser() {
+    public List<UserEntity> listUser() {
         return userRepository.findAll();
     }
 
     // Get user by id
-    public User getUserById(String id) {
+    public UserEntity getUserById(String id) {
         return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
     }
 
     // Get by userId
-    public User getUserByUserId(String userId) {
+    public UserEntity getUserByUserId(String userId) {
         return userRepository.findByUserId(userId);
     }
 
     // Post user
-    public User saveUser(User user) {
+    public UserEntity saveUser(UserEntity user) {
         System.out.println("User Agregado: " + user.toString());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
 
+    private String encryptPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(password.getBytes());
+            byte[] digest = md.digest();
+            return Base64.getEncoder().encodeToString(digest);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     // Update user
-    public User updateUser(String id, User user) {
-        User userToUpdate = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+    public UserEntity updateUser(String id, UserEntity user) {
+        UserEntity userToUpdate = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
         if (user.getUserId() != null)
             userToUpdate.setUserId(user.getUserId());
         if (user.getUsername() != null)
@@ -71,5 +90,19 @@ public class UserService {
     public Boolean deleteUser(String id) {
         userRepository.deleteById(id);
         return true;
+    }
+
+    // Login email and password
+    public String login(String email, String password) {
+        UserEntity user = userRepository.findByEmail(email);
+        // System.out.println("email: " + email);
+        // System.out.println("Password: encriptado" + encryptPassword(password));
+        // System.out.println("Password: " + password);
+        System.out.println(user.getPassword().equals(encryptPassword(password)));
+        if (user == null)
+            return "User not found";
+        if (user.getPassword().equals(encryptPassword(password)))
+            return user.getId();
+        return "Password incorrect";
     }
 }

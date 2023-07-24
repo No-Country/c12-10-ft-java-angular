@@ -1,14 +1,19 @@
 package com.example.demo.repository;
 
-import java.util.List;
-
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.example.demo.entity.User;
+import com.example.demo.entity.UserEntity;
 
-public interface UserRepository extends MongoRepository<User, String> {
+public interface UserRepository extends MongoRepository<UserEntity, String> {
     // busqueda por userId
-    User findByUserId(String userId);
+    UserEntity findByUserId(String userId);
+
+    UserEntity findUserByUsername(String name);
 
     void deleteByName(String nombre);
+
+    // login email and password
+    UserEntity findByEmailAndPassword(String email, String password);
+
+    UserEntity findByEmail(String email);
 }

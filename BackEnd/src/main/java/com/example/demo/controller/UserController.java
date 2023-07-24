@@ -2,19 +2,14 @@ package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.dto.GenericResponseDTO;
-import com.example.demo.entity.User;
+import com.example.demo.entity.UserEntity;
 import com.example.demo.service.UserService;
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
     private final UserService userService;
 
@@ -24,32 +19,26 @@ public class UserController {
     }
 
     // Get all users
-    @GetMapping("/user")
+    @GetMapping("/listAll")
     public ResponseEntity<?> listUser() {
         return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", userService.listUser()));
     }
 
     // Get user by id
-    @GetMapping("/user/{id}")
+    @GetMapping("/userById/{id}")
     public ResponseEntity<?> getUserById(@PathVariable String id) {
         return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", userService.getUserById(id)));
     }
 
-    // Get user by userId
-    @GetMapping("/user/userId/{userId}")
-    public ResponseEntity<?> getUserByUserId(@PathVariable String userId) {
-        return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", userService.getUserByUserId(userId)));
-    }
-
     // Post user
-    @PostMapping("/user")
-    public ResponseEntity<?> saveUser(@RequestBody User user) {
+    @PostMapping("/create")
+    public ResponseEntity<?> saveUser(@RequestBody UserEntity user) {
         return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", userService.saveUser(user)));
     }
 
     // Update user
     @PutMapping("/user/{id}")
-    public ResponseEntity<?> updateUser(@PathVariable String id, @RequestBody User user) {
+    public ResponseEntity<?> updateUser(@PathVariable String id, @RequestBody UserEntity user) {
         return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", userService.updateUser(id, user)));
     }
 
@@ -59,4 +48,10 @@ public class UserController {
         return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", userService.deleteUser(id)));
     }
 
+    // Login email and password
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody UserEntity user) {
+        return ResponseEntity.ok().body(
+                new GenericResponseDTO<>(true, "Success", userService.login(user.getEmail(), user.getPassword())));
+    }
 }

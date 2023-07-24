@@ -27,7 +27,7 @@ public class OwnershipController {
     @Autowired
     private RoleVerificationService roleVerificationService;
 
-    @PostMapping("/")
+    @PostMapping("/create")
     public ResponseEntity<?> createOwnerShip(@RequestBody OwnershipRE ownershipRE) {
 
         Optional<OwnershipDTO> ownershipDTOResponse = ownershipService.saveOwnership(ownershipRE);
@@ -38,7 +38,7 @@ public class OwnershipController {
         return ResponseEntity.badRequest().body(new GenericResponseDTO<>(false, "No Success", null));
     }
 
-    @GetMapping("/")
+    @GetMapping("/listAll")
     public ResponseEntity<?> listAllOwnership() {
 
         List<Ownership> ownershipResponse = ownershipService.listOwnership();

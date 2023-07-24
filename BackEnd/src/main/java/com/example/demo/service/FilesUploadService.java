@@ -73,7 +73,7 @@ public class FilesUploadService {
                 message += "Archivo " + i + " subido correctamente\n";
                 // images.setImage1();
                 // file.getOriginalFilename()
-                images.getImages()[i] = file.getOriginalFilename();
+                images.getImages()[i] = id + "-" + file.getOriginalFilename();
             } catch (IOException e) {
                 e.printStackTrace();
                 message += "Error al subir el archivo " + i + "\n";
