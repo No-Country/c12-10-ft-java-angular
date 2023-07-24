@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -15,12 +15,9 @@ export class CarouselComponent {
   });
   isLinear = false;
 
-  images:string[] = [
-    'https://raw.githubusercontent.com/themesberg/flowbite/6b58ebaddb18d995e48dc12781645654f767b590/static/images/carousel/carousel-1.svg',
-    'https://raw.githubusercontent.com/themesberg/flowbite/6b58ebaddb18d995e48dc12781645654f767b590/static/images/carousel/carousel-2.svg',
-    'https://raw.githubusercontent.com/themesberg/flowbite/6b58ebaddb18d995e48dc12781645654f767b590/static/images/carousel/carousel-3.svg',
-    'https://raw.githubusercontent.com/themesberg/flowbite/6b58ebaddb18d995e48dc12781645654f767b590/static/images/carousel/carousel-4.svg',
-  ]
+  @Input() images!:string[]
+
+  value:number = 2000;
 
   constructor(private _formBuilder: FormBuilder) {}
 }

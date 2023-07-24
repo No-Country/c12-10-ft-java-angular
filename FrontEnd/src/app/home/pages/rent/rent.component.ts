@@ -23,6 +23,8 @@ export class RentComponent implements OnInit, AfterViewInit {
   id: any;
   home!: Ownership;
   pictures!:string[];
+  newPictures!: string[];
+  principalPicture!: string
   homeFound!:Ownership;
 
   reviews!: Review[];
@@ -43,7 +45,7 @@ export class RentComponent implements OnInit, AfterViewInit {
 
     this.getId();
 
-    this.mobileQuery = media.matchMedia('(min-width: 1024px)');
+    this.mobileQuery = media.matchMedia('(min-width: 768px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
 
@@ -55,6 +57,8 @@ export class RentComponent implements OnInit, AfterViewInit {
     this.getPictures(this.id);
     this.getReviewByOwnerShip(this.id);
     console.log(this.home)
+
+
   }
 
   ngAfterViewInit(): void {
@@ -81,6 +85,8 @@ export class RentComponent implements OnInit, AfterViewInit {
     this._homeService.getPictureOwnership(id)
       .subscribe((res) =>  {
         this.pictures = res.data.images;
+        this.principalPicture = this.pictures[0];
+        this.newPictures = this.pictures.slice(1,5);
       });
     }
 

@@ -1,15 +1,15 @@
 <ng-container *ngIf="home">
   <div class="flex w-full justify-center mt-4">
-    <div class="w-full px-4 lg:px-0 lg:w-4/6 ">
+    <div class="w-full lg:w-4/6 ">
       <section class="flex flex-col">
           <article class="mt-2">
-            <p class="text-3xl font-medium">Habitación en {{home.city | titlecase}} </p>
-            <div class="flex gap-x-3.5 pb-3" >
+            <p class="text-3xl font-medium px-4 lg:px-0">Habitación en {{home.city | titlecase}} </p>
+            <div class="flex gap-x-3.5 pb-3 px-4 lg:px-0" >
                 <div class="flex items-center">
                     <i class="fa-solid fa-star"></i>
                     <span>4.5</span>
                 </div>
-                <span class="underline">15 reseñas</span>
+                <span class="underline ">15 reseñas</span>
                 <div class="flex items-center gap-1">
                     <i class="fa-solid fa-heart"></i>
                     <span>Super anfitrion</span>
@@ -20,16 +20,16 @@
 
         <!-- home galery -->
         <ng-container *ngIf="mobileQuery.matches" >
-          <div class="grid grid-rows-4 grid-cols-8 gap-2 h-lg">
-              <img class="h-full row-span-4 col-span-4" src="{{imageUrl}}">
-            <ng-container *ngFor="let picture of pictures">
+          <div class="grid grid-rows-4 grid-cols-8 gap-2 p-4 lg:p-0">
+              <img class="h-full row-span-4 col-span-4" src="{{principalPicture | urlImage}}">
+            <ng-container *ngFor="let picture of newPictures">
               <div class="row-span-2 col-span-2" ><img class="h-full w-full" src="{{picture | urlImage}}" ></div>
             </ng-container>
           </div>
         </ng-container>
 
         <ng-container *ngIf="!mobileQuery.matches">
-          <app-carousel></app-carousel>
+          <app-carousel [images]="pictures"></app-carousel>
         </ng-container>
         <!-- ---------------------------------------------------------------- -->
       </section>
@@ -39,7 +39,7 @@
         <div class="w-full lg:w-3/5">
           <!-- detail property ------------------------------------------->
 
-            <article class="border-b-2  border-b-gray-300 w-full">
+            <article class="border-b-2  border-b-gray-300 w-full px-4 lg:px-0">
               <ul class="flex flex-row gap-6 py-3 px-3">
                   <li class="list-disc font-medium"> {{home.house_type | titlecase}} </li>
                   <li class="list-disc font-medium"> {{home.rooms}}  {{'Cuarto'| plural:home.rooms}} </li>
@@ -48,7 +48,7 @@
             </article>
 
           <!-- ---------------------------------------------------------------- -->
-          <div class="w-full lg:w-5/6">
+          <div class="w-full md:w-3/6 lg:w-11/12 bg-antiflashwhite md:bg-transparent p-4">
             <p class="text-2xl font-medium pt-6">Conoce al anfitrion</p>
               <home-card-user [home] ="home" ></home-card-user>
           </div>
@@ -56,11 +56,11 @@
           <!-- Pendiente de implementar -->
         </div>
 
-        <div class="w-2/5 bg-black text-white">Mapas</div>
+        <div class="w-2/5 bg-black text-white px-4 lg:px-0" >Mapas</div>
 
       </section>
 
-      <section class="flex flex-col gap-y-7 mt-9">
+      <section class="flex flex-col gap-y-7 mt-9 px-4 lg:px-0">
           <article class="flex flex-col mt-5">
                 <div class="flex flex-row items-center justify-start gap-5">
                     <div class="flex gap-x-3.5 justify-center items-center">
