@@ -1,4 +1,4 @@
-<!-- <button *ngIf="step == 2 || step == 3" type="submit" class="absolute top-10 right-10 w-28 py-2 text-sm border-2 border-gray-300 cursor-pointer hidden lg:block text-black transition-all focus:ring-4 focus:ring-gray-200 rounded-3xl hover:bg-gray-100 font-semibold">Salir y guardar</button> -->
+<button routerLink="/home" *ngIf="step == 4" type="submit" class="absolute top-10 right-10 w-28 py-2 text-sm border-2 border-gray-300 cursor-pointer  text-black transition-all focus:ring-4 focus:ring-gray-200 rounded-3xl hover:bg-gray-100 font-semibold">Salir</button>
 <section class="grid grid-cols-1 lg:grid-cols-2 min-w-screen items-center justify-center min-h-screen relative" *ngIf="step == 1">
     <article class="w-full hidden items-center justify-center lg:flex bg-image">
         <p class="text-4xl text-left w-2/4 leading-tight font-semibold">Empezar a utilizar <span class="text-indigo-600">FindHouse</span> es muy sencillo</p>
@@ -108,12 +108,13 @@
 <app-property-register-accommodation *ngIf="step == 2" />
 <app-property-register-services *ngIf="step == 3" />
 <app-property-register-images *ngIf="step == 4"/>
-<section *ngIf="step != 1 && step != 5" class="absolute bottom-2 lg:bottom-10 flex items-center justify-around w-full">
+<app-map *ngIf="step == 5"/>
+<section *ngIf="step != 1 && step != 6" class="absolute bottom-2 lg:bottom-10 flex items-center justify-around w-full">
     <span (click)="previousStep()" class="underline font-semibold hover:text-indigo-400 cursor-pointer transition-all">Atras</span>
-    <button *ngIf="step != 4" (click)="nextStep()" type="submit" class="rounded-lg text-white py-2 px-5 cursor-pointer bg-indigo-500 transition-all focus:ring-4 focus:ring-indigo-300 hover:bg-indigo-600">Siguiente</button>
-    <button *ngIf="step == 4" (click)="registerProperty()" type="submit" class="rounded-lg text-white py-2 px-5 cursor-pointer bg-indigo-500 transition-all focus:ring-4 focus:ring-indigo-300 hover:bg-indigo-600">Finalizar</button>
+    <button *ngIf="step != 5" (click)="nextStep()" type="submit" class="rounded-lg text-white py-2 px-5 cursor-pointer bg-indigo-500 transition-all focus:ring-4 focus:ring-indigo-300 hover:bg-indigo-600">Siguiente</button>
+    <button *ngIf="step == 5" (click)="registerProperty()" type="submit" class="rounded-lg text-white py-2 px-5 cursor-pointer bg-indigo-500 transition-all focus:ring-4 focus:ring-indigo-300 hover:bg-indigo-600">Finalizar</button>
 </section>
-<div class="min-h-screen flex flex-col justify-center items-center gap-2" *ngIf="step == 5">
+<div class="min-h-screen flex flex-col justify-center items-center gap-2" *ngIf="step == 6">
     <div role="status">
         <svg aria-hidden="true" class="h-40 text-gray-200 animate-spin  fill-indigo-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
