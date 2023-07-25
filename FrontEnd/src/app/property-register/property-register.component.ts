@@ -31,10 +31,10 @@ export class PropertyRegisterComponent implements OnInit, OnDestroy {
     })
     this.ownershipForm = new FormGroup({
       country: new FormControl('', [Validators.pattern('^[a-zA-Z]+$'), Validators.required]),
-      address: new FormControl('', [Validators.pattern('^(?!^\\s+$)\\s*[A-Za-z\\s]+\\s*$'), Validators.required]),
-      city: new FormControl('', [Validators.pattern('^(?!^\\s+$)\\s*[A-Za-z\\s]+\\s*$'), Validators.required]),
+      address: new FormControl('', [Validators.pattern('^(?!^\\s+$)\\s*[A-Za-zÁÉÍÓÚáéíóú\\s]+\\s*$'), Validators.required]),
+      city: new FormControl('', [Validators.pattern('^(?!^\\s+$)\\s*[A-Za-zÁÉÍÓÚáéíóú\\s]+\\s*$'), Validators.required]),
       price: new FormControl('', [Validators.pattern('^[0-9]+$'), Validators.required]),
-      description: new FormControl('', [Validators.pattern('^(?!^\\s+$)\\s*[A-Za-z\\s]+\\s*$'), Validators.required]),
+      description: new FormControl('', [Validators.pattern('^(?!^\\s+$)\\s*[A-Za-zÁÉÍÓÚáéíóú\\s]+\\s*$'), Validators.required]),
       bathrooms: new FormControl(1, [Validators.pattern('^[0-9]+$'), Validators.required]),
       rooms: new FormControl(1, [Validators.pattern('^[0-9]+$'), Validators.required]),
     })
