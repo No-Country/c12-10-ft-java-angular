@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { OwnershipService } from '../../services/ownership.service';
 import { Ownership } from '../../interfaces/Ownership';
 import { CSSIcons, Service } from '../../interfaces/Service';
@@ -9,9 +9,9 @@ import { CSSIcons, Service } from '../../interfaces/Service';
   templateUrl: './property-register-services.component.html',
   styleUrls: ['./property-register-services.component.css']
 })
-export class PropertyRegisterServicesComponent {
+export class PropertyRegisterServicesComponent  implements OnDestroy{
   services: Service[]
-  ownership!: Ownership 
+  ownership!: any 
 
   constructor(private ownershipService: OwnershipService) {
     this.services = this.ownershipService.services
@@ -19,7 +19,14 @@ export class PropertyRegisterServicesComponent {
       this.ownership = data
     })
   }
-
+  ngOnDestroy(): void {
+    console.log('on destroy gg');
+    this.ownership.services = this.ownershipService.services
+    console.log(this.ownership);
+    this.ownershipService._typeOfHouse.next(this.ownershipService.types)
+    this.ownershipService._ownership.next(this.ownership)
+    
+  }
   activate(service: Service) {
     service.activate = !service.activate
     let smoking_policy

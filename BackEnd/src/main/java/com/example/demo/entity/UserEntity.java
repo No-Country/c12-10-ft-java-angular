@@ -1,11 +1,10 @@
 package com.example.demo.entity;
 
 import org.springframework.data.mongodb.core.mapping.Document;
-
 @Document(collection = "user")
-public class User {
+public class UserEntity {
     /*
-     * "user_id": "789012",
+     * 
      * "username": "sam_jackson",
      * "password": "securepass",
      * "name": "Sam Jackson",

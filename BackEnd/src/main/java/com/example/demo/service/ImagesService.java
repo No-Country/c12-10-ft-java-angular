@@ -29,8 +29,8 @@ public class ImagesService {
     }
 
     // Get images by ownershipId
-    public Images getImagesByUserId(String user_id) {
-        return imagesRepository.findByOwnershipId(user_id);
+    public Images getImagesByUserId(String ownershipId) {
+        return imagesRepository.findByOwnershipId(ownershipId);
     }
 
     // Post images

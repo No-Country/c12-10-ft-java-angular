@@ -35,11 +35,11 @@ public class ImagesController {
         return ResponseEntity.ok().body(new GenericResponseDTO<>(true, "Success", imagesService.getImagesById(id)));
     }
 
-    // Get images by userId
-    @GetMapping("/images/user/{userId}")
-    public ResponseEntity<?> getImagesByUserId(@PathVariable String userId) {
+    // Get images by ownership
+    @GetMapping("/images/ownership/{ownershipId}")
+    public ResponseEntity<?> getImagesByUserId(@PathVariable String ownershipId) {
         return ResponseEntity.ok()
-                .body(new GenericResponseDTO<>(true, "Success", imagesService.getImagesByUserId(userId)));
+                .body(new GenericResponseDTO<>(true, "Success", imagesService.getImagesByUserId(ownershipId)));
     }
 
     // Post images

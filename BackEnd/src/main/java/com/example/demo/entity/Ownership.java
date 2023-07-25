@@ -2,14 +2,12 @@ package com.example.demo.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 @Entity
 @Data
@@ -37,6 +35,6 @@ public class Ownership extends JpaEntity implements Serializable {
     private String smoking_policy;
 
     @Column(nullable = false)
-    private User userId;
+    private UserEntity userId;
 
 }

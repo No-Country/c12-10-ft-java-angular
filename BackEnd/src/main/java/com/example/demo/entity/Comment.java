@@ -26,7 +26,7 @@ public class Comment extends JpaEntity implements Serializable {
 
     @ManyToMany
     @JoinColumn(name = "user_id")
-    private User user;
+    private UserEntity user;
 
     private String comment;
 

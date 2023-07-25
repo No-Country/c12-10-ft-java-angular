@@ -17,4 +17,11 @@ public class CountryService {
     public List<Country> listAllCountry(){
         return countryRepository.findAll();
     }
+
+    public List<Country>listAllCountryBySecretWord(String secretWord){
+        if(secretWord!=null){
+            return countryRepository.findAll(secretWord);
+        }
+        return countryRepository.findAll();
+    }
 }

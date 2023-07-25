@@ -1,12 +1,11 @@
 package com.example.demo.dto;
 
 import com.example.demo.entity.Ownership;
-import com.example.demo.entity.User;
+import com.example.demo.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 @Data
 @AllArgsConstructor
@@ -31,7 +30,7 @@ public class OwnershipDTO implements Serializable {
     private Double longitude;
     private Boolean pets_allowed;
     private String smoking_policy;
-    private User userId;
+    private UserEntity userId;
 
     public OwnershipDTO(Ownership ownership) {
 

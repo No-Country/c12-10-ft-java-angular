@@ -8,7 +8,7 @@
             <div class="text-sm md:text-lg mt-4 flex flex-col gap-4 text-gray-500 text-left">
                 <label for="name">Nombre</label>
                 <div class="text-sm">
-                    <input formControlName="name" type="text" autocomplete="off" id="name" class="w-full border-2 py-2 px-3 outline-none rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ingrese su contraseña"/>
+                    <input formControlName="name" type="text" autocomplete="off" id="name" class="w-full border-2 py-2 px-3 outline-none rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ingrese su nombre"/>
                 </div>
                 <div class="text-red-500 text-sm" *ngIf="f['name'].errors && f['name'].touched || submitted && f['name'].errors">
                     <span *ngIf="f['name'].errors['required']">{{errorMessage.required}}</span>
@@ -16,7 +16,7 @@
                 </div>   
                 <label for="user">Usuario</label>
                 <div class="text-sm">
-                    <input formControlName="username" type="text" autocomplete="off" id="user" class="w-full border-2 py-2 px-3 outline-none rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ingrese su contraseña"/>
+                    <input formControlName="username" type="text" autocomplete="off" id="user" class="w-full border-2 py-2 px-3 outline-none rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ingrese su nombre de usuario"/>
                 </div>
                 <div class="text-red-500 text-sm" *ngIf="f['username'].errors && f['username'].touched || submitted && f['username'].errors">
                     <span *ngIf="f['username'].errors['required']">{{errorMessage.required}}</span>
@@ -24,7 +24,7 @@
                 </div>   
                 <label for="email">Email</label>
                 <div class="text-sm">
-                    <input formControlName="email" type="email" autocomplete="off" id="email" class="w-full border-2 py-2 px-3 outline-none rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ingrese su contraseña"/>
+                    <input formControlName="email" type="email" autocomplete="off" id="email" class="w-full border-2 py-2 px-3 outline-none rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ingrese su email"/>
                 </div>
                 <div class="text-red-500 text-sm" *ngIf="f['email'].errors && f['email'].touched || submitted && f['email'].errors">
                     <span *ngIf="f['email'].errors['required']">{{errorMessage.required}}</span>

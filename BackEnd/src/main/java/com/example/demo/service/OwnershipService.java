@@ -2,12 +2,11 @@ package com.example.demo.service;
 
 import com.example.demo.dto.OwnershipDTO;
 import com.example.demo.entity.Ownership;
-import com.example.demo.entity.User;
+import com.example.demo.entity.UserEntity;
 import com.example.demo.repository.OwnershipRepository;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.requestEntity.OwnershipRE;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,7 +31,7 @@ public class OwnershipService {
     public Ownership createOwnershipFromRe(OwnershipRE ownershipRE) {
 
         Ownership ownership = new Ownership();
-        User user = userRepository.findById(ownershipRE.getUserId()).get();
+        UserEntity user = userRepository.findById(ownershipRE.getUserId()).get();
 
         if (ownershipRE.getId() != null)
             ownership.setId(ownershipRE.getId());
