@@ -25,6 +25,8 @@ import { CardUserComponent } from './components/card-user/card-user.component';
 import { RegisterReviewComponent } from './components/register-review/register-review.component';
 import { DetailReviewComponent } from './components/detail-review/detail-review.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { LogoComponent } from './components/logo/logo.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -42,6 +44,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     RegisterReviewComponent,
     DetailReviewComponent,
     CarouselComponent,
+    LogoComponent,
 
   ],
   imports: [
@@ -58,6 +61,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     MatNativeDateModule,
     MatDatepickerModule,
     MatExpansionModule,
+    MatMenuModule
 
 
   ]

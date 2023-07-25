@@ -1,0 +1,12 @@
+
+.logo {
+  stroke: #9CA3AF;
+}
+
+@media (min-width:740px) {
+
+  .logo {
+    stroke: #FF682C;
+  }
+
+}
