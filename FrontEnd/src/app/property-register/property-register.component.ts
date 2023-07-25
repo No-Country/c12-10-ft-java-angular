@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { errorMessage } from 'src/app/helpers/errors';
@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './property-register.component.html',
   styleUrls: ['./property-register.component.css']
 })
-export class PropertyRegisterComponent implements OnInit{
+export class PropertyRegisterComponent implements OnInit, OnDestroy {
   count = [1, 2, 3, 4, 5]
   dropDownCountry: boolean = false
   countries = ['Argentina', 'Peru', 'Colombia', 'Mexico']
@@ -20,24 +20,39 @@ export class PropertyRegisterComponent implements OnInit{
   ownershipForm: FormGroup
   country: string = ''
   errorMessage = errorMessage
-  ownership!: Ownership
+  ownership: any
   submitted: boolean = false
   disable: boolean = true
   coords: any
+  ownershipSubscription: any;
   constructor(private ownershipService: OwnershipService, private _snackBar: MatSnackBar) {
-    ownershipService._ownership.subscribe((data: Ownership) => {
+    this.ownershipSubscription = ownershipService._ownership.subscribe((data: Ownership) => {
       this.ownership = data
     })
     this.ownershipForm = new FormGroup({
       country: new FormControl('', [Validators.pattern('^[a-zA-Z]+$'), Validators.required]),
-      address: new FormControl('', [Validators.pattern('^(?!^\\s+$)\\s*[A-Za-z\\s]+\\s*$'), Validators.required]),
-      city: new FormControl('', [Validators.pattern('^(?!^\\s+$)\\s*[A-Za-z\\s]+\\s*$'), Validators.required]),
+      address: new FormControl('', [Validators.pattern('^(?!^\\s+$)\\s*[A-Za-zÁÉÍÓÚáéíóú\\s]+\\s*$'), Validators.required]),
+      city: new FormControl('', [Validators.pattern('^(?!^\\s+$)\\s*[A-Za-zÁÉÍÓÚáéíóú\\s]+\\s*$'), Validators.required]),
       price: new FormControl('', [Validators.pattern('^[0-9]+$'), Validators.required]),
-      description: new FormControl('', [Validators.pattern('^(?!^\\s+$)\\s*[A-Za-z\\s]+\\s*$'), Validators.required]),
+      description: new FormControl('', [Validators.pattern('^(?!^\\s+$)\\s*[A-Za-zÁÉÍÓÚáéíóú\\s]+\\s*$'), Validators.required]),
       bathrooms: new FormControl(1, [Validators.pattern('^[0-9]+$'), Validators.required]),
       rooms: new FormControl(1, [Validators.pattern('^[0-9]+$'), Validators.required]),
     })
     
+  }
+  ngOnDestroy(): void {
+    console.log('on destroy gg');
+    this.ownershipService.services.forEach((service) => {
+      service.activate = false
+    })
+    this.ownershipService.types.forEach((type) => {
+      type.activate = false
+    })
+    this.ownershipService._typeOfHouse.next(this.ownershipService.types)
+    this.ownershipService._ownership.next(this.ownership)
+    if(this.ownershipSubscription) {
+      this.ownershipSubscription.unsubscribe()
+    }
   }
   ngOnInit(): void {
     if (navigator.geolocation) {
@@ -63,17 +78,24 @@ export class PropertyRegisterComponent implements OnInit{
   public get f() { return this.ownershipForm.controls }
   nextStep() {
     this.submitted = true
-    if(this.step == 4) {
+    if(this.step == 5) {
       if('images' in this.ownership) {
         console.log(this.ownership, 'step 4');
+      
         this.step += 1
         return 
       } else {
         this.showError(this.errorMessage.check)
       }
     }
-    if(this.step == 5) {
+    if(this.step == 4) {
       console.log(this.ownership);
+      this.ownershipService.register(this.ownership).subscribe(({data}: any) => {
+        console.log(data, 'step:'+this.step);
+        window.localStorage.setItem('ownershipId', data.id)
+        this.step += 1
+        return
+      })
     }
     console.log(this.ownership);
     if(this.step == 2) {
@@ -108,16 +130,11 @@ export class PropertyRegisterComponent implements OnInit{
     let ownershipImages = this.ownership && this.ownership.images; 
     if (!ownershipImages || ownershipImages.length === 0) {
       console.log(ownershipImages, 'no contiene imágenes');
-    } else {
-      this.ownershipService.register(this.ownership).subscribe((data) => {
-        console.log(data, 'step:'+this.step);
-        this.step += 1
-        return
-      })
-      console.log('llego a snackbar');
       this.showError(this.errorMessage.error)
+    } else {     
       this.ownershipService.registerProperty(this.ownership).subscribe((data) => {
-        console.log(data);
+        this.step += 1
+        return 
       })
     }
   }

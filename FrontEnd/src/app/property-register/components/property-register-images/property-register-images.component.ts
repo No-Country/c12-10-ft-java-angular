@@ -22,10 +22,6 @@ export class PropertyRegisterImagesComponent {
         this.images = data.images
       }
     })
-    this.ownershipService.names.subscribe((data) => {
-      this.names = data
-    })
-   
   }
   onFileChange() {
     this.names = []
@@ -37,9 +33,11 @@ export class PropertyRegisterImagesComponent {
       this.names.push(image)
       formData.append("files", filemultiple.files[i]);
     }
-   
+    const id = window.localStorage.getItem('ownershipId')
+    if(id) {
+      this.ownership.userId = id
+    }
     this.ownership.images = formData
-    this.ownershipService.names.next(this.names)
     this.ownershipService._ownership.next(this.ownership)
   }
   removeImage(image: string) {
