@@ -14,10 +14,15 @@ export class CardHomeComponent {
 
 
   @Input()
-  public home! : Ownership
+  public home! : Ownership;
+
+  @Input()
+  public picture! : string;
   constructor(private router: Router) {}
 
   onClick = (id:string) => {
     this.router.navigate([`detail-home/${id}`]);
   }
+
+
 }

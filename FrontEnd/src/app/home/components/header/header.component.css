@@ -1,5 +1,22 @@
 
 
+.mat-icon {
+  height: 33px;
+  width: 34px;
+}
 
 
+
+
+
+@media (min-width:740px) {
+  .mat-icon {
+    height: 39px;
+    width: 42px;
+  }
+
+
+
+
+}
 

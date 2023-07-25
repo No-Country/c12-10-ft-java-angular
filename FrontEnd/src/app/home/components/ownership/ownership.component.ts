@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { ActivatedRoute, Params } from '@angular/router';
 import { Ownership } from '../../interfaces/home.interface';
+import { Picture } from '../../interfaces/picture.interface';
 
 
 
@@ -18,6 +19,8 @@ export class OwnershipComponent implements OnInit {
   data = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
 
   public loading!:boolean;
+  pictures!:string[];
+  principalPicture!: string
 
   public value:Params | undefined;
 
@@ -29,13 +32,13 @@ export class OwnershipComponent implements OnInit {
 
   ngOnInit(): void {
     this.getHomes()
+
   }
 
   getHomes() {
     this.activeRoute.params
     .subscribe(({country}) => {
       (country === undefined) ? this.defaultData() : this.getDataByCountry(country)
-
     }
       );
 
@@ -44,6 +47,7 @@ export class OwnershipComponent implements OnInit {
   defaultData() {
     this._homeService.getAllHome().subscribe(home =>{
     this.homes = home.data;
+
     } );
   }
 
@@ -52,6 +56,15 @@ export class OwnershipComponent implements OnInit {
       this.homes =res.data
     } );
   }
+
+  getPictures(id:string): void {
+    console.log(id, 'id en picture')
+    this._homeService.getPictureOwnership(id)
+      .subscribe((res) =>  {
+        this.pictures = res.data.images;
+        this.principalPicture = this.pictures[0];
+      });
+    }
 
   // private _normalizeValue(value: string): string {
   //   return value.toLowerCase().replace(/\s/g, '');
