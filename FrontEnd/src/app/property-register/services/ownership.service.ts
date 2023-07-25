@@ -100,7 +100,7 @@ export class OwnershipService {
 
   register(ownership: Ownership) {
     ownership.userId = this.userId
-    if(ownership.additional_services.length > 0) {
+    if(ownership.additional_services && ownership.additional_services.length > 0) {
       const filter: any = ownership.additional_services.map((service: Service) => service?.title)
       console.log(ownership);
       ownership.additional_services = filter
