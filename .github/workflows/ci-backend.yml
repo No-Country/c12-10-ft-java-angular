@@ -1,11 +1,11 @@
-name: Build and Push Frontend Container
+name: Build and Push Backend Container
 
 on:
   push:
     branches:
       - main
     paths:
-        - './BackEnd/*'
+        - './BackEnd'
 
 env:
   REGISTRY: ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io
