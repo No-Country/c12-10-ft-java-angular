@@ -19,6 +19,10 @@ jobs:
   Build-and-push-backend:
     runs-on: ubuntu-latest
     steps:
+        
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
     - name: 'Build and push backend image'
       uses: actions/setup-java@v2
       with:
