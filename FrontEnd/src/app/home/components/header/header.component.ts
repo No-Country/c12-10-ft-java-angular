@@ -3,6 +3,8 @@ import { FormControl } from '@angular/forms';
 import { Observable, Subject, debounceTime, distinctUntilChanged, filter, map, of, startWith, switchMap, takeUntil, tap } from 'rxjs';
 import { NavigationExtras, Router, RouterLink } from '@angular/router';
 import { HomeService } from '../../services/home-service.service';
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'home-header',
@@ -15,16 +17,17 @@ export class HeaderComponent implements  AfterViewInit , OnDestroy {
 
   value='';
   @Output()
+  tuobjeto: Object[] = [{}]
   public term = new EventEmitter();
   search = new FormControl();
 
   private _homeService = inject(HomeService)
-
+  showLogin: string
   unsubscribe= new Subject();
 
-  constructor(
-    public router: Router,
-    ){}
+  constructor(public router: Router, private authService: AuthService, private _snackBar: MatSnackBar){
+    this.showLogin = this.authService.subjectIsLogged    
+  }
 
 
   ngAfterViewInit() {
@@ -41,7 +44,7 @@ export class HeaderComponent implements  AfterViewInit , OnDestroy {
   }
 
 
-  getValue(){
+  getValue() {    
     this.search.valueChanges
       .pipe(
         takeUntil(this.unsubscribe),
@@ -52,7 +55,25 @@ export class HeaderComponent implements  AfterViewInit , OnDestroy {
         this.router.navigate([`/${res}`])
       })
   }
-
+  show() {
+    console.log(this.authService.subjectIsLogged);
+    if(this.authService.subjectIsLogged) {
+      this.router.navigate(['/property-register'])
+    } else {
+      const snackBarRef = this._snackBar.open('Debes iniciar sesión primero', 'Aceptar', {
+        verticalPosition: 'top',
+        panelClass: ['error-snackbar'],
+        duration: 2000,
+      });
+      snackBarRef.onAction().subscribe(() => {
+        this.router.navigate(['/auth/signin']);
+      });
+    }
+  }
+  logout() {
+    window.localStorage.removeItem('userId')
+    window.location.reload()
+  }
 
 
 }

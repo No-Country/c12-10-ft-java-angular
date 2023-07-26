@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { errorMessage } from 'src/app/helpers/errors';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +14,7 @@ export class LoginComponent {
   loginForm: FormGroup
   errorMessage = errorMessage
   submitted = false;
-  constructor() {
+  constructor(private authService: AuthService, private router: Router, private _snackBar: MatSnackBar) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'), Validators.required]),
       password: new FormControl('', Validators.required),
@@ -20,6 +23,22 @@ export class LoginComponent {
   get f() { return this.loginForm.controls }
   login() {
     this.submitted = true
-    console.log(this.loginForm.value)
+    if (this.loginForm.valid) {
+      this.authService.login(this.loginForm.value).subscribe({
+        next: ({data}: any) => {
+          window.localStorage.setItem('userId', data)
+          this.authService.subjectIsLogged = data
+          this.router.navigate(['/'])
+        },
+        error: (error) => {
+          this.authService.subjectIsLogged = ''
+          this._snackBar.open(this.errorMessage.error, 'Aceptar', {
+            duration: 5000,
+            verticalPosition: 'top',
+            panelClass: ['error-snackbar']
+          });
+        }
+      })
+    }
   }
 }

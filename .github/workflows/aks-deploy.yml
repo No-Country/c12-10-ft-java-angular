@@ -1,4 +1,4 @@
-name: Build and deploy to Azure Kubernetes Service
+name: Deploy to Azure Kubernetes Service
 
 env:
   AZURE_CONTAINER_REGISTRY: MY_REGISTRY_NAME # set this to the name of your container registry
@@ -12,12 +12,14 @@ env:
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
+    
 
 jobs:
   login-get-k8s-context:
     runs-on: ubuntu-latest
+   
     steps:
     - uses: actions/checkout@v3
     - uses: Azure/docker-login@v1
