@@ -12,12 +12,14 @@ env:
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
+    
 
 jobs:
   login-get-k8s-context:
     runs-on: ubuntu-latest
+   
     steps:
     - uses: actions/checkout@v3
     - uses: Azure/docker-login@v1
