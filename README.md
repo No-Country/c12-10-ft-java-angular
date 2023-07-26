@@ -50,7 +50,7 @@
 
 #### 🧑‍💻 Developers:
 
-| <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>| <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>|
+| <img src="https://avatars.githubusercontent.com/u/88797889?v=4" width=50>| <img src="https://avatars.githubusercontent.com/u/92539220?v=4" width=50>|
 |:-:|:-:|
 | **Iván Armolla**| **Gabriela Siclla**|
 | <a href="https://github.com/iarmolla"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/ivan-pablo-armolla-7b5856219/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/GabNatali"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/gabrielast"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
@@ -66,7 +66,7 @@
 
 #### 🧑‍💻 Developers:
 
-| <img src="https://avatars.githubusercontent.com/u/35878706?v=4" width=50>| <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>|
+| <img src="https://avatars.githubusercontent.com/u/35878706?v=4" width=50>| <img src="https://avatars.githubusercontent.com/u/75090589?v=4" width=50>|
 |:-:|:-:|
 | **Edgar Ruiz**| **Duban Alvarez**|
 | <a href="https://github.com/EdgarVRP"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a><a href="https://www.linkedin.com/in/edgarvrp/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/duban4"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="milinkedin"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
@@ -77,12 +77,13 @@
 
 #### Tech Stack
 
-<img src="https://cdn.worldvectorlogo.com/logos/azure-2.svg" width="40" height="40"/>
+<img src="https://avatars.githubusercontent.com/u/61976703?v=4" width="40" height="40"/>
 
-|                                              `<img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>`                                              |
-| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                                                                               **Matias Diaz**                                                                               |
-| `<a href="http://www.linkedin.com/in/matiasrdiaz"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>``</a>` |
+
+| <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>|
+|:-:|
+| **Matias Diaz**|
+|  <a href="https://github.com/Matiardiaz"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a><a href="http://www.linkedin.com/in/matiasrdiaz"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
 <hr/>
 
