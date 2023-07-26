@@ -21,6 +21,7 @@ jobs:
       steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        
       - name: 'Build and push frontend image'
         uses: azure/docker-login@v1
         with:
