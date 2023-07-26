@@ -1,0 +1,32 @@
+name: Build and Push Container
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+        - '/FrontEnd/*'
+
+env:
+  REGISTRY: ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io
+  IMAGE_NAME: frontend
+  TAG: latest
+  AZURE_LOGIN: ${{ secrets.AZURE_LOGIN }}
+  AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
+  AZURE_REGISTRY: ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io
+
+jobs:
+  build-and-push-frontend:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: 'Build and push frontend image'
+        uses: azure/docker-login@v1
+        with:
+            login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io
+            username: ${{ secrets.AZURE_LOGIN }}
+            password: ${{ secrets.AZURE_PASSWORD }}
+      - run: |
+           docker build ./FrontEnd -t ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io/frontend:latest
+           docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io/frontend:latest

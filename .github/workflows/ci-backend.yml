@@ -1,0 +1,49 @@
+name: Build and Push Container
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+        - '/BackEnd/*'
+
+env:
+  REGISTRY: ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io
+  IMAGE_NAME: frontend
+  TAG: latest
+  AZURE_LOGIN: ${{ secrets.AZURE_LOGIN }}
+  AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
+  AZURE_REGISTRY: ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io
+
+jobs:
+  Build-and-push-backend:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Build and push backend image'
+      uses: actions/setup-java@v2
+      with:
+        java-version: '17'
+        distribution: 'adopt'
+
+    - name: Build Java app with Maven
+      run: |
+            cd BackEnd
+            echo "spring.data.mongodb.uri=${{ secrets.MONGODB_URI }}" >> env.properties
+            echo spring.data.mongodb.database=bd_airbnb >> env.properties
+            echo server.port:8082 >>env.properties 
+            mvn clean package
+            
+
+    - name: 'Build and push backend image'
+      uses: azure/docker-login@v1
+      with:
+                login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io
+                username: ${{ secrets.AZURE_LOGIN }}
+                password: ${{ secrets.AZURE_PASSWORD }}
+    - run: |
+                docker build ./BackEnd -t ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io/backend:latest
+                docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io/backend:latest           
+
+
+
+
