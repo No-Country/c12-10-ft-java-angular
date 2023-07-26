@@ -107,7 +107,7 @@ export class OwnershipService {
     }
     const clonedObject = { ...ownership };
     delete clonedObject.images;
-    return this._http.post(`${environment.apiUrl}/ownership/`, clonedObject)
+    return this._http.post(`${environment.apiUrl}/ownership/create`, clonedObject)
   }
   registerProperty(ownership: Ownership) {
     const ownershipId = window.localStorage.getItem('ownershipId')

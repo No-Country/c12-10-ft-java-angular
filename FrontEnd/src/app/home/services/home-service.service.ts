@@ -21,11 +21,10 @@ export class HomeService {
 
   getHomesByCountry(country:string): Observable<ResOwnership> {
     return this._http.get<ResOwnership>(`${environment.apiUrl}/ownership/listAllOwnershipByCountry/${country}`)
-
   }
 
   getAllHome():Observable<ResOwnership> {
-    return this._http.get<ResOwnership>(`${environment.apiUrl}/ownership/`)
+    return this._http.get<ResOwnership>(`${environment.apiUrl}/ownership/listAll`)
   }
 
   getPictureOwnership(id:string):Observable<respPicture> {

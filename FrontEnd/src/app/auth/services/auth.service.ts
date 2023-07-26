@@ -9,6 +9,10 @@ import { User } from 'src/app/auth/interfaces/User';
 export class AuthService {
   constructor(private _http: HttpClient) { }
   register(user: User) {
-    return this._http.post(`${environment.apiUrl}/user`, user)
+    return this._http.post(`${environment.apiUrl}/user/create`, user)
+  }
+  login(user: User) {
+    return this._http.post(`${environment.apiUrl}/user/login`, user)
+
   }
 }
