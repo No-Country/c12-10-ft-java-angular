@@ -1,4 +1,4 @@
-name: Build and deploy to Azure Kubernetes Service
+name: Deploy to Azure Kubernetes Service
 
 env:
   AZURE_CONTAINER_REGISTRY: MY_REGISTRY_NAME # set this to the name of your container registry
