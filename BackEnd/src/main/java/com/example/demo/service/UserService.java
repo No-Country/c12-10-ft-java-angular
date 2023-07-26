@@ -6,7 +6,6 @@ import java.util.Base64;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.UserEntity;
@@ -16,9 +15,6 @@ import com.example.demo.repository.UserRepository;
 public class UserService {
 
     private final UserRepository userRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     @Autowired
     public UserService(UserRepository userRepository) {
@@ -43,7 +39,7 @@ public class UserService {
     // Post user
     public UserEntity saveUser(UserEntity user) {
         System.out.println("User Agregado: " + user.toString());
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(encryptPassword(user.getPassword()));
         return userRepository.save(user);
     }
 
