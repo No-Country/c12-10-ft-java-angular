@@ -15,7 +15,7 @@ import { Picture } from '../../interfaces/picture.interface';
 })
 export class OwnershipComponent implements OnInit {
 
-  public homes:Ownership[] =[];
+  public homes: Ownership[] = [];
   data = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
 
   public loading!:boolean;
@@ -37,13 +37,19 @@ export class OwnershipComponent implements OnInit {
   }
 
   getHomes() {
-    this.activeRoute.params
-    .subscribe(({country}) => {
-      console.log('here =>',country);
-      (country === undefined) ? this.defaultData() : this.getDataByCountry(country)
-    }
-      );
-
+    // this.activeRoute.params
+    // .subscribe(({country}) => {
+    //   console.log(country);
+    // }
+    //   );
+    this._homeService.getAllHome().subscribe(({ data }) => {
+      this.homes = data;
+      this.homes.forEach((home: any) => {
+        this._homeService.getPictureOwnership(home.id).subscribe(({ data }) => {
+          home.images = data.images[0]
+        })
+      })
+    })
   }
 
    defaultData() {
@@ -65,7 +71,7 @@ export class OwnershipComponent implements OnInit {
   //   // .subscribe(home =>{
   //   // this.homes = home.data;
 
-  //   // } );
+    // } );
    }
 
   getDataByCountry(country:string) {
