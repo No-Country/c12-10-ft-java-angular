@@ -93,7 +93,7 @@
 
 ## Instalación
 - Clona este repositorio en tu máquina local.
-- git clone https://github.com/tu-usuario/findhouse.git Accede al directorio del proyecto.
+- git clone https://github.com/No-Country/c12-10-ft-java-angular.
 - cd FrontEnd
 - Instala las dependencias del proyecto.
 - npm install
