@@ -51,6 +51,9 @@ public class UserController {
     // Login email and password
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserEntity user) {
+        System.out.println("Email: " + user.getEmail());
+        System.out.println("Password: " + user.getPassword());
+        
         return ResponseEntity.ok().body(
                 new GenericResponseDTO<>(true, "Success", userService.login(user.getEmail(), user.getPassword())));
     }

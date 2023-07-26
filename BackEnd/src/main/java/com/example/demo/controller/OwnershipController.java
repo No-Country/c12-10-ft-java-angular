@@ -5,8 +5,6 @@ import com.example.demo.dto.OwnershipDTO;
 import com.example.demo.entity.Ownership;
 import com.example.demo.requestEntity.OwnershipRE;
 import com.example.demo.service.OwnershipService;
-import com.example.demo.service.RoleVerificationService;
-import com.example.demo.util.AppTypes;
 import com.mongodb.lang.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,9 +21,6 @@ public class OwnershipController {
 
     @Autowired
     private OwnershipService ownershipService;
-
-    @Autowired
-    private RoleVerificationService roleVerificationService;
 
     @PostMapping("/create")
     public ResponseEntity<?> createOwnerShip(@RequestBody OwnershipRE ownershipRE) {
