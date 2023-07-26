@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { HomeService } from '../../services/home-service.service';
-import { Observable } from 'rxjs';
+import { Observable, map, switchMap } from 'rxjs';
 
 import { ActivatedRoute, Params } from '@angular/router';
 import { Ownership } from '../../interfaces/home.interface';
@@ -33,23 +33,40 @@ export class OwnershipComponent implements OnInit {
   ngOnInit(): void {
     this.getHomes()
 
+
   }
 
   getHomes() {
     this.activeRoute.params
     .subscribe(({country}) => {
+      console.log('here =>',country);
       (country === undefined) ? this.defaultData() : this.getDataByCountry(country)
     }
       );
 
   }
 
-  defaultData() {
-    this._homeService.getAllHome().subscribe(home =>{
-    this.homes = home.data;
+   defaultData() {
+  //   this._homeService.getAllHome()
+  //   .pipe(
+  //     map((resp) => resp.data.map(home => {
+  //       console.log('here =>',home.id)
+  //       this._homeService.getPictureOwnership(home.id)
+  //       // .subscribe((resp) =>{
+  //       //   home.images = resp.data.images[0];
+  //       //   console.log('here =>',home.images)
+  //       // }  )
+  //     }))
+  //   )
+  //   .subscribe(home => {
 
-    } );
-  }
+  //     console.log(resp, 'res')
+  //   })
+  //   // .subscribe(home =>{
+  //   // this.homes = home.data;
+
+  //   // } );
+   }
 
   getDataByCountry(country:string) {
     this._homeService.getHomesByCountry(country).subscribe(res =>{
@@ -60,11 +77,11 @@ export class OwnershipComponent implements OnInit {
   getPictures(id:string): void {
     console.log(id, 'id en picture')
     this._homeService.getPictureOwnership(id)
-      .subscribe((res) =>  {
+      .subscribe((res) => {
         this.pictures = res.data.images;
         this.principalPicture = this.pictures[0];
       });
-    }
+  }
 
   // private _normalizeValue(value: string): string {
   //   return value.toLowerCase().replace(/\s/g, '');

@@ -1,6 +1,7 @@
 <!-- <ng-template *ngIf="load else loading"></ng-template> -->
+<ng-container *ngIf="home">
   <div class="p-2 flex flex-col cursor-pointer" (click)="onClick(home.id)">
-    <img class="w-327 h-310 lg:w-64 transition-all object-cover rounded-lg mb-1" src="../../../../assets/images/departamento2.jpg">
+    <img class="w-327 h-310 lg:w-64 transition-all object-cover rounded-lg mb-1" src="{{home.images | urlImage}}">
     <div class="flex justify-between mt-1">
       <span class="text-base text-[#e45858] font-medium">{{home.city | titlecase}},  {{home.country |titlecase}}</span>
       <div class="flex items-center justify-between">
@@ -18,7 +19,7 @@
     <div class="font-normal text-gray-500">Alojate con {{home.userId.username}}</div>
     <div class="mt-1">{{home.price | currency:'USD'}}</div>
   </div>
-
+</ng-container>
 
   <!-- <ng-template #loading>
 <div role="status" class="max-w-sm p-4 animate-pulse md:p-6 dark:border-gray-700">

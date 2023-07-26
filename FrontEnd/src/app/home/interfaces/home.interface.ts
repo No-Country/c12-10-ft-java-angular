@@ -10,7 +10,7 @@ export interface Ownership {
   city: string,
   address: string,
   house_type: string,
-  images: any,
+  images: string,
   rooms: number,
   bathrooms: number,
   house_area: number,
