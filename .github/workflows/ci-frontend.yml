@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-        - './FrontEnd/*'
+        - FrontEnd
 
 env:
   REGISTRY: ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io
