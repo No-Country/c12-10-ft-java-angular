@@ -63,6 +63,8 @@
 #### Tech Stack
 
 <img src="https://www.vectorlogo.zone/logos/java/java-icon.svg" width="40" height="40"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Kubernetes_logo_without_workmark.svg/2109px-Kubernetes_logo_without_workmark.svg.png" width="40" height="40"/>
+
 
 #### 🧑‍💻 Developers:
 
