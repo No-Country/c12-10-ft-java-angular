@@ -90,11 +90,15 @@ export class PropertyRegisterComponent implements OnInit, OnDestroy {
     }
     if(this.step == 4) {
       console.log(this.ownership);
-      this.ownershipService.register(this.ownership).subscribe(({data}: any) => {
-        console.log(data, 'step:'+this.step);
-        window.localStorage.setItem('ownershipId', data.id)
-        this.step += 1
-        return
+      this.ownershipService.register(this.ownership).subscribe({
+        next: ({data}: any) => {
+          console.log(data, 'step:'+ this.step);
+          window.localStorage.setItem('ownershipId', data.id)
+          this.step += 1
+        },
+        error: (error) => {
+          this.showError(this.errorMessage.error)          
+        }
       })
     }
     console.log(this.ownership);
@@ -132,9 +136,13 @@ export class PropertyRegisterComponent implements OnInit, OnDestroy {
       console.log(ownershipImages, 'no contiene imágenes');
       this.showError(this.errorMessage.error)
     } else {     
-      this.ownershipService.registerProperty(this.ownership).subscribe((data) => {
-        this.step += 1
-        return 
+      this.ownershipService.registerProperty(this.ownership).subscribe({
+        next: (data => {
+          this.step += 1
+        }),
+        error: (error => {
+          this.showError(this.errorMessage.error)          
+        })
       })
     }
   }
