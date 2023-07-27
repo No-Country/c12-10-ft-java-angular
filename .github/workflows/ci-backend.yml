@@ -14,6 +14,8 @@ env:
   AZURE_LOGIN: ${{ secrets.AZURE_LOGIN }}
   AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
   AZURE_REGISTRY: ${{ secrets.REGISTRY_LOGIN_SERVER }}.azurecr.io
+  MONGODB_URI: ${{ secrets.MONGODB_URI }}
+
 
 jobs:
   Build-and-push-backend:
