@@ -34,10 +34,11 @@ jobs:
     - name: Build Java app with Maven
       run: |
             cd BackEnd
-            echo spring.data.mongodb.uri=${{ secrets.MONGODB_URI }} > env.properties
-            echo spring.data.mongodb.database=bd_airbnb >> env.properties
-            echo server.port:8082 >>env.properties 
             mvn clean package
+# echo spring.data.mongodb.uri=${{ secrets.MONGODB_URI }} > env.properties
+# echo spring.data.mongodb.database=bd_airbnb >> env.properties
+# echo server.port:8082 >>env.properties 
+            
             
 
     - name: 'Build and push backend image'
