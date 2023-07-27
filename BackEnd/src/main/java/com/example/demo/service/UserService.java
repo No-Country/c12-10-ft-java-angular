@@ -38,6 +38,9 @@ public class UserService {
 
     // Post user
     public UserEntity saveUser(UserEntity user) {
+        // Se verifica que el usuario no exista comprobando el email
+        if (userRepository.findByEmail(user.getEmail()) != null)
+            throw new RuntimeException("User already exists");
         System.out.println("User Agregado: " + user.toString());
         user.setPassword(encryptPassword(user.getPassword()));
         return userRepository.save(user);
