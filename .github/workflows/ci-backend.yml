@@ -34,7 +34,12 @@ jobs:
     - name: Build Java app with Maven
       run: |
             cd BackEnd
-            mvn clean package
+            echo spring.data.mongodb.uri=${MONGODB_URI} > src/main/resources/env.properties
+            echo spring.data.mongodb.database=bd_airbnb >> src/main/resources/env.properties
+            echo server.port=8082 >> src/main/resources/env.properties
+            mvn clean package -Dspring.config.location=src/main/resources/env.properties
+            
+
 # echo spring.data.mongodb.uri=${{ secrets.MONGODB_URI }} > env.properties
 # echo spring.data.mongodb.database=bd_airbnb >> env.properties
 # echo server.port:8082 >>env.properties 
