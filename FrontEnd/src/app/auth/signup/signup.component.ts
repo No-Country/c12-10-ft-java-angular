@@ -55,7 +55,8 @@ export class SignupComponent {
           this.router.navigate(['/auth/signin'])
         }, 
         error: (error) => {
-          this._snackBar.open(this.errorMessage.error, 'Aceptar', {
+          console.log(error);
+          this._snackBar.open(error.message, 'Aceptar', {
             duration: 5000,
             verticalPosition: 'top',
             panelClass: ['error-snackbar']

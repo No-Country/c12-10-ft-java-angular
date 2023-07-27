@@ -1,7 +1,7 @@
 <!-- <ng-template *ngIf="load else loading"></ng-template> -->
 <ng-container *ngIf="home">
   <div class="p-2 flex flex-col cursor-pointer" (click)="onClick(home.id)">
-    <img class="w-327 h-310 lg:w-64 transition-all object-cover rounded-lg mb-1" [src]="home.images ? (home.images | urlImage) : '../../../../assets/svg/home.svg'">
+    <img class="w-327 h-310 lg:w-64 transition-all object-cover rounded-lg mb-1 hover:opacity-90" [src]="home.images ? (home.images | urlImage) : '../../../../assets/svg/home.svg'">
     <div class="flex justify-between mt-1">
       <span class="text-base text-[#e45858] font-medium">{{home.city | titlecase}},  {{home.country |titlecase}}</span>
       <div class="flex items-center justify-between">
