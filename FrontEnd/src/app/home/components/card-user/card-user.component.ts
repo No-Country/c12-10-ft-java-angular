@@ -9,6 +9,6 @@ import { Ownership } from '../../interfaces/home.interface';
 export class CardUserComponent {
 
 imageUrl: string = '../../../assets/images/departamento2.jpg'
-profile: string = '../../../assets/images/profile.png'
+profile: string = '../../../assets/images/anonymous.jpg'
 @Input() public home!: Ownership
 }

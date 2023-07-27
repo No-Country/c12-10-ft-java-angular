@@ -7,7 +7,7 @@
       <input [formControl]="search" placeholder="Buscar por Pais...."
       class="outline-none focus:outline-none bg-tranparente w-full text-black600 placeholder:text-base placeholder:text-black600 placeholder:font-medium">
     </div>
-    <mat-icon class="bg-gianOrange rounded-full text-white p-2 md:p-3 text-xl md:text-2xl">
+    <mat-icon class="text-[#e45858] rounded-full p-2 md:p-3 text-xl md:text-2xl">
       <span class="">
         search
       </span>
@@ -17,10 +17,10 @@
 
   <div class="flex gap-2">
     <button (click)="show()"
-      class="hidden md:block font-medium text-Black600 rounded-full p-3 transition duration-150 ease-in-out hover:bg-orange100 hover:text-black600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">Publica tu espacio
+      class="rounded-lg md:rounded-full font-bold text-[#e45858] md:font-normal text-xs md:text-base hover:bg-gray-100 p-3 transition duration-150 ease-in-out focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">Publica tu espacio
     </button>
 
-  <div class="hidden gap-2 md:flex">   
+  <div class="gap-2 flex justify-center items-center">   
     <button  [matMenuTriggerFor]="menu">
       <mat-icon class="text-5xl md:text-6xl text-black100">
         <span class="material">
