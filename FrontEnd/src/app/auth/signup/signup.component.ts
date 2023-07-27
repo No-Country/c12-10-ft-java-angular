@@ -23,8 +23,8 @@ export class SignupComponent {
   public registerForm: FormGroup
   constructor(private authService: AuthService, private router: Router, private _snackBar: MatSnackBar) {
     this.registerForm = new FormGroup({
-      name: new FormControl('', [Validators.pattern('^[a-zA-Z]+$'), Validators.required]),
-      username: new FormControl('', [Validators.pattern('^(?!^\\s+$)\\s*[A-Za-z\\s]+\\s*$'), Validators.required]),
+      name: new FormControl('', [Validators.pattern('^(?!^\\s+$)\\s*[A-Za-zÁÉÍÓÚáéíóú\\s]+\\s*$'), Validators.required]),
+      username: new FormControl('', [Validators.pattern('^[A-Za-z0-9]+$'), Validators.required]),
       email: new FormControl('', [Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'), Validators.required]),
       password: new FormControl('', [Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/), Validators.required]),
       role: new FormControl('', Validators.required),
