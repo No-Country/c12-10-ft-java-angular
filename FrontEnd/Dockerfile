@@ -23,7 +23,7 @@ COPY --from=builder /app/dist/c12-10-ft-angular /usr/share/nginx/html/
 
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 # Expose the default Nginx port (80)
-EXPOSE 80
+EXPOSE 443
 
 # Start Nginx when the container starts
 CMD ["nginx", "-g", "daemon off;"]
