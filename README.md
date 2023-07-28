@@ -108,7 +108,7 @@
     - Ejecutar el comando: `mvn clean package`
     - Se ejecuta el comando: `java -jar target/*jar`
 
-## Mockoups
+## Mockups
 
 Se siguio el diseño elaborado en [Figma](https://www.figma.com/file/CWVVLMq0thr0ueH00Tjsbe/Untitled?type=design&node-id=0-1&mode=design&t=CrLEsYjnUxQ3ZPrq-0)
 
