@@ -117,7 +117,7 @@ Se siguio el diseño elaborado en [Figma](https://www.figma.com/file/CWVVLMq0thr
 El video se puede acceder en la siguiente dirección. [FindHouse](https://www.youtube.com/watch?v=ryVj-06h2Po&ab_channel=RetroBitMX)
 
 ## Deploy
-[Frontend](https://nocountry-front.vercel.app/)
+[FindHouse](https://nocountry-front.vercel.app/)
 
 ## Contribuciones
 
