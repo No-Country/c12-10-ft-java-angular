@@ -23,7 +23,12 @@
   [![registro-de-propiedad.png](https://i.postimg.cc/Dz3xw29x/registro-de-propiedad.png)](https://postimg.cc/68zrHN5Z)
   [![Tipo-de-casa.png](https://i.postimg.cc/ZnncM0N5/Tipo-de-casa.png)](https://postimg.cc/MfkVc6tC)
   [![servicios.png](https://i.postimg.cc/0NvCqVS3/servicios.png)](https://postimg.cc/dhWC2m4m)
+  [![mapa.png](https://i.postimg.cc/BnhncZqR/mapa.png)](https://postimg.cc/68vKBX4h)
   [![spinner.png](https://i.postimg.cc/JhQ57jch/spinner.png)](https://postimg.cc/Ff7LDd6t)
+
+## Home
+  [![home.png](https://i.postimg.cc/rsp4jnB9/home.png)](https://postimg.cc/R6jqVRV3)
+  [![descripcion-propiedad.png](https://i.postimg.cc/SsYRK0b3/descripcion-propiedad.png)](https://postimg.cc/8JDNy05m)
 
 ## Tecnologías utilizadas
 
